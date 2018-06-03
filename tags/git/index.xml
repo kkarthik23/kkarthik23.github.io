@@ -19,7 +19,7 @@
       <guid>/post/2017/08/06/git-and-vagrant/</guid>
       <description>GIT GIT is a Distributed Version Control System Some commands are
 create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
-git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  Vagrant Vagrant from HashiCorp is a good tool for spinning up environments and test.</description>
+git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  ###BitBucket</description>
     </item>
     
   </channel>

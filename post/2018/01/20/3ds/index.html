@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3DS | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">3DS</span></h1>
+
+<h2 class="date">2018/01/20</h2>
+</div>
+
+<main>
+
+
+<h3 id="3ds-1-0">3DS 1.0</h3>
+
+<p>It allows shoppers to assign a password to their card that is then verified whenever a payment is processed through a shop that supports 3D Secure. The addition of password protection allows extra security on transactions that are processed online. The scheme is a collective of Verified by VISA (VBV) and MasterCard Secure Code (MSC). 3D Secure offers companies liability cover for transactions that are verified by checks.</p>
+
+<p>The basic concept of the protocol is to tie the financial authorization process with an online authentication. This additional security authentication is based on a three-domain model (hence the 3-D in the name itself). The three domains are:</p>
+
+<ol>
+<li><p>Acquirer Domain (the bank and the merchant to which the money is being paid).</p></li>
+
+<li><p>Issuer Domain (the bank which issued the card being used).</p></li>
+
+<li><p>Interoperability Domain (the infrastructure provided by the card scheme, credit, debit, prepaid or other type of finance card, to support the 3-D Secure protocol). It includes the Internet, MPI(merchant plug-in), ACS (Access Control Server) and other software providers</p></li>
+</ol>
+
+<p>The protocol uses XML messages sent over SSL connections with client authentication(this ensures the authenticity of both peers, the server and the client, using digital certificates).</p>
+
+<p>Each 3-D Secure version 1 transaction involves two Internet request/response pairs: VEReq/VERes and PAReq/PARes.Visa and MasterCard don&rsquo;t license merchants for sending requests to their servers. They isolate their servers by licensing software providers which are called MPI(merchant plug-in) providers.</p>
+
+<h4 id="3ds-steps">3DS Steps</h4>
+
+<h4 id="enroll">Enroll</h4>
+
+<p>The cardholder is eligible to take advantage of 3-D Secure services offered by online merchants after enrollment, at which time he/she sets a password. Information about the cardholder is then created in the enrollment server, which keeps track of cardholders participating in the 3-D Secure service, and in the access control servers (ACS), which are used at the time of purchase to verify cardholder enrollment.</p>
+
+<h5 id="authenticate-cardholders">Authenticate Cardholders</h5>
+
+<p>At the time of purchase, the merchant contacts a directory server to check for enrollment. If the cardholder is enrolled, the directory server will respond back with the URL of an ACS, which can be used to authenticate the cardholder.</p>
+
+<p>Next, the merchant sends a payer authentication request (PAReq) to the ACS through the cardholder&rsquo;s browser or device. The cardholder then authenticates themselves directly to the ACS - the merchant is not involved in this part of the process. Next, the ACS sends a signed payer authentication response (PARes) containing the results of the cardholder authentication to the MPI. The MPI verifies the ACS signature on the PARes and parses the response.</p>
+
+<h4 id="supply-additional-authorization-information">Supply Additional Authorization Information</h4>
+
+<p>At this point, the merchant continues with the normal credit card authorization process; the only difference is that when the customer&rsquo;s credit card information is sent for authorization, the merchant can submit additional values returned in a successful 3-D Secure authentication: XID (transaction Id), ECI (electronic commerce indicator), and CAVV (cardholder authentication verification value). Submitting these values is required in order to qualify for the protections and discounted rates that 3-D Secure transactions provide</p>
+
+<h3 id="3ds-2-0">3DS 2.0</h3>
+
+<p>This will involve methods of authentication include the use of OTPs, i.e., verification codes which are sent, via text or email, to the user to provide an extra layer of security before a payment is processed.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

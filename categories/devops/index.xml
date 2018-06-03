@@ -6,10 +6,20 @@
     <description>Recent content in Devops on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Dec 2017 19:20:00 +1100</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 19:20:00 +1100</lastBuildDate>
     
 	<atom:link href="/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Grafana</title>
+      <link>/post/2018/04/06/grafana/</link>
+      <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2018/04/06/grafana/</guid>
+      <description>Install  Redhat &amp;amp; Centos(64 Bit) wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.3-1.x86_64.rpm sudo yum localinstall grafana-5.1.3-1.x86_64.rpm sudo systemctl enable grafana-server.service sudo systemctl start grafana-server  Test using this URL or the corresponding IP address
+http://localhost:3000  A number of integrations available for example for integrating with Prometheus,InfluDB,Zabbix etc.</description>
+    </item>
     
     <item>
       <title>APM tools</title>
@@ -17,12 +27,11 @@
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
       <guid>/post/2017/12/12/apm-tools/</guid>
-      <description>APM Application Performance Tools are crucial in monitoring the performance of applications
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
 They give a better insight into the behaviour of your applications and are worth it.
 New Relic is the most well known one but there are others in the market as well.
 Example This the top 5 memory consumers of w3p processes in an IIS web server.
-New Relic has something called an Apdex score
-The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</description>
+New Relic has a few criteria for mesuring app performance</description>
     </item>
     
     <item>
@@ -33,7 +42,7 @@ The Apdex score is a ratio value of the number of satisfied and tolerating reque
       <guid>/post/2017/08/06/git-and-vagrant/</guid>
       <description>GIT GIT is a Distributed Version Control System Some commands are
 create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
-git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  Vagrant Vagrant from HashiCorp is a good tool for spinning up environments and test.</description>
+git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  ###BitBucket</description>
     </item>
     
     <item>
@@ -42,7 +51,10 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
       <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
-      <description>You can run software load balancers on commodity hardware. Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent. Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind. There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+      <description>You can run software load balancers on commodity hardware.
+Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
+Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
+There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
     </item>
     
   </channel>

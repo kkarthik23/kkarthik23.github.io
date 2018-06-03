@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on Hugo Ivy</title>
+    <link>/categories/sql/</link>
+    <description>Recent content in SQL on Hugo Ivy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jan 2018 21:57:42 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Related</title>
+      <link>/post/2018/01/02/sql-related/</link>
+      <pubDate>Tue, 02 Jan 2018 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2018/01/02/sql-related/</guid>
+      <description>Implicit Conversion Implicit Conversion might kill your SQL Query performance so its important that its fixed
+
+In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&amp;rsquo;t use an index and so performance suffers.
+SARG SARG is an acronym of “Search ARGumentable”. SARGable is defined as “In relational databases, a condition (or predicate) in a query is said to be sargable if the DBMS engine can take advantage of an index to speed up the execution of the query.</description>
+    </item>
+    
+  </channel>
+</rss>

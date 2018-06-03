@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/2018/04/06/grafana/</loc>
+    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018/01/20/3ds/</loc>
+    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2018/01/02/sql-related/</loc>
     <lastmod>2018-01-02T21:57:42+00:00</lastmod>
   </url>
@@ -103,6 +113,12 @@
   </url>
   
   <url>
+    <loc>/tags/3ds/</loc>
+    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/apm/</loc>
     <lastmod>2017-12-12T19:20:00+11:00</lastmod>
     <priority>0</priority>
@@ -119,7 +135,13 @@
   
   <url>
     <loc>/categories/devops/</loc>
-    <lastmod>2017-12-12T19:20:00+11:00</lastmod>
+    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/fintech/</loc>
+    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -130,8 +152,14 @@
   </url>
   
   <url>
+    <loc>/tags/grafana/</loc>
+    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2018-01-02T21:57:42+00:00</lastmod>
+    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
   </url>
   
   <url>
@@ -142,13 +170,19 @@
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/sql/</loc>
     <lastmod>2018-01-02T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2017-12-12T19:20:00+11:00</lastmod>
+    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
     <priority>0</priority>
   </url>
   

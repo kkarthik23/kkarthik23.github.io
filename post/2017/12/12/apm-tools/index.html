@@ -36,7 +36,7 @@
 <main>
 
 
-<p>APM Application Performance Tools are crucial in monitoring the performance of applications</p>
+<p>APM Application Performance Tools are crucial in monitoring the performance of applications.</p>
 
 <p>They give a better insight into the behaviour of your applications and are worth it.</p>
 
@@ -48,13 +48,43 @@
 
 <p><img src="/images/memorynewrelic.png" alt="Image Title" /></p>
 
-<p>New Relic has something called an <strong>Apdex</strong> score</p>
+<p>New Relic has a few criteria for mesuring app performance</p>
 
-<p>The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</p>
+<ol>
+<li><p>Apdex</p></li>
+
+<li><p>Response Time</p></li>
+
+<li><p>Throughput</p></li>
+
+<li><p>Errors</p></li>
+</ol>
+
+<p>The <strong>Apdex score</strong> is a ratio value of the number of satisfied and tolerating requests to the total requests made.</p>
 
 <p>An Apdex score varies from 0 to 1, with 0 as the worst possible score  and 1 as the best possible score.</p>
 
 <p>This helps in determining the user experience of your web app.</p>
+
+<p>Apdex = Satisfied requests + (Tolerating reauests/2)/ Total number of requests</p>
+
+<h4 id="example-1">Example</h4>
+
+<p>During a 2 minute period a server handles 200 requests.</p>
+
+<p>The threshold T = 0.5 seconds (500ms). This value is arbitrary and is selected by the user.</p>
+
+<p>170 of the requests were handled within 500ms, so they are classified as Satisfied.</p>
+
+<p>20 of the requests were handled between 500ms and 2 seconds (2000 ms), so they are classified as Tolerating.</p>
+
+<p>The remaining 10 were not handled properly or took longer than 2 seconds, so they are classified as Frustrated.</p>
+
+<p>The resulting Apdex score is 0.9: (170 + (<sup>20</sup>&frasl;<sub>2</sub>))/200 = 0.9.</p>
+
+<h3 id="site24x7">Site24x7</h3>
+
+<p>This is another company which has good tools for measuring app performance,web site performance,server monitoring etc.</p>
 
 <h3 id="uptrends">Uptrends</h3>
 

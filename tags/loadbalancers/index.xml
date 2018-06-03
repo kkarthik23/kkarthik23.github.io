@@ -17,7 +17,10 @@
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
       <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
-      <description>You can run software load balancers on commodity hardware. Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent. Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind. There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+      <description>You can run software load balancers on commodity hardware.
+Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
+Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
+There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
     </item>
     
   </channel>

@@ -17,12 +17,11 @@
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
       <guid>/post/2017/12/12/apm-tools/</guid>
-      <description>APM Application Performance Tools are crucial in monitoring the performance of applications
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
 They give a better insight into the behaviour of your applications and are worth it.
 New Relic is the most well known one but there are others in the market as well.
 Example This the top 5 memory consumers of w3p processes in an IIS web server.
-New Relic has something called an Apdex score
-The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</description>
+New Relic has a few criteria for mesuring app performance</description>
     </item>
     
   </channel>

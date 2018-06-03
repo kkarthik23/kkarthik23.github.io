@@ -46,6 +46,31 @@
 
 <p>In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&rsquo;t use an index and so performance suffers.</p>
 
+<h3 id="sarg">SARG</h3>
+
+<p>SARG is an acronym of “Search ARGumentable”. SARGable is defined as “In relational databases, a condition (or predicate) in a query is said to be sargable if the DBMS engine can take advantage of an index to speed up the execution of the query. The term is derived from a contraction of Search ARGument ABLE”</p>
+
+<p>In summary it means we should avoid using functions on columns included in where clause as it doesn’t let SQL to use indexes properly for example it uses index scan instead of seek and the good practice is avoid using them.</p>
+
+<h3 id="snapshot-isolation">Snapshot isolation</h3>
+
+<p>WHAT we are doing: Changing database setting READ_COMMITTED_SNAPSHOT ON and ALLOW_SNAPSHOT_ISOLATION ON
+WHY it’s being changed: This will help readers blocking writers (Reduces locking blocking and dead lock) - This we saw during issues  - One read was blocking 60 other processes</p>
+
+<p>If you set the READ_COMMITTED_SNAPSHOT database option to ON, the database engine uses row versioning and snapshot isolation as the default, instead of using locks to protect the data.</p>
+
+<h3 id="sql-server-port-not-listening">Sql Server port not listening</h3>
+
+<p>One of my colleagues could not use  sql express</p>
+
+<p>Did a net stat and found 1433 not listening</p>
+
+<p>Went to sql configuration manager and added port under all IP address and restarted and it started working and the port was listening</p>
+
+<h3 id="linqpad">Linqpad</h3>
+
+<p>I have started to use this tool for querying databases since it seems lightweight compared to SSMS</p>
+
 </main>
 
   <footer>

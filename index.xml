@@ -6,10 +6,29 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jan 2018 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 19:20:00 +1100</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Grafana</title>
+      <link>/post/2018/04/06/grafana/</link>
+      <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2018/04/06/grafana/</guid>
+      <description>Install  Redhat &amp;amp; Centos(64 Bit) wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.3-1.x86_64.rpm sudo yum localinstall grafana-5.1.3-1.x86_64.rpm sudo systemctl enable grafana-server.service sudo systemctl start grafana-server  Test using this URL or the corresponding IP address
+http://localhost:3000  A number of integrations available for example for integrating with Prometheus,InfluDB,Zabbix etc.</description>
+    </item>
+    
+    <item>
+      <title>3DS</title>
+      <link>/post/2018/01/20/3ds/</link>
+      <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2018/01/20/3ds/</guid>
+      <description>3DS 1.0 It allows shoppers to assign a password to their card that is then verified whenever a payment is processed through a shop that supports 3D Secure. The addition of password protection allows extra security on transactions that are processed online. The scheme is a collective of Verified by VISA (VBV) and MasterCard Secure Code (MSC). 3D Secure offers companies liability cover for transactions that are verified by checks.</description>
+    </item>
     
     <item>
       <title>SQL Related</title>
@@ -19,7 +38,8 @@
       <guid>/post/2018/01/02/sql-related/</guid>
       <description>Implicit Conversion Implicit Conversion might kill your SQL Query performance so its important that its fixed
 
-In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&amp;rsquo;t use an index and so performance suffers.</description>
+In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&amp;rsquo;t use an index and so performance suffers.
+SARG SARG is an acronym of “Search ARGumentable”. SARGable is defined as “In relational databases, a condition (or predicate) in a query is said to be sargable if the DBMS engine can take advantage of an index to speed up the execution of the query.</description>
     </item>
     
     <item>
@@ -28,12 +48,11 @@ In this picture the first query does not use implicit conversion and so the inde
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
       <guid>/post/2017/12/12/apm-tools/</guid>
-      <description>APM Application Performance Tools are crucial in monitoring the performance of applications
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
 They give a better insight into the behaviour of your applications and are worth it.
 New Relic is the most well known one but there are others in the market as well.
 Example This the top 5 memory consumers of w3p processes in an IIS web server.
-New Relic has something called an Apdex score
-The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</description>
+New Relic has a few criteria for mesuring app performance</description>
     </item>
     
     <item>
@@ -74,7 +93,7 @@ However there is another one with a little bit more information called Htop</des
       
       <guid>/post/2017/11/28/splunk-related/</guid>
       <description>Splunk is a good tool for indexing and searching logs. Splunk uses SPL Splunk Processing language for querying
-Search the access logs, and return the number of hits from the top 100 values of &amp;ldquo;referer_domain&amp;rdquo;. sourcetype=access_combined | top limit=100 referer_domain | stats sum(count)  Graph the average &amp;ldquo;thruput&amp;rdquo; of hosts over time. ... | timechart span=5m avg(thruput) by host  Splunk regex are very powerful and We can use regex and rex</description>
+To ignore certain errors so as to prevent from being alerted for false positives index=prodapplications sourcetype=&amp;quot;someservice&amp;quot; level=error message!=&amp;quot;*Error processing&amp;quot; | table dateTime,LEVEL,logger,message,exception  Search the access logs, and return the number of hits from the top 100 values of &amp;ldquo;referer_domain&amp;rdquo;. sourcetype=access_combined | top limit=100 referer_domain | stats sum(count)  Graph the average &amp;ldquo;thruput&amp;rdquo; of hosts over time.</description>
     </item>
     
     <item>
@@ -236,7 +255,7 @@ git init git add . git commit -m &amp;quot;first commit&amp;quot; git remote add
       <guid>/post/2017/08/06/git-and-vagrant/</guid>
       <description>GIT GIT is a Distributed Version Control System Some commands are
 create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
-git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  Vagrant Vagrant from HashiCorp is a good tool for spinning up environments and test.</description>
+git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  ###BitBucket</description>
     </item>
     
     <item>
@@ -245,7 +264,10 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
       <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
-      <description>You can run software load balancers on commodity hardware. Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent. Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind. There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+      <description>You can run software load balancers on commodity hardware.
+Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
+Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
+There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
     </item>
     
     <item>

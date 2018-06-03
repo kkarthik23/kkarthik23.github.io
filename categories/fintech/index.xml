@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FinTech on Hugo Ivy</title>
+    <link>/categories/fintech/</link>
+    <description>Recent content in FinTech on Hugo Ivy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jan 2018 19:20:00 +1100</lastBuildDate>
+    
+	<atom:link href="/categories/fintech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3DS</title>
+      <link>/post/2018/01/20/3ds/</link>
+      <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2018/01/20/3ds/</guid>
+      <description>3DS 1.0 It allows shoppers to assign a password to their card that is then verified whenever a payment is processed through a shop that supports 3D Secure. The addition of password protection allows extra security on transactions that are processed online. The scheme is a collective of Verified by VISA (VBV) and MasterCard Secure Code (MSC). 3D Secure offers companies liability cover for transactions that are verified by checks.</description>
+    </item>
+    
+  </channel>
+</rss>

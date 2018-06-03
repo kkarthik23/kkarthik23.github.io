@@ -52,10 +52,31 @@ git remote add origin https://github.com/Username/website.git
 git push -u origin master
 </code></pre>
 
-<h2 id="or-push-an-existing-repository-from-the-command-line">or push an existing repository from the command line</h2>
+<h3 id="or-push-an-existing-repository-from-the-command-line">or push an existing repository from the command line</h3>
 
 <pre><code>git remote add origin https://github.com/Username/website.git
 git push -u origin master
+</code></pre>
+
+<h3 id="view-remote-and-remove">View remote and remove</h3>
+
+<pre><code>git remote -v
+git remote rm destination
+git remote -v
+</code></pre>
+
+<p>###BitBucket</p>
+
+<h4 id="step-1-push-your-local-repo">Step 1:Push your local repo</h4>
+
+<pre><code>cd /path/to/your/repo
+</code></pre>
+
+<h4 id="step-2-connect-your-existing-repository-to-bitbucket">Step 2: Connect your existing repository to Bitbucket</h4>
+
+<pre><code>git remote add origin https://username@bitbucket.org/username/username.bitbucket.io..git
+git push -u origin master
+
 </code></pre>
 
 <h3 id="vagrant">Vagrant</h3>
