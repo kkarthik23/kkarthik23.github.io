@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hugo Ivy</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Hugo Ivy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jan 2018 21:57:42 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Related</title>
+      <link>/post/2018/01/02/sql-related/</link>
+      <pubDate>Tue, 02 Jan 2018 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2018/01/02/sql-related/</guid>
+      <description>Implicit Conversion Implicit Conversion might kill your SQL Query performance so its important that its fixed
+
+In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&amp;rsquo;t use an index and so performance suffers.</description>
+    </item>
+    
+    <item>
+      <title>APM tools</title>
+      <link>/post/2017/12/12/apm-tools/</link>
+      <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2017/12/12/apm-tools/</guid>
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications
+They give a better insight into the behaviour of your applications and are worth it.
+New Relic is the most well known one but there are others in the market as well.
+Example This the top 5 memory consumers of w3p processes in an IIS web server.
+New Relic has something called an Apdex score
+The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>/post/2017/12/12/prometheus/</link>
+      <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2017/12/12/prometheus/</guid>
+      <description>Prometheus Install mkdir Downloads cd Downloads
+Download
+curl -LO &amp;ldquo;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&amp;quot;
+goto Root directory
+mkdir Prometheus
+cd Prometheus
+tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz
+./prometheus &amp;ndash;version
+sudo vi /etc/systemd/system/node_exporter.service This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:
+/etc/init/node_exporter.conf [Unit] Description=Node Exporter
+[Service] User=prometheus ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter
+[Install] WantedBy=default.target
+Reload systemd so that it reads the configuration file you just created.</description>
+    </item>
+    
+    <item>
+      <title>Useful Linux Tools</title>
+      <link>/post/2017/12/06/useful-linux-tools/</link>
+      <pubDate>Wed, 06 Dec 2017 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2017/12/06/useful-linux-tools/</guid>
+      <description>Top is a good tool for viewing system processes
+However there is another one with a little bit more information called Htop</description>
+    </item>
+    
+    <item>
+      <title>Splunk related</title>
+      <link>/post/2017/11/28/splunk-related/</link>
+      <pubDate>Tue, 28 Nov 2017 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2017/11/28/splunk-related/</guid>
+      <description>Splunk is a good tool for indexing and searching logs. Splunk uses SPL Splunk Processing language for querying
+Search the access logs, and return the number of hits from the top 100 values of &amp;ldquo;referer_domain&amp;rdquo;. sourcetype=access_combined | top limit=100 referer_domain | stats sum(count)  Graph the average &amp;ldquo;thruput&amp;rdquo; of hosts over time. ... | timechart span=5m avg(thruput) by host  Splunk regex are very powerful and We can use regex and rex</description>
+    </item>
+    
+    <item>
+      <title>WebServers</title>
+      <link>/post/2017/11/16/webservers/</link>
+      <pubDate>Thu, 16 Nov 2017 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2017/11/16/webservers/</guid>
+      <description>Nginx is a web server which is less resource hungry than Apache Nginx Cache Set the Cache Expires field
+Refer http://nginx.org/en/docs/http/ngx_http_headers_module.html
+Modified /etc/nginx/sites-available/default
+map $sent_http_content_type $expires { default off; text/html epoch; text/css max; application/javascript max; ~image/ max; } server { listen 80 default_server; listen [::]:80 default_server; expires $expires; }  Load test Use curl as below and replace with your website
+curl -s http://www.google.com?[1-1000]  The other tool is apache benchmark (ab tool) which comes with apache On windows we can use as below provided apache is installed and present in the below location</description>
+    </item>
+    
+    <item>
+      <title>Node and Ghost</title>
+      <link>/post/2017/11/11/node-and-ghost/</link>
+      <pubDate>Sat, 11 Nov 2017 15:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/11/11/node-and-ghost/</guid>
+      <description> Node install Install node JS using windows installer 64 bit edition
+Install NVM Windows Node Version Manager Download from https://github.com/coreybutler/nvm-windows Install the windows installer nvm install 8.9.1 nvm version nvm list nvm on  Ghost npm install -g ghost-cli@latest ghost install (for prod) ghost install local (for local) ghost ls ghost stop  </description>
+    </item>
+    
+    <item>
+      <title>Notepad&#43;&#43; extension</title>
+      <link>/post/2017/11/08/notepad---extension/</link>
+      <pubDate>Wed, 08 Nov 2017 20:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/11/08/notepad---extension/</guid>
+      <description>&lt;p&gt;Notepad++ comes with the default theme and it is white background, to change it
+Download Material Theme from &lt;a href=&#34;https://github.com/naderi/material-theme-for-npp&#34;&gt;https://github.com/naderi/material-theme-for-npp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Powershell some commands</title>
+      <link>/post/2017/11/05/powershell-some-commands/</link>
+      <pubDate>Sun, 05 Nov 2017 14:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/11/05/powershell-some-commands/</guid>
+      <description>Powershell commands Recycle app pool - 2003 web server $appPool = &amp;quot;Test&amp;quot; IIsApp /a &amp;quot;$appPool&amp;quot; /r  Recycle app pool - 2012 web server: $appPool = &amp;quot;Test&amp;quot; Import-Module -Name WebAdministration # Restart app poool Restart-WebAppPool -Name &amp;quot;$appPool&amp;quot;  Get app pool status: Write-Output &amp;quot;App pool $appPool restarted&amp;quot; Write-Output $(Get-WebAppPoolState -Name &amp;quot;$appPool&amp;quot;).Value  Get restart confirmation Start-Sleep -Seconds 30 Get-EventLog -LogName System -Newest 1 -Source WAS -Message &amp;quot;*$appPool*&amp;quot; | Format-List TimeWritten,Message  Restart Windows service - 2012 or 2003: $service = &amp;quot;TestService&amp;quot; Restart-Service -Name &amp;quot;$service&amp;quot; Write-Output &amp;quot;$service restarted&amp;quot; $status = (Get-Service -Name &amp;quot;$service&amp;quot;).</description>
+    </item>
+    
+    <item>
+      <title>Cockpit</title>
+      <link>/post/2017/10/28/cockpit/</link>
+      <pubDate>Sat, 28 Oct 2017 17:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/28/cockpit/</guid>
+      <description>&lt;p&gt;Cockpit is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.&lt;/p&gt;
+
+&lt;p&gt;Cockpit works with RedHat,CentOS,Fedora,Ubuntu,Debian&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set Static Hostname on RHEL/CentOS 7 Linux AWS</title>
+      <link>/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</link>
+      <pubDate>Sat, 14 Oct 2017 18:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</guid>
+      <description> How to set static hostname on RHEL/CentOS 7 Linux AWS /etc/sysconfig/network HOSTNAME=desired-hostname.example.com  /etc/hostname desired-hostname.example.com  /etc/cloud/cloud.cfg: preserve_hostname: true  </description>
+    </item>
+    
+    <item>
+      <title>AWS NLB</title>
+      <link>/post/2017/10/14/aws-nlb/</link>
+      <pubDate>Sat, 14 Oct 2017 15:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/14/aws-nlb/</guid>
+      <description>A couple of my colleagues were fiddling around with NLB (Network Load Balancer) and couldn&amp;rsquo;t find the instance name in target and only IP address of the instances was listed. After some time not being able to find out we logged a support call with AWS and was directed to http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html
+Limits You cannot register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1, M2, M3, and T1.</description>
+    </item>
+    
+    <item>
+      <title>EPEL</title>
+      <link>/post/2017/10/09/epel/</link>
+      <pubDate>Mon, 09 Oct 2017 14:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/09/epel/</guid>
+      <description>&lt;p&gt;Some packages like NGINX isn&amp;rsquo;t included in the standard CentOS repositories, you must install an extra package to make sure that, once installed, NGINX is always up to date.&lt;/p&gt;
+
+&lt;p&gt;To do that, we&amp;rsquo;ll install the Extra Packages For Enterprise Linux (EPEL) package.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nagios</title>
+      <link>/post/2017/10/07/nagios/</link>
+      <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/07/nagios/</guid>
+      <description>&lt;p&gt;Nagios is a monitoring system&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Xymon</title>
+      <link>/post/2017/10/07/xymon/</link>
+      <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/07/xymon/</guid>
+      <description>&lt;h3 id=&#34;xymon&#34;&gt;Xymon&lt;/h3&gt;
+
+&lt;p&gt;This is a simple but powerful monitoring tool&lt;/p&gt;
+
+&lt;p&gt;Install it from source or using rpms&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Zabbix</title>
+      <link>/post/2017/10/07/zabbix/</link>
+      <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/07/zabbix/</guid>
+      <description>&lt;p&gt;Zabbix is another monitoring system and runs on Linux and uses PHP and MySQL and can run on Apache Web Server&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/post/2017/08/26/aws/</link>
+      <pubDate>Sat, 26 Aug 2017 19:20:00 +0000</pubDate>
+      
+      <guid>/post/2017/08/26/aws/</guid>
+      <description>&lt;p&gt;AWS is Amazon Web Services and is a public cloud&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Static Site generator</title>
+      <link>/post/2017/08/26/static-site-generator/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/08/26/static-site-generator/</guid>
+      <description>Hugo is a static Site generator using Go
+Some settings needs to be configured to generate output and push to github
+In cofig.toml set baseURL = &amp;quot;https://username.github.io/&amp;quot;  run hugo
+c:\hugo\quickstart\hugo
+files are generated under public folder type c:\hugo\quickstart cd public and then run gitpush.bat which contains below
+git init git add . git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/username/username.github.io git push -u origin master  Hugo is a static generator Some settings needs to be configured to generate output and push to github</description>
+    </item>
+    
+    <item>
+      <title>GIT and Vagrant</title>
+      <link>/post/2017/08/06/git-and-vagrant/</link>
+      <pubDate>Sun, 06 Aug 2017 21:57:42 +0000</pubDate>
+      
+      <guid>/post/2017/08/06/git-and-vagrant/</guid>
+      <description>GIT GIT is a Distributed Version Control System Some commands are
+create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
+git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  Vagrant Vagrant from HashiCorp is a good tool for spinning up environments and test.</description>
+    </item>
+    
+    <item>
+      <title>A Case for Software Load Balancing</title>
+      <link>/post/2016/11/12/a-case-for-software-load-balancing/</link>
+      <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
+      <description>You can run software load balancers on commodity hardware. Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent. Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind. There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EPEL | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">EPEL</span></h1>
+
+<h2 class="date">2017/10/09</h2>
+</div>
+
+<main>
+<p>Some packages like NGINX isn&rsquo;t included in the standard CentOS repositories, you must install an extra package to make sure that, once installed, NGINX is always up to date.</p>
+
+<p>To do that, we&rsquo;ll install the Extra Packages For Enterprise Linux (EPEL) package.</p>
+
+<p></p>
+
+<p>Open a terminal.</p>
+
+<p>Issue the su command and then enter the root password.</p>
+
+<p>Install the package with the command</p>
+
+<pre><code>yum install epel-release
+</code></pre>
+
+<p>Allow the installation to complete.</p>
+
+<h2 id="installing-nginx">Installing NGINX</h2>
+
+<p>You can now install NGINX with a single command:</p>
+
+<pre><code>yum install nginx
+</code></pre>
+
+<p>That&rsquo;s it—NGINX is installed. During the installation, however, NGINX isn&rsquo;t automatically started. In order to run the server, you have to first stop the Apache server with the command:</p>
+
+<pre><code>service httpd stop
+</code></pre>
+
+<p>Now you can start NGINX with the command:</p>
+
+<pre><code>service nginx start
+</code></pre>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

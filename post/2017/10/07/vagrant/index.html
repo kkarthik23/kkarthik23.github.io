@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vagrant | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Vagrant</span></h1>
+
+<h2 class="date">2017/10/07</h2>
+</div>
+
+<main>
+<p>Vagrant from HashiCorp is a good tool for spinning up environments and test.<br></p>
+
+<p>Can be used with Virtual Box,VMware and there are other providers also like Docker and Hyper-V.<br></p>
+
+<p>Some commands</p>
+
+<p></p>
+
+<h2 id="vagrant-init">vagrant init</h2>
+
+<h2 id="vagrant-up">vagrant up</h2>
+
+<h2 id="vagrant-ssh-hostname">vagrant ssh  hostname</h2>
+
+<h2 id="vagrant-halt">vagrant halt</h2>
+
+<h2 id="vagrantfile-sample">vagrantfile sample</h2>
+
+<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
+
+ config.vm.define &quot;web&quot; do |web|
+ 
+ web.vm.box = &quot;bento/centos-7.2&quot;
+ 
+ web.vm.hostname = 'centos1'
+ 
+ web.vm.box_url = &quot;bento/centos-7.2&quot;
+ 
+ web.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+ 
+ web.vm.network :forwarded_port, guest: 22, host: 10123, id: &quot;ssh&quot;
+ 
+
+end
+ 
+config.vm.define &quot;app&quot; do |app|
+ 
+app.vm.box = &quot;bento/centos-7.2&quot;
+
+app.vm.hostname = 'centos2'
+
+app.vm.box_url = &quot;bento/centos-7.2&quot;
+
+app.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.11&quot;
+
+app.vm.network :forwarded_port, guest: 22, host: 10124, id: &quot;ssh&quot;
+
+      
+end
+  
+end
+
+</code></pre>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

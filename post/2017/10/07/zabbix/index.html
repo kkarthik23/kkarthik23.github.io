@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zabbix | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Zabbix</span></h1>
+
+<h2 class="date">2017/10/07</h2>
+</div>
+
+<main>
+<p>Zabbix is another monitoring system and runs on Linux and uses PHP and MySQL and can run on Apache Web Server</p>
+
+<p></p>
+
+<p>** The install target is a CentOS 7 server</p>
+
+<p>Get RPM</p>
+
+<pre><code>sudo rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+</code></pre>
+
+<p>###Pre requisites
+Install MariaDB,PHP,Apache web server</p>
+
+<p>Then install Zabbix server and agent</p>
+
+<pre><code>sudo yum install zabbix-server-mysql zabbix-web-mysql
+sudo yum install zabbix-agent
+</code></pre>
+
+<p>Goto mysql</p>
+
+<pre><code>mysql -uroot -p
+</code></pre>
+
+<p>First, create the Zabbix database with UTF-8 character support:</p>
+
+<pre><code>create database zabbix character set utf8;
+</code></pre>
+
+<p>Next, create a user that the Zabbix server will use, give it access to the new database, and set the password:</p>
+
+<pre><code>grant all privileges on zabbix.* to zabbix@localhost identified by 'your_password';
+</code></pre>
+
+<p>Then apply these new permissions</p>
+
+<pre><code>flush privileges;
+</code></pre>
+
+<p>Exit out of the database console.</p>
+
+<pre><code>quit;
+</code></pre>
+
+<p>Next we have to import the initial schema and data. The Zabbix installation provided us with a file that sets this up for us. We just have to import it. Navigate to the directory:</p>
+
+<pre><code>cd /usr/share/doc/zabbix-server-mysql-***
+</code></pre>
+
+<p>Run the following command to set up the schema and import the data into the zabbix database. We&rsquo;ll use zcat since the data in the file is compressed.</p>
+
+<pre><code>zcat create.sql.gz | mysql -uzabbix -p zabbix
+</code></pre>
+
+<p>Enter the password for the zabbix user that you configured when prompted.</p>
+
+<p>In order for the Zabbix server to use this database, you need to set the database password in the Zabbix server configuration file.</p>
+
+<pre><code>sudo vi /etc/zabbix/zabbix_server.conf
+### Option: DBPassword                           
+#       Database password. Ignored for SQLite.   
+#       Comment this line if no password is used.
+#                                                
+# Mandatory: no                                  
+# Default:                                       
+# DBPassword=
+</code></pre>
+
+<p>Then enter the below in the browser</p>
+
+<p><a href="http://zabbix_server_ip_address/zabbix/">http://zabbix_server_ip_address/zabbix/</a></p>
+
+<p>and configure the rest of the steps</p>
+
+<p>For the agent</p>
+
+<pre><code>sudo rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+
+sudo yum install zabbix-agent
+</code></pre>
+
+<h3 id="set-the-zabbix-server-in-the-agent-config-file">Set the Zabbix Server in the agent config file</h3>
+
+<pre><code>sudo vi /etc/zabbix/zabbix_agentd.conf
+</code></pre>
+
+<p>###restart zabbix-agent</p>
+
+<pre><code>sudo systemctl restart zabbix-agent
+sudo systemctl status zabbix-agent
+sudo systemctl enable zabbix-agent
+</code></pre>
+
+<p>In the agent config file zabbix_agentd.conf,set the following</p>
+
+<pre><code>Server=zabbixserverIPaddress
+
+ServerActive=zabbixserveripaddress
+
+Hostname=Zabbix server
+</code></pre>
+
+<p>Hostname of zabbix server will be in the front end in web admin  and is not the hostname of the server.</p>
+
+<p>###
+Had issues on the zabbix client machine with the agent sending data and we have to either disable firewall or configure the firewall to allow zabbix port 10050.</p>
+
+<p>*** Reference Zabbix documentation</p>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

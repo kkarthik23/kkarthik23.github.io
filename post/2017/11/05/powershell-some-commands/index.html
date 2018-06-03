@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Powershell some commands | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Powershell some commands</span></h1>
+
+<h2 class="date">2017/11/05</h2>
+</div>
+
+<main>
+
+
+<h1 id="powershell-commands">Powershell commands</h1>
+
+<h1 id="recycle-app-pool-2003-web-server">Recycle app pool - 2003 web server</h1>
+
+<pre><code>$appPool = &quot;Test&quot;
+IIsApp /a &quot;$appPool&quot; /r
+</code></pre>
+
+<h1 id="recycle-app-pool-2012-web-server">Recycle app pool - 2012 web server:</h1>
+
+<pre><code>$appPool = &quot;Test&quot;
+ Import-Module -Name WebAdministration
+ 
+# Restart app poool
+
+Restart-WebAppPool -Name &quot;$appPool&quot;
+</code></pre>
+
+<h1 id="get-app-pool-status">Get app pool status:</h1>
+
+<pre><code>Write-Output &quot;App pool $appPool restarted&quot;
+Write-Output $(Get-WebAppPoolState -Name &quot;$appPool&quot;).Value
+
+</code></pre>
+
+<h1 id="get-restart-confirmation">Get restart confirmation</h1>
+
+<pre><code>Start-Sleep -Seconds 30
+Get-EventLog -LogName System -Newest 1 -Source WAS -Message &quot;*$appPool*&quot; | Format-List TimeWritten,Message
+
+</code></pre>
+
+<h1 id="restart-windows-service-2012-or-2003">Restart Windows service - 2012 or 2003:</h1>
+
+<pre><code>$service = &quot;TestService&quot;
+ 
+Restart-Service -Name &quot;$service&quot;
+ 
+Write-Output &quot;$service restarted&quot;
+ 
+$status = (Get-Service -Name &quot;$service&quot;).Status
+Write-Output &quot;$service status: $status&quot; 
+
+</code></pre>
+
+<h1 id="set-app-pool-recycle-period-2012">Set app pool recycle period - 2012</h1>
+
+<pre><code>$appPool = &quot;Test&quot;
+&amp;&quot;$($Env:windir)\system32\inetsrv\appcmd&quot; set apppool /apppool.name:&quot;$appPool&quot; /recycling.periodicRestart.time:29:00:00
+
+</code></pre>
+
+<h1 id="get-period-change-confirmation">Get period change confirmation</h1>
+
+<pre><code>Start-Sleep -Seconds 30
+Get-EventLog -LogName System -Newest 1 -Source WAS -Message &quot;*$appPool*&quot; | Format-List TimeWritten,Message
+
+</code></pre>
+
+<p>Amount of CPU processes are using</p>
+
+<pre><code>Get-Counter '\Process(*)\% Processor Time' | Select-Object -ExpandProperty countersamples| Select-Object -Property instancename, cookedvalue| ? {$_.instanceName -notmatch &quot;^(idle|_total|system)$&quot;} | Sort-Object -Property cookedvalue -Descending| Select-Object -First 25| ft InstanceName,@{L='CPU';E={($_.Cookedvalue/100/$env:NUMBER_OF_PROCESSORS).toString('P')}} -AutoSize
+
+</code></pre>
+
+<p>#Windows Service status</p>
+
+<pre><code>Get-Service &lt;service_name&gt; | Select-Object -Property Name, StartType, Status
+
+</code></pre>
+
+<h1 id="match-process-name-to-processid">Match process name to ProcessId</h1>
+
+<pre><code>Get-Process -Id &lt;processId&gt;
+
+</code></pre>
+
+<p> </p>
+
+<h1 id="get-all-processes-sorted-by-pid">Get all processes sorted by PID</h1>
+
+<pre><code>Get-Process | Sort-Object { $_.Id }
+
+</code></pre>
+
+<h1 id="terminate-a-process">Terminate a process</h1>
+
+<pre><code>Get-Process -Id &lt;your process id from above&gt; | Stop-Process
+
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

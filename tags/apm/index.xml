@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>APM on Hugo Ivy</title>
+    <link>/tags/apm/</link>
+    <description>Recent content in APM on Hugo Ivy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Dec 2017 19:20:00 +1100</lastBuildDate>
+    
+	<atom:link href="/tags/apm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>APM tools</title>
+      <link>/post/2017/12/12/apm-tools/</link>
+      <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
+      
+      <guid>/post/2017/12/12/apm-tools/</guid>
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications
+They give a better insight into the behaviour of your applications and are worth it.
+New Relic is the most well known one but there are others in the market as well.
+Example This the top 5 memory consumers of w3p processes in an IIS web server.
+New Relic has something called an Apdex score
+The Apdex score is a ratio value of the number of satisfied and tolerating requests to the total requests made.</description>
+    </item>
+    
+  </channel>
+</rss>

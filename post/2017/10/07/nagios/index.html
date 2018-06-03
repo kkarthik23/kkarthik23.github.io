@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nagios | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Nagios</span></h1>
+
+<h2 class="date">2017/10/07</h2>
+</div>
+
+<main>
+<p>Nagios is a monitoring system</p>
+
+<p></p>
+
+<h3 id="install-nagios-on-centos-7">Install nagios on Centos 7</h3>
+
+<p>Server Configuration:</p>
+
+<pre><code>Install EPEL:
+
+# yum install epel-release.noarch -y
+
+
+# yum --enablerepo=epel -y install nagios
+
+
+# yum --enablerepo=epel -y install nagios-plugins-disk nagios-plugins-http nagios-plugins-load nagios-plugins-ping nagios-plugins-procs nagios-plugins-ssh nagios-plugins-swap nagios-plugins-users
+
+</code></pre>
+
+<pre><code>
+# Add nagios admin user
+
+# htpasswd /etc/nagios/passwd nagiosadmin
+
+New password:
+
+Re-type new password:
+
+Adding password for user nagiosadmin
+
+</code></pre>
+
+<p>Enable the nagios service:</p>
+
+<pre><code>
+# systemctl enable nagios
+
+# systemctl start nagios
+
+# systemctl enable httpd
+
+# systemctl restart httpd
+
+</code></pre>
+
+<h2 id="client-configuration">Client Configuration:</h2>
+
+<p>Install EPEL:</p>
+
+<pre><code>
+# yum install epel-release.noarch -y
+
+# yum --enablerepo=epel -y install nrpe nagios-plugins-{ping,disk,users,procs,load,swap,ssh}
+
+</code></pre>
+
+<p>Edit /etc/nagios/nrpe.cfg file,</p>
+
+<pre><code>
+# vim /etc/nagios/nrpe.cfg
+
+Add the ip address of your Nagios Server:
+
+Find the following line
+
+allowed_hosts=127.0.0.1
+
+Add the ip address of the Nagios server
+
+allowed_hosts=127.0.0.1,192.168.1.150
+
+</code></pre>
+
+<h2 id="enable-and-start-nrpe-service-on-the-client">Enable and start nrpe service on the client:</h2>
+
+<pre><code>
+# systemctl start nrpe
+
+# chkconfig nrpe on
+
+</code></pre>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xymon | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Xymon</span></h1>
+
+<h2 class="date">2017/10/07</h2>
+</div>
+
+<main>
+<h3 id="xymon">Xymon</h3>
+
+<p>This is a simple but powerful monitoring tool</p>
+
+<p>Install it from source or using rpms</p>
+
+<p></p>
+
+<h3 id="server-configuration">Server Configuration:</h3>
+
+<p>Add some yum repostitories:</p>
+
+<h1 id="vim-etc-yum-repos-d-xymon-repo">vim /etc/yum.repos.d/xymon.repo</h1>
+
+<p>And add this to the file:</p>
+
+<pre><code>#
+# Xymon RPMs provided by Japheth &quot;J.C.&quot; Cleaver
+#
+</code></pre>
+
+<p>[Xymon]
+   name=Xymon-$releasever
+   baseurl=<a href="http://terabithia.org/rpms/xymon/el$releasever/x86_64/">http://terabithia.org/rpms/xymon/el$releasever/x86_64/</a>
+   gpgcheck=1
+   gpgkey=<a href="http://terabithia.org/rpms/RPM-GPG-KEY-JCLEAVER">http://terabithia.org/rpms/RPM-GPG-KEY-JCLEAVER</a>
+   enabled=1</p>
+
+<pre><code>#yum install epel-release.noarch -y
+
+#yum install xymon.x86_64 xymon-client.x86_64 httpd -y
+</code></pre>
+
+<p>Edit the xymon configuration file and change the following lines:</p>
+
+<pre><code>XYMONSERVERHOSTNAME=&quot;$MACHINEDOTS&quot; # The hostname of your server.
+XYMONSERVERIP=&quot;127.0.0.1&quot; # The IP-address of your server. Use the real one, not 127.0.0.1 .
+Example:
+XYMONSERVERHOSTNAME=&quot;xymon.example.org&quot;
+XYMONSERVERIP=&quot;192.168.0.1&quot;
+</code></pre>
+
+<p>Create a user for web access</p>
+
+<pre><code># htpasswd -c /etc/xymon/xymonpasswd [USERNAME]
+New password:
+Re-type new password:
+Adding password for user ...
+</code></pre>
+
+<p>Add more users / change passwords with</p>
+
+<h1 id="htpasswd-etc-xymon-xymonpasswd-username">htpasswd /etc/xymon/xymonpasswd [USERNAME]</h1>
+
+<p>Open the firewall ports for xymon and the webserver</p>
+
+<pre><code># firewall-cmd --zone=public --add-port=1984/tcp --permanent
+# firewall-cmd --zone=public --add-port=80/tcp --permanent
+# systemctl restart iptables.service
+</code></pre>
+
+<p>Enable the xymon and httpd services:</p>
+
+<pre><code># systemctl enable xymonlaunch.service
+# systemctl enable httpd.service
+</code></pre>
+
+<p>###Client Configuration:
+Add some yum repostitories:</p>
+
+<pre><code># vim /etc/yum.repos.d/xymon.repo
+[Xymon]
+name=Xymon-$releasever
+baseurl=http://terabithia.org/rpms/xymon/el$releasever/x86_64/
+gpgcheck=1
+gpgkey=http://terabithia.org/rpms/RPM-GPG-KEY-JCLEAVER
+enabled=1
+</code></pre>
+
+<p>###Install</p>
+
+<pre><code># yum install epel-release.noarch -y
+# yum install xymon-client.x86_64 -y
+</code></pre>
+
+<h3 id="edit-the-xymon-client-configuration-file">Edit the xymon client configuration file</h3>
+
+<h1 id="vim-etc-sysconfig-xymonclient-cfg">vim /etc/sysconfig/xymonclient.cfg</h1>
+
+<p>And change the following line</p>
+
+<pre><code>XYMONSERVERS=&quot;0.0.0.0&quot;
+Example:
+XYMONSERVERS=&quot;192.168.0.1&quot;
+</code></pre>
+
+<p>Open the firewall port</p>
+
+<pre><code># firewall-cmd --zone=public --add-port=1984/tcp --permanent
+# systemctl restart iptables.service
+</code></pre>
+
+<p>###Enable the service</p>
+
+<pre><code># systemctl enable xymonlaunch.service
+</code></pre>
+
+<p>###Starting the services:
+On the server:</p>
+
+<pre><code># systemctl enable xymonlaunch.service
+# systemctl enable httpd.service
+</code></pre>
+
+<p>###On the Client:</p>
+
+<pre><code># systemctl start xymonlaunch.service
+</code></pre>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

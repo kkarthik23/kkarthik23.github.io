@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Static Site generator | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Static Site generator</span></h1>
+
+<h2 class="date">2017/08/26</h2>
+</div>
+
+<main>
+<p>Hugo is a static Site generator using Go</p>
+
+<p>Some settings needs to be configured to generate output and push to github</p>
+
+<pre><code>In cofig.toml
+set baseURL = &quot;https://username.github.io/&quot;
+</code></pre>
+
+<p>run hugo</p>
+
+<p>c:\hugo\quickstart\hugo</p>
+
+<p>files are generated under public folder
+type c:\hugo\quickstart
+cd public and then run gitpush.bat which contains below</p>
+
+<pre><code>git init
+
+git add .
+
+git commit -m &quot;first commit&quot;
+
+git remote add origin https://github.com/username/username.github.io
+
+git push -u origin master
+
+</code></pre>
+
+<p>Hugo is a static generator Some settings needs to be configured to generate output and push to github</p>
+
+<p>In cofig.toml set baseURL = “<a href="https://username.github.io/&quot;">https://username.github.io/&quot;</a></p>
+
+<p>run hugo</p>
+
+<p>c:\hugo\quickstart\hugo</p>
+
+<p>files are generated under public folder type c:\hugo\quickstart cd public and then run gitpush.bat which contains below</p>
+
+<p>git init</p>
+
+<p>git add .</p>
+
+<p>git commit -m “first commit”</p>
+
+<p>git remote add origin <a href="https://github.com/username/username.github.io">https://github.com/username/username.github.io</a></p>
+
+<p>git push -u origin master</p>
+
+<p>Pelican is another SSG using Python and Hexo is another using Node.js and Jekyll uses Ruby.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

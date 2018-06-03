@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Case for Software Load Balancing | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">A Case for Software Load Balancing</span></h1>
+
+<h2 class="date">2016/11/12</h2>
+</div>
+
+<main>
+<p>You can run software  load balancers on commodity hardware.
+Plus virtualisation,containers like docker  and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
+Unless your requirement is really really big software load balancers should suffice.
+Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
+There is good documentation on the Nginx website and so I will not be repeating the steps.
+Methods 
+1.Round Robin
+2.Least Connected
+3.IP Hash(Simple session persistence)
+4.Generic Hash(Simple session persistence)
+5.Least Time(only available in NGINX Plus)
+I have been able to tinker around with this on Debian and CentOS my preferred Linux distros.
+ 
+On a separate note Need to see if IIS 10 on Nano server can do  load balancing.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

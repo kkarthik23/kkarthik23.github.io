@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prometheus | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Prometheus</span></h1>
+
+<h2 class="date">2017/12/12</h2>
+</div>
+
+<main>
+
+
+<h3 id="prometheus-install">Prometheus Install</h3>
+
+<p>mkdir Downloads
+cd Downloads</p>
+
+<p>Download</p>
+
+<p>curl -LO &ldquo;<a href="https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&quot;">https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&quot;</a></p>
+
+<p>goto Root directory</p>
+
+<p>mkdir Prometheus</p>
+
+<p>cd Prometheus</p>
+
+<p>tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz</p>
+
+<p>./prometheus &ndash;version</p>
+
+<p>sudo vi /etc/systemd/system/node_exporter.service
+This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:</p>
+
+<p>/etc/init/node_exporter.conf
+[Unit]
+Description=Node Exporter</p>
+
+<p>[Service]
+User=prometheus
+ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter</p>
+
+<p>[Install]
+WantedBy=default.target</p>
+
+<p>Reload systemd so that it reads the configuration file you just created.</p>
+
+<p>sudo systemctl daemon-reload
+At this point, Node Exporter is available as a service which can be managed using the systemctl command. Enable it so that it starts automatically at boot time.</p>
+
+<p>sudo systemctl enable node_exporter.service
+You can now either reboot your server, or use the following command to start the service manually:</p>
+
+<p>sudo systemctl start node_exporter.service</p>
+
+<p>Starting Prometheus Server
+Enter the directory where you installed the Prometheus server:</p>
+
+<p>cd ~/Prometheus/prometheus-0.16.0.linux-amd64
+Before you start Prometheus, you must first create a configuration file for it called prometheus.yml.</p>
+
+<p>vi ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
+Copy the following code into the file.</p>
+
+<p>~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
+scrape_configs:
+  - job_name: &ldquo;node&rdquo;
+    scrape_interval: &ldquo;15s&rdquo;
+    target_groups:
+    - targets: [&lsquo;localhost:9100&rsquo;]
+This creates a scrape_configs section and defines a job called node. It includes the URL of your Node Exporter&rsquo;s web interface in its array of targets. The scrape_interval is set to 15 seconds so that Prometheus scrapes the metrics once every fifteen seconds.</p>
+
+<p>You could name your job anything you want, but calling it &ldquo;node&rdquo; allows you to use the default console templates of Node Exporter.</p>
+
+<p>Save the file and exit.</p>
+
+<p>Start the Prometheus server as a background process.</p>
+
+<p>nohup ./prometheus &gt; prometheus.log 2&gt;&amp;1 &amp;
+Note that you redirected the output of the Prometheus server to a file called prometheus.log. You can view the last few lines of the file using the tail command:</p>
+
+<p>tail ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.log
+Once the server is ready, you will see the following messages in the file:</p>
+
+<p>Use a browser to visit Prometheus&rsquo;s homepage available at <a href="http://your_server_ip:9090">http://your_server_ip:9090</a>. You&rsquo;ll see the following homepage.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

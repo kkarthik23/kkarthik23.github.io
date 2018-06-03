@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AWS | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">AWS</span></h1>
+
+<h2 class="date">2017/08/26</h2>
+</div>
+
+<main>
+<p>AWS is Amazon Web Services and is a public cloud</p>
+
+<p></p>
+
+<p>Compute
+Network
+Storage
+Security and Identity
+Applications</p>
+
+<p>Enterprise Customers<br />
+Public Sector
+Startups</p>
+
+<h2 id="security">Security</h2>
+
+<p>Security groups - Firewall
+Network ACLs-ACLs
+AWS IAM-Administrators</p>
+
+<h2 id="networking">Networking</h2>
+
+<p>ELB
+VPC</p>
+
+<h2 id="regions">Regions</h2>
+
+<p>Geographic Region
+Consist of 2 availability zones</p>
+
+<h2 id="availability-zones">Availability zones</h2>
+
+<p>Cluster of data centers
+Isolated</p>
+
+<p>Remote
+Different power source
+Different ISP connectivity
+Different Seismic Zone</p>
+
+<h2 id="foundational-services">Foundational Services</h2>
+
+<p>EC2
+Instance type  page
+VPC</p>
+
+<h2 id="ec2">EC2</h2>
+
+<pre><code>#!/bin/bash
+&lt;powershell&gt;
+Import-Module ServerManager
+Install-Windows Feature
+&lt;/powershell&gt;
+</code></pre>
+
+<p>Max of 16 TB for a volume</p>
+
+<p>Ami is image or template</p>
+
+<p>Snapshots</p>
+
+<p>EBS snapshots, RDS snapshots
+Starting and stopping instance
+New Starting is the billing hour</p>
+
+<p>Terminate
+EBS and EC2 separate pricing
+Same zone only then u can attach</p>
+
+<p><a href="http://169.254.169.254/latest/meta-data">http://169.254.169.254/latest/meta-data</a></p>
+
+<h2 id="instances">Instances</h2>
+
+<h2 id="shared-instances">Shared instances</h2>
+
+<p>On Demand
+Reserved
+Scheduled
+Spot instances</p>
+
+<h2 id="not-shared-instances">Not shared Instances</h2>
+
+<p>Dedicated instances
+Dedicated Hosts</p>
+
+<p>Reserved instance
+Convertible RI or Standard RI
+Upfront or in installments</p>
+
+<h2 id="vpc">VPC</h2>
+
+<p>Public
+Private Subnet</p>
+
+<p>Ipsec VPN site to site  ur office and AWS(over Internet)</p>
+
+<p>AWS Direct Connect (direct connnection and good performance 10 GB/s)</p>
+
+<p>NAT Gateway  egress/out</p>
+
+<p>Internet Gateway ingress/in</p>
+
+<h2 id="security-1">Security</h2>
+
+<p>Instance(last)
+Security Group
+Subnet
+Network ACL
+Route Table
+VPN Gateway(first)
+Internet</p>
+
+<h2 id="storage">Storage</h2>
+
+<p>File Storage
+Block Storage
+Object Storage</p>
+
+<p>Bucket S3
+Name should be globally unique
+Infinite objects
+Private by default</p>
+
+<p>Data replicated within region
+Largest object size 5 TB</p>
+
+<p>Cannot install an app on S3</p>
+
+<p>Any Static data</p>
+
+<p>Object - file and metadata</p>
+
+<p>Charged per GB Hourly - every hour how much data is present</p>
+
+<p>ACLs
+Bucket Policies
+IAM policies</p>
+
+<h2 id="databases">Databases</h2>
+
+<p>RDS
+SQL Server,Msql,MariaDB,Postgres,Oracle</p>
+
+<h2 id="dynamodb">DynamoDB</h2>
+
+<p>Table
+Items
+Attributes(name-value pairs)
+Partition Key
+Sort Key</p>
+
+<h2 id="elasticity">Elasticity</h2>
+
+<p>EIP(Elastic IP)
+ELB (classic LB)
+ALB</p>
+
+<p>AWS Trusted Advisor</p>
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

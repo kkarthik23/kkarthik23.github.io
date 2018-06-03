@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Splunk related | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Splunk related</span></h1>
+
+<h2 class="date">2017/11/28</h2>
+</div>
+
+<main>
+
+
+<p>Splunk is a good tool for indexing and searching logs.
+Splunk uses SPL Splunk Processing language for querying</p>
+
+<h3 id="search-the-access-logs-and-return-the-number-of-hits-from-the-top-100-values-of-referer-domain">Search the access logs, and return the number of hits from the top 100 values of &ldquo;referer_domain&rdquo;.</h3>
+
+<pre><code>sourcetype=access_combined | top limit=100 referer_domain | stats sum(count)
+</code></pre>
+
+<h3 id="graph-the-average-thruput-of-hosts-over-time">Graph the average &ldquo;thruput&rdquo; of hosts over time.</h3>
+
+<pre><code>... | timechart span=5m avg(thruput) by host
+</code></pre>
+
+<p>Splunk regex are very powerful and We can use regex and rex</p>
+
+<h3 id="keep-only-search-results-whose-raw-field-contains-ip-addresses-in-the-non-routable-class-a-10-0-0-0-8">Keep only search results whose &ldquo;_raw&rdquo; field contains IP addresses in the non-routable class A (10.0.0.0/8)</h3>
+
+<pre><code>... | regex _raw=&quot;(?&lt;!\d)10.\d{1,3}\.\d{1,3}\.\d{1,3}(?!\d)&quot;
+
+... | rex syntax
+
+</code></pre>
+
+<h3 id="order">Order</h3>
+
+<pre><code>Return the first 20 results. 
+... | head 20
+Reverse the order of a result set
+... | reverse
+Sort results by &quot;ip&quot; in ascending order, &quot;url&quot; in descending order.
+... | sort ip, ‐url
+Return the last 20 results (in reverse order)
+... | tail 20
+</code></pre>
+
+<p>Inputs.conf is located in   /etc/default/<br />
+This used by the forwarders for forwarding the log info from the client machine to the indexer to be indexed.</p>
+
+<pre><code>[monitor:///var/log/messages]
+disabled=false
+sourcetype=syslog    
+
+[monitor:///var/log/httpd]
+disabled=false
+sourcetype = access_common
+</code></pre>
+
+<p>Webavailability</p>
+
+<hr />
+
+<p>index=_internal sourcetype=web_availability_modular_input INFO OR WARNING OR ERROR OR CRITICAL | rex field=_raw &ldquo;(?<severity>(DEBUG)|(ERROR)|(WARNING)|(INFO)|(CRITICAL)) (?<message>.*)&rdquo; | fillnull severity value=&ldquo;UNDEFINED&rdquo; | timechart count(severity) as count by severity</p>
+
+<p><query>index=_internal sourcetype=web_availability_modular_input | rex field=_raw &ldquo;(?<severity>(DEBUG)|(ERROR)|(WARNING)|(INFO)|(CRITICAL)) (?<message>.*)&rdquo; | fillnull value=&ldquo;undefined&rdquo; vendor_severity | stats sparkline count by severity | sort -count</query></p>
+
+<p><query>index=_internal sourcetype=web_availability_modular_input $severity$ | rex field=_raw &ldquo;(?<severity>(DEBUG)|(ERROR)|(WARNING)|(INFO)|(CRITICAL)) (?<message>.*)&rdquo; | sort -_time | eval time=_time | convert ctime(time) | table time severity message</query></p>
+
+<p><searchString>sourcetype=&ldquo;web_ping&rdquo; $only_enabled$ | fillnull response_code value=&ldquo;Connection failed&rdquo; | eval response_code=if(response_code=&ldquo;&rdquo;, &ldquo;Connection failed&rdquo;, response_code) | eval response_code=if(timed_out == &ldquo;True&rdquo;, &ldquo;Connection timed out&rdquo;, response_code) | stats sparkline(avg(total_time)) as sparkline_response_time avg(total_time) as avg_response_time max(total_time) as max_response_time latest(response_code) as response_code latest(_time) as last_checked latest(title) as title latest(total_time) as response_time range(total_time) as range min(total_time) as min by url | eval response_time=round(response_time, 0).&rdquo; ms&rdquo; | eval average=round(avg_response_time, 0).&rdquo; ms&rdquo; | eval maximum=round(max_response_time, 0).&rdquo; ms&rdquo; | eval range=round(min, 0).&rdquo; - &ldquo;.round(min+range, 0).&rdquo; ms&rdquo; | table title url response_code last_checked response_time average range sparkline_response_time  | <code>timesince(last_checked,last_checked)</code> | sort -response_time</searchString></p>
+
+<p><search></p>
+
+<p><query>index=wc_prod_filemon (source=powershell:// wc_filemon_fileportalworking createtime_diffmins&gt;5 filename=*.tif) OR (source=&ldquo;powershell://wc_filemon_faxes&rdquo;)  | append [search index=wc_prod_filemon source=&ldquo;powershell://wc_filemon_confirmation&rdquo;  | eval createtime=strftime(relative_time(strptime(createtime,&ldquo;%Y-%m-%d %H:%M:%S&rdquo;),&ldquo;-11h&rdquo;),&ldquo;%Y-%m-%d %H:%M:%S&rdquo;)  | eval createtime_diffmins=round(((_time-strptime(createtime,&ldquo;%Y-%m-%d %H:%M:%S&rdquo;))/60),0)  | search createtime_diffmins&gt;10]</p>
+
+<p>| stats count(eval(match(source,&ldquo;powershell://wc_filemon_confirmation&rdquo;))) as confirmation_count,</p>
+
+<p>count(eval(match(source,&ldquo;powershell://wc_filemon_faxes&rdquo;))) as fax_count,</p>
+
+<p>count(eval(match(source,&ldquo;powershell://wc_filemon_fileportalworking&rdquo;))) as fileportal_count</p>
+
+<p>| eval bool=if(fileportal_count&gt;100 OR fax_count=0 OR confirmation_count&gt;15,1,0) | rangemap field=bool low=0-0 severe=1-1 default=none</query></p>
+
+<p><earliest>-5m</earliest></p>
+
+<pre><code>      &lt;latest&gt;now&lt;/latest&gt;
+</code></pre>
+
+<p></search></p>
+
+<h3 id="service-status">Service status</h3>
+
+<p>index=wc_prod_svc | rename servicename AS &ldquo;Service Name&rdquo;, displayname AS &ldquo;Display Name&rdquo;, status AS &ldquo;Status&rdquo; | table &ldquo;Service Name&rdquo;,&ldquo;Status&rdquo; | sort -&ldquo;Status&rdquo;,+&ldquo;Service Name&rdquo;</p>
+
+<h3 id="eval-with-cutofftime">Eval with cutofftime</h3>
+
+<p><search></p>
+
+<pre><code>      &lt;query&gt;(index=comhr_prod_filemon source=powershell://hr_filemon_scanbatch createtime_diffmins&gt;5) OR (index=hr_prod_web source=&quot;web_ping://comhr_web_webtop&quot; sourcetype=&quot;web_ping&quot; response_code&gt;=400) | append [search index=hr_prod_filemon source=&quot;powershell://hr_filemon_refdatainput&quot; | eval cutofftime=(strftime(now(), &quot;%Y-%m-%d&quot;).&quot; 09:30:00&quot;) | eval result=if(_time&gt;strptime(cutofftime,&quot;%Y-%m-%d %H:%M:%S&quot;),1,0) | search result=1] | stats count(eval(match(source,&quot;powershell://hr_filemon_scanbatch&quot;))) as scanbatch_count, count(eval(match(source,&quot;powershell://hr_filemon_refdatainput&quot;))) as refdatainput_count, count(eval(match(source,&quot;web_ping://hr_web_webtop&quot;))) as weberror_count | eval bool=if(scanbatch_count&gt;100 OR refdatainput_count&gt;0 OR weberror_count&gt;0,1,0) | rangemap field=bool low=0-0 severe=1-1 default=none&lt;/query&gt;
+
+      &lt;earliest&gt;-10m&lt;/earliest&gt;
+
+      &lt;latest&gt;now&lt;/latest&gt;
+
+    &lt;/search&gt;
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

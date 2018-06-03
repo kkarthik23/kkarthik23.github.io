@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebServers | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">WebServers</span></h1>
+
+<h2 class="date">2017/11/16</h2>
+</div>
+
+<main>
+
+
+<p>Nginx is a web server which is less resource hungry than Apache
+<!-- more --></p>
+
+<h2 id="nginx-cache">Nginx Cache</h2>
+
+<p>Set the Cache Expires field</p>
+
+<p>Refer <a href="http://nginx.org/en/docs/http/ngx_http_headers_module.html">http://nginx.org/en/docs/http/ngx_http_headers_module.html</a></p>
+
+<p>Modified /etc/nginx/sites-available/default</p>
+
+<pre><code>map $sent_http_content_type $expires 
+{ 
+    default off; 
+    text/html epoch; 
+    text/css max; 
+    application/javascript max; 
+    ~image/ max; 
+} 
+ 
+server { 
+    listen 80 default_server; 
+    listen [::]:80 default_server; 
+    expires $expires; 
+    
+    }
+    
+</code></pre>
+
+<h3 id="load-test">Load test</h3>
+
+<p>Use curl as below and replace with your website</p>
+
+<pre><code>curl -s http://www.google.com?[1-1000]
+
+</code></pre>
+
+<p>The other tool is apache benchmark (ab tool) which comes with apache
+On windows we can use as below provided apache is installed and present in the below location</p>
+
+<pre><code>C:\xampp\apache\bin&gt;ab
+
+</code></pre>
+
+<p><strong>1 concurrent user doing 100 page hits</strong></p>
+
+<p>This is 100 sequential page loads by a single user:
+ab -l -r -n 100 -c 1 -k -H &ldquo;Accept-Encoding: gzip, deflate&rdquo; <a href="http://www.example.com/blog/">http://www.example.com/blog/</a></p>
+
+<p>**5 concurrent users each doing 10 page hits **
+This is 50 page loads (total) by 5 different concurrent users, each user is doing 10 sequential pages loads.</p>
+
+<pre><code>ab -l -r -n 50 -c 5 -k -H &quot;Accept-Encoding: gzip, deflate&quot; http://www.example.com/blog/ 
+
+</code></pre>
+
+<p>**10 concurrent users each doing 10 page hits **
+ This is 100 page loads by 10 different concurrent users, each user is doing 10 sequential pages loads.</p>
+
+<pre><code>ab -l -r -n 100 -c 10 -k -H &quot;Accept-Encoding: gzip, deflate&quot; http://www.example.com/blog/ 
+
+</code></pre>
+
+<h3 id="fail2ban">Fail2Ban</h3>
+
+<p>Fail2Ban is an intrusion prevention software which can be used with ssh and apache etc.</p>
+
+<p>we need to create a jail.local file based on the contents of  jail.conf</p>
+
+<p>Monitor and tail  /var/log/fail2ban.log</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+
