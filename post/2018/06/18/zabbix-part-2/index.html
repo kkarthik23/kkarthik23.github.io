@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zabbix Part 2 | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Zabbix Part 2</span></h1>
+
+<h2 class="date">2018/06/18</h2>
+</div>
+
+<main>
+
+
+<h3 id="zabbix">Zabbix</h3>
+
+<p>net.tcp.service[ssh,,155]</p>
+
+<p>0 is down
+1 is up</p>
+
+<p>create new item and add to template
+create new trigger</p>
+
+<p>TriggerName sshcheck on {HOST.NAME}</p>
+
+<p>expression</p>
+
+<p>{Template OS Linux:net.tcp.service[ssh,,22].last()}=0</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

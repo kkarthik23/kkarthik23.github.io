@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xymon and Xymon Client | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Xymon and Xymon Client</span></h1>
+
+<h2 class="date">2018/05/28</h2>
+</div>
+
+<main>
+
+
+<p>Install xymon and apache2 on Debian Stretch</p>
+
+<pre><code>sudo apt-get install apache2
+sudo apt-get install xymon
+</code></pre>
+
+<p>Copy the ‘xymon’ file located in /etc/apache2/conf.d to /etc/apache2/conf-available –but– change it from xymon to xymon.conf (command: sudo cp /etc/apache2/conf.d/xymon /etc/apache2/conf-available/xymon.conf)</p>
+
+<p>Now, create a symlink to that file in the conf-enabled folder (command: sudo ln -s /etc/apache2/conf-available/xymon.conf /etc/apache2/conf-enabled/ )</p>
+
+<p>Edit the xymon.conf file in /etc/apache2/conf-available and remove any lines with “Order allow,deny” and “All from localhost…” and put “Require all granted” in their place</p>
+
+<p>Restart both Apache2 and Xymon (command: sudo systemctl restart apache2 restart … repeat for Xymon but replace apache2 with xymon)</p>
+
+<h4 id="file-locations">file locations</h4>
+
+<p>/etc/default/xymon-client</p>
+
+<p>/etc/xymon/hosts.cfg</p>
+
+<p>/etc/xymon/tasksc.cfg</p>
+
+<p>/etc/xymon/protocols.cfg</p>
+
+<h4 id="xymom-config">Xymom config</h4>
+
+<p>You could update tasks.cfg to include an
+extra xymonnet section :</p>
+
+<pre><code>
+[xymonnet-20s]
+        ENVFILE /usr/lib/xymon/server/etc/xymonserver.cfg
+        NEEDS xymond
+        CMD HOSTSCFG=$XYMONHOME/etc/hosts-20s.cfg xymonnet --report --ping
+--checkresponse --timeout=20
+        LOGFILE $XYMONSERVERLOGS/xymonnet.log
+        INTERVAL 5m
+</code></pre>
+
+<p>This will get its configuration from a different hosts.cfg called
+hosts-20s.cfg.  In this file you would include only the hosts and tests
+where you want a timeout of 20 seconds.</p>
+
+<p>The normal network tests would continue to run, so you&rsquo;d want to remove
+those tests from the main hosts.cfg, but leaving the hosts in.</p>
+
+<h4 id="installation-of-the-xymon-ps-client-is-straightforward">Installation of the Xymon PS client is straightforward</h4>
+
+<ol>
+<li><p>Review xymonclient_config.xml and at the least, set the Xymon server address.</p></li>
+
+<li><p>Copy the following files to a directory on the target server (e.g. c:\program files(x86)\xymon)</p></li>
+</ol>
+
+<p>a.  Xymonclient.ps1</p>
+
+<p>b.  Nssm.exe</p>
+
+<p>c.  Xymonclient_config.xml</p>
+
+<ol>
+<li><p>Run the following command to install the service from a PowerShell prompt (may need to be an administrative prompt):</p>
+
+<p>.\xymonclient.ps1 install</p></li>
+
+<li><p>Either review and start the service in Windows services control panel or run:</p></li>
+</ol>
+
+<p>.\xymonclient.ps1 start</p>
+
+<p>The script will create the windows service entry using the SYSTEM or LOCALSYSTEM account to run the service.
+If BBWin or the original PowerShell client is running, it’s best to stop and disable those services first.</p>
+
+<h4 id="powershell-execution-policy">Powershell execution policy</h4>
+
+<p>In step 3 above, if the PowerShell execution policy has not been set then you will receive a PowerShell error. You can either run “Set-ExecutionPolicy RemoteSigned” from an administrative PowerShell prompt or start powershell using “powershell.exe -executionpolicy remotesigned” from Start-&gt;Run.</p>
+
+<p>Tested and working on Windows Server 2016</p>
+
+<h4 id="bbwinclient">BBWinClient</h4>
+
+<p>Download and install the BBWinClient</p>
+
+<p>config file is BBWin.cfg</p>
+
+<p>This doesn&rsquo;t seem to work on Windows Server 2016 for some reason</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

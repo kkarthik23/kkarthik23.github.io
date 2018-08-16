@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LoadBalancers on Hugo Ivy</title>
-    <link>/tags/loadbalancers/</link>
+    <link>https://kkarthik23.github.io/tags/loadbalancers/</link>
     <description>Recent content in LoadBalancers on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Nov 2016 19:20:00 +1100</lastBuildDate>
     
-	<atom:link href="/tags/loadbalancers/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kkarthik23.github.io/tags/loadbalancers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Case for Software Load Balancing</title>
-      <link>/post/2016/11/12/a-case-for-software-load-balancing/</link>
+      <link>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</link>
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
-      <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
+      <guid>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</guid>
       <description>You can run software load balancers on commodity hardware.
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.

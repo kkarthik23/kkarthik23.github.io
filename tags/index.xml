@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hugo Ivy</title>
-    <link>/tags/</link>
+    <link>https://kkarthik23.github.io/tags/</link>
     <description>Recent content in Tags on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Jan 2018 19:20:00 +1100</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kkarthik23.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>3DS</title>
-      <link>/tags/3ds/</link>
+      <link>https://kkarthik23.github.io/tags/3ds/</link>
       <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
       
-      <guid>/tags/3ds/</guid>
+      <guid>https://kkarthik23.github.io/tags/3ds/</guid>
       <description></description>
     </item>
     
     <item>
       <title>APM</title>
-      <link>/tags/apm/</link>
+      <link>https://kkarthik23.github.io/tags/apm/</link>
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
-      <guid>/tags/apm/</guid>
+      <guid>https://kkarthik23.github.io/tags/apm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>/tags/git/</link>
+      <link>https://kkarthik23.github.io/tags/git/</link>
       <pubDate>Sun, 06 Aug 2017 21:57:42 +0000</pubDate>
       
-      <guid>/tags/git/</guid>
+      <guid>https://kkarthik23.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Grafana</title>
-      <link>/tags/grafana/</link>
+      <link>https://kkarthik23.github.io/tags/grafana/</link>
       <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
       
-      <guid>/tags/grafana/</guid>
+      <guid>https://kkarthik23.github.io/tags/grafana/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LoadBalancers</title>
-      <link>/tags/loadbalancers/</link>
+      <link>https://kkarthik23.github.io/tags/loadbalancers/</link>
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
-      <guid>/tags/loadbalancers/</guid>
+      <guid>https://kkarthik23.github.io/tags/loadbalancers/</guid>
       <description></description>
     </item>
     

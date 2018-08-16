@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Powershell snippets Part 2 | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Powershell snippets Part 2</span></h1>
+
+<h2 class="date">2018/06/02</h2>
+</div>
+
+<main>
+
+
+<h3 id="powershell-snippets">Powershell snippets</h3>
+
+<h5 id="move-files-for-archiving-condition">Move files for archiving condition</h5>
+
+<pre><code>
+if(Test-Path C:\Pshell)
+
+{
+$Source=&quot;C:\Pshell\*.json&quot;
+$Destination=&quot;C:\Pshell\json\&quot;
+
+Move-Item $Source $Destination
+
+}
+
+{
+
+
+}
+
+</code></pre>
+
+<h4 id="new-relic-api-sample">New Relic API sample</h4>
+
+<pre><code>&lt;# 
+$apikey = 'abc'
+$Appname = 'prod-publicwebsite-aws'
+function Get-NewRelicAppId {
+    Param (
+        [string]$NRAppName,
+        [string]$NRApiKey
+    )
+    Write-Debug -Message &quot;here&quot;
+    $URL = &quot;https://api.newrelic.com/v2/applications.json&quot;
+    $URI = New-Object System.Uri($URL,$true)
+    $WebRequestData = @{
+        Uri         = $URI
+        Headers     = @{&quot;X-Api-Key&quot;=&quot;$NRApiKey&quot;}
+        ContentType = 'application/json'
+        Body        = @{&quot;filter[name]&quot;=&quot;$NRAppName&quot;}
+    }
+    $Results = Invoke-RestMethod -Method GET @WebRequestData
+    $NRAppData = $Results.applications | Where-Object Name -eq $NRAppName
+    $NRAppData.id 
+}
+ #&gt;
+#Invoke-RestMethod -Method Post -Uri &quot;$resource\new&quot; -Body (ConvertTo-Json $body) -Header @{&quot;X-ApiKey&quot;=$apiKey}
+
+$apiKey = 'abc'
+$resource = 'https://api.newrelic.com/v2/applications.json'
+$NRAppName = 'CRM'
+
+$response = Invoke-RestMethod -Method Get -Uri $resource -Header @{&quot;X-Api-Key&quot;=$apiKey} -ContentType @{ContentType ='application/json'}
+ #Write-Host $response | Select-Object -ExpandProperty  applications
+ $Applications= ($response | Select-Object -ExpandProperty applications) | Where-Object Name -eq $NRAppName
+ Write-Host $Applications
+ 
+</code></pre>
+
+<p>```</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

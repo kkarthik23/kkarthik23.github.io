@@ -2,40 +2,86 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Hugo Ivy</title>
-    <link>/post/</link>
+    <link>https://kkarthik23.github.io/post/</link>
     <description>Recent content in Posts on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Apr 2018 19:20:00 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jun 2018 21:57:42 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kkarthik23.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Zabbix Part 2</title>
+      <link>https://kkarthik23.github.io/post/2018/06/18/zabbix-part-2/</link>
+      <pubDate>Mon, 18 Jun 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/06/18/zabbix-part-2/</guid>
+      <description>Zabbix net.tcp.service[ssh,,155]
+0 is down 1 is up
+create new item and add to template create new trigger
+TriggerName sshcheck on {HOST.NAME}
+expression
+{Template OS Linux:net.tcp.service[ssh,,22].last()}=0</description>
+    </item>
+    
+    <item>
+      <title>Powershell snippets Part 2</title>
+      <link>https://kkarthik23.github.io/post/2018/06/02/powershell-snippets-part-2/</link>
+      <pubDate>Sat, 02 Jun 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/06/02/powershell-snippets-part-2/</guid>
+      <description>Powershell snippets Move files for archiving condition  if(Test-Path C:\Pshell) { $Source=&amp;quot;C:\Pshell\*.json&amp;quot; $Destination=&amp;quot;C:\Pshell\json\&amp;quot; Move-Item $Source $Destination } { }  New Relic API sample &amp;lt;# $apikey = &#39;abc&#39; $Appname = &#39;prod-publicwebsite-aws&#39; function Get-NewRelicAppId { Param ( [string]$NRAppName, [string]$NRApiKey ) Write-Debug -Message &amp;quot;here&amp;quot; $URL = &amp;quot;https://api.newrelic.com/v2/applications.json&amp;quot; $URI = New-Object System.Uri($URL,$true) $WebRequestData = @{ Uri = $URI Headers = @{&amp;quot;X-Api-Key&amp;quot;=&amp;quot;$NRApiKey&amp;quot;} ContentType = &#39;application/json&#39; Body = @{&amp;quot;filter[name]&amp;quot;=&amp;quot;$NRAppName&amp;quot;} } $Results = Invoke-RestMethod -Method GET @WebRequestData $NRAppData = $Results.</description>
+    </item>
+    
+    <item>
+      <title>Xymon and Xymon Client</title>
+      <link>https://kkarthik23.github.io/post/2018/05/28/xymon-and-xymon-client/</link>
+      <pubDate>Mon, 28 May 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/05/28/xymon-and-xymon-client/</guid>
+      <description>Install xymon and apache2 on Debian Stretch
+sudo apt-get install apache2 sudo apt-get install xymon  Copy the ‘xymon’ file located in /etc/apache2/conf.d to /etc/apache2/conf-available –but– change it from xymon to xymon.conf (command: sudo cp /etc/apache2/conf.d/xymon /etc/apache2/conf-available/xymon.conf)
+Now, create a symlink to that file in the conf-enabled folder (command: sudo ln -s /etc/apache2/conf-available/xymon.conf /etc/apache2/conf-enabled/ )
+Edit the xymon.conf file in /etc/apache2/conf-available and remove any lines with “Order allow,deny” and “All from localhost…” and put “Require all granted” in their place</description>
+    </item>
+    
+    <item>
+      <title>Collectd and Graphite</title>
+      <link>https://kkarthik23.github.io/post/2018/05/18/collectd-and-graphite/</link>
+      <pubDate>Fri, 18 May 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/05/18/collectd-and-graphite/</guid>
+      <description> Install Collectd sudo yum install collectd  A minor configuration change will be needed to direct Collectd to report metrics to your Graphite server. Edit the configuration file (typically found at /etc/collectd/collectd.conf) and then restart the collectd service.
+LoadPlugin write_graphite &amp;lt;Plugin write_graphite&amp;gt; &amp;lt;Node &amp;quot;example&amp;quot;&amp;gt; Host &amp;quot;localhost&amp;quot; Port &amp;quot;2003&amp;quot; Prefix &amp;quot;collectd&amp;quot; &amp;lt;/Node&amp;gt; &amp;lt;/Plugin&amp;gt;  Check if Graphite and Collectd are running
+netstat -nltp | grep &#39;[27]00&#39; sudo systemctl status collectd  </description>
+    </item>
+    
+    <item>
       <title>Grafana</title>
-      <link>/post/2018/04/06/grafana/</link>
+      <link>https://kkarthik23.github.io/post/2018/04/06/grafana/</link>
       <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
       
-      <guid>/post/2018/04/06/grafana/</guid>
+      <guid>https://kkarthik23.github.io/post/2018/04/06/grafana/</guid>
       <description>Install  Redhat &amp;amp; Centos(64 Bit) wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.3-1.x86_64.rpm sudo yum localinstall grafana-5.1.3-1.x86_64.rpm sudo systemctl enable grafana-server.service sudo systemctl start grafana-server  Test using this URL or the corresponding IP address
 http://localhost:3000  A number of integrations available for example for integrating with Prometheus,InfluDB,Zabbix etc.</description>
     </item>
     
     <item>
       <title>3DS</title>
-      <link>/post/2018/01/20/3ds/</link>
+      <link>https://kkarthik23.github.io/post/2018/01/20/3ds/</link>
       <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
       
-      <guid>/post/2018/01/20/3ds/</guid>
+      <guid>https://kkarthik23.github.io/post/2018/01/20/3ds/</guid>
       <description>3DS 1.0 It allows shoppers to assign a password to their card that is then verified whenever a payment is processed through a shop that supports 3D Secure. The addition of password protection allows extra security on transactions that are processed online. The scheme is a collective of Verified by VISA (VBV) and MasterCard Secure Code (MSC). 3D Secure offers companies liability cover for transactions that are verified by checks.</description>
     </item>
     
     <item>
       <title>SQL Related</title>
-      <link>/post/2018/01/02/sql-related/</link>
+      <link>https://kkarthik23.github.io/post/2018/01/02/sql-related/</link>
       <pubDate>Tue, 02 Jan 2018 21:57:42 +0000</pubDate>
       
-      <guid>/post/2018/01/02/sql-related/</guid>
+      <guid>https://kkarthik23.github.io/post/2018/01/02/sql-related/</guid>
       <description>Implicit Conversion Implicit Conversion might kill your SQL Query performance so its important that its fixed
 
 In this picture the first query does not use implicit conversion and so the index could be used and performance is better but the second uses implicit conversion and so the SQL engine couldn&amp;rsquo;t use an index and so performance suffers.
@@ -44,10 +90,10 @@ SARG SARG is an acronym of “Search ARGumentable”. SARGable is defined as “
     
     <item>
       <title>APM tools</title>
-      <link>/post/2017/12/12/apm-tools/</link>
+      <link>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</link>
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
-      <guid>/post/2017/12/12/apm-tools/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</guid>
       <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
 They give a better insight into the behaviour of your applications and are worth it.
 New Relic is the most well known one but there are others in the market as well.
@@ -57,10 +103,10 @@ New Relic has a few criteria for mesuring app performance</description>
     
     <item>
       <title>Prometheus</title>
-      <link>/post/2017/12/12/prometheus/</link>
+      <link>https://kkarthik23.github.io/post/2017/12/12/prometheus/</link>
       <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
       
-      <guid>/post/2017/12/12/prometheus/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/12/12/prometheus/</guid>
       <description>Prometheus Install mkdir Downloads cd Downloads
 Download
 curl -LO &amp;ldquo;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&amp;quot;
@@ -78,30 +124,31 @@ Reload systemd so that it reads the configuration file you just created.</descri
     
     <item>
       <title>Useful Linux Tools</title>
-      <link>/post/2017/12/06/useful-linux-tools/</link>
+      <link>https://kkarthik23.github.io/post/2017/12/06/useful-linux-tools/</link>
       <pubDate>Wed, 06 Dec 2017 21:57:42 +0000</pubDate>
       
-      <guid>/post/2017/12/06/useful-linux-tools/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/12/06/useful-linux-tools/</guid>
       <description>Top is a good tool for viewing system processes
 However there is another one with a little bit more information called Htop</description>
     </item>
     
     <item>
       <title>Splunk related</title>
-      <link>/post/2017/11/28/splunk-related/</link>
+      <link>https://kkarthik23.github.io/post/2017/11/28/splunk-related/</link>
       <pubDate>Tue, 28 Nov 2017 21:57:42 +0000</pubDate>
       
-      <guid>/post/2017/11/28/splunk-related/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/11/28/splunk-related/</guid>
       <description>Splunk is a good tool for indexing and searching logs. Splunk uses SPL Splunk Processing language for querying
+Splunk common ports are as below
 To ignore certain errors so as to prevent from being alerted for false positives index=prodapplications sourcetype=&amp;quot;someservice&amp;quot; level=error message!=&amp;quot;*Error processing&amp;quot; | table dateTime,LEVEL,logger,message,exception  Search the access logs, and return the number of hits from the top 100 values of &amp;ldquo;referer_domain&amp;rdquo;. sourcetype=access_combined | top limit=100 referer_domain | stats sum(count)  Graph the average &amp;ldquo;thruput&amp;rdquo; of hosts over time.</description>
     </item>
     
     <item>
       <title>WebServers</title>
-      <link>/post/2017/11/16/webservers/</link>
+      <link>https://kkarthik23.github.io/post/2017/11/16/webservers/</link>
       <pubDate>Thu, 16 Nov 2017 21:57:42 +0000</pubDate>
       
-      <guid>/post/2017/11/16/webservers/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/11/16/webservers/</guid>
       <description>Nginx is a web server which is less resource hungry than Apache Nginx Cache Set the Cache Expires field
 Refer http://nginx.org/en/docs/http/ngx_http_headers_module.html
 Modified /etc/nginx/sites-available/default
@@ -111,20 +158,20 @@ curl -s http://www.google.com?[1-1000]  The other tool is apache benchmark (ab t
     
     <item>
       <title>Node and Ghost</title>
-      <link>/post/2017/11/11/node-and-ghost/</link>
+      <link>https://kkarthik23.github.io/post/2017/11/11/node-and-ghost/</link>
       <pubDate>Sat, 11 Nov 2017 15:20:00 +0000</pubDate>
       
-      <guid>/post/2017/11/11/node-and-ghost/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/11/11/node-and-ghost/</guid>
       <description> Node install Install node JS using windows installer 64 bit edition
 Install NVM Windows Node Version Manager Download from https://github.com/coreybutler/nvm-windows Install the windows installer nvm install 8.9.1 nvm version nvm list nvm on  Ghost npm install -g ghost-cli@latest ghost install (for prod) ghost install local (for local) ghost ls ghost stop  </description>
     </item>
     
     <item>
       <title>Notepad&#43;&#43; extension</title>
-      <link>/post/2017/11/08/notepad---extension/</link>
+      <link>https://kkarthik23.github.io/post/2017/11/08/notepad---extension/</link>
       <pubDate>Wed, 08 Nov 2017 20:00:00 +0000</pubDate>
       
-      <guid>/post/2017/11/08/notepad---extension/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/11/08/notepad---extension/</guid>
       <description>&lt;p&gt;Notepad++ comes with the default theme and it is white background, to change it
 Download Material Theme from &lt;a href=&#34;https://github.com/naderi/material-theme-for-npp&#34;&gt;https://github.com/naderi/material-theme-for-npp&lt;/a&gt;&lt;/p&gt;
 
@@ -133,19 +180,19 @@ Download Material Theme from &lt;a href=&#34;https://github.com/naderi/material-
     
     <item>
       <title>Powershell some commands</title>
-      <link>/post/2017/11/05/powershell-some-commands/</link>
+      <link>https://kkarthik23.github.io/post/2017/11/05/powershell-some-commands/</link>
       <pubDate>Sun, 05 Nov 2017 14:20:00 +0000</pubDate>
       
-      <guid>/post/2017/11/05/powershell-some-commands/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/11/05/powershell-some-commands/</guid>
       <description>Powershell commands Recycle app pool - 2003 web server $appPool = &amp;quot;Test&amp;quot; IIsApp /a &amp;quot;$appPool&amp;quot; /r  Recycle app pool - 2012 web server: $appPool = &amp;quot;Test&amp;quot; Import-Module -Name WebAdministration # Restart app poool Restart-WebAppPool -Name &amp;quot;$appPool&amp;quot;  Get app pool status: Write-Output &amp;quot;App pool $appPool restarted&amp;quot; Write-Output $(Get-WebAppPoolState -Name &amp;quot;$appPool&amp;quot;).Value  Get restart confirmation Start-Sleep -Seconds 30 Get-EventLog -LogName System -Newest 1 -Source WAS -Message &amp;quot;*$appPool*&amp;quot; | Format-List TimeWritten,Message  Restart Windows service - 2012 or 2003: $service = &amp;quot;TestService&amp;quot; Restart-Service -Name &amp;quot;$service&amp;quot; Write-Output &amp;quot;$service restarted&amp;quot; $status = (Get-Service -Name &amp;quot;$service&amp;quot;).</description>
     </item>
     
     <item>
       <title>Cockpit</title>
-      <link>/post/2017/10/28/cockpit/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/28/cockpit/</link>
       <pubDate>Sat, 28 Oct 2017 17:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/28/cockpit/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/28/cockpit/</guid>
       <description>&lt;p&gt;Cockpit is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.&lt;/p&gt;
 
 &lt;p&gt;Cockpit works with RedHat,CentOS,Fedora,Ubuntu,Debian&lt;/p&gt;
@@ -155,29 +202,29 @@ Download Material Theme from &lt;a href=&#34;https://github.com/naderi/material-
     
     <item>
       <title>Set Static Hostname on RHEL/CentOS 7 Linux AWS</title>
-      <link>/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</link>
       <pubDate>Sat, 14 Oct 2017 18:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/14/set-static-hostname-on-rhel/centos-7-linux-aws/</guid>
       <description> How to set static hostname on RHEL/CentOS 7 Linux AWS /etc/sysconfig/network HOSTNAME=desired-hostname.example.com  /etc/hostname desired-hostname.example.com  /etc/cloud/cloud.cfg: preserve_hostname: true  </description>
     </item>
     
     <item>
       <title>AWS NLB</title>
-      <link>/post/2017/10/14/aws-nlb/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/14/aws-nlb/</link>
       <pubDate>Sat, 14 Oct 2017 15:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/14/aws-nlb/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/14/aws-nlb/</guid>
       <description>A couple of my colleagues were fiddling around with NLB (Network Load Balancer) and couldn&amp;rsquo;t find the instance name in target and only IP address of the instances was listed. After some time not being able to find out we logged a support call with AWS and was directed to http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html
 Limits You cannot register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1, M2, M3, and T1.</description>
     </item>
     
     <item>
       <title>EPEL</title>
-      <link>/post/2017/10/09/epel/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/09/epel/</link>
       <pubDate>Mon, 09 Oct 2017 14:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/09/epel/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/09/epel/</guid>
       <description>&lt;p&gt;Some packages like NGINX isn&amp;rsquo;t included in the standard CentOS repositories, you must install an extra package to make sure that, once installed, NGINX is always up to date.&lt;/p&gt;
 
 &lt;p&gt;To do that, we&amp;rsquo;ll install the Extra Packages For Enterprise Linux (EPEL) package.&lt;/p&gt;
@@ -187,10 +234,10 @@ Limits You cannot register instances by instance ID if they have the following i
     
     <item>
       <title>Nagios</title>
-      <link>/post/2017/10/07/nagios/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/07/nagios/</link>
       <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/07/nagios/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/07/nagios/</guid>
       <description>&lt;p&gt;Nagios is a monitoring system&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -198,10 +245,10 @@ Limits You cannot register instances by instance ID if they have the following i
     
     <item>
       <title>Xymon</title>
-      <link>/post/2017/10/07/xymon/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/07/xymon/</link>
       <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/07/xymon/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/07/xymon/</guid>
       <description>&lt;h3 id=&#34;xymon&#34;&gt;Xymon&lt;/h3&gt;
 
 &lt;p&gt;This is a simple but powerful monitoring tool&lt;/p&gt;
@@ -213,10 +260,10 @@ Limits You cannot register instances by instance ID if they have the following i
     
     <item>
       <title>Zabbix</title>
-      <link>/post/2017/10/07/zabbix/</link>
+      <link>https://kkarthik23.github.io/post/2017/10/07/zabbix/</link>
       <pubDate>Sat, 07 Oct 2017 19:20:00 +0000</pubDate>
       
-      <guid>/post/2017/10/07/zabbix/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/10/07/zabbix/</guid>
       <description>&lt;p&gt;Zabbix is another monitoring system and runs on Linux and uses PHP and MySQL and can run on Apache Web Server&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -224,10 +271,10 @@ Limits You cannot register instances by instance ID if they have the following i
     
     <item>
       <title>AWS</title>
-      <link>/post/2017/08/26/aws/</link>
+      <link>https://kkarthik23.github.io/post/2017/08/26/aws/</link>
       <pubDate>Sat, 26 Aug 2017 19:20:00 +0000</pubDate>
       
-      <guid>/post/2017/08/26/aws/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/08/26/aws/</guid>
       <description>&lt;p&gt;AWS is Amazon Web Services and is a public cloud&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -235,10 +282,10 @@ Limits You cannot register instances by instance ID if they have the following i
     
     <item>
       <title>Static Site generator</title>
-      <link>/post/2017/08/26/static-site-generator/</link>
+      <link>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</link>
       <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/2017/08/26/static-site-generator/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</guid>
       <description>Hugo is a static Site generator using Go
 Some settings needs to be configured to generate output and push to github
 In cofig.toml set baseURL = &amp;quot;https://username.github.io/&amp;quot;  run hugo
@@ -249,10 +296,10 @@ git init git add . git commit -m &amp;quot;first commit&amp;quot; git remote add
     
     <item>
       <title>GIT and Vagrant</title>
-      <link>/post/2017/08/06/git-and-vagrant/</link>
+      <link>https://kkarthik23.github.io/post/2017/08/06/git-and-vagrant/</link>
       <pubDate>Sun, 06 Aug 2017 21:57:42 +0000</pubDate>
       
-      <guid>/post/2017/08/06/git-and-vagrant/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/08/06/git-and-vagrant/</guid>
       <description>GIT GIT is a Distributed Version Control System Some commands are
 create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
 git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  ###BitBucket</description>
@@ -260,14 +307,27 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
     
     <item>
       <title>A Case for Software Load Balancing</title>
-      <link>/post/2016/11/12/a-case-for-software-load-balancing/</link>
+      <link>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</link>
       <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
       
-      <guid>/post/2016/11/12/a-case-for-software-load-balancing/</guid>
+      <guid>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</guid>
       <description>You can run software load balancers on commodity hardware.
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
 There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://kkarthik23.github.io/post/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/1/01/01/</guid>
+      <description>Ansible is a config management tool
+sample inventory file is /etc/ansible/hosts
+This is the default ansible &amp;lsquo;hosts&amp;rsquo; file. #
+It should live in /etc/ansible/hosts #
+- Comments begin with the &amp;lsquo;#&amp;rsquo; character - Blank lines are ignored - Groups of hosts are delimited by [header] elements - You can enter hostnames or ip addresses - A hostname/ip can be a member of multiple groups Ex 1: Ungrouped hosts, specify before any group headers.</description>
     </item>
     
   </channel>

@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Hugo Ivy</title>
-    <link>/categories/</link>
+    <link>https://kkarthik23.github.io/categories/</link>
     <description>Recent content in Categories on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kkarthik23.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Devops</title>
-      <link>/categories/devops/</link>
+      <link>https://kkarthik23.github.io/categories/devops/</link>
       <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
       
-      <guid>/categories/devops/</guid>
+      <guid>https://kkarthik23.github.io/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>FinTech</title>
-      <link>/categories/fintech/</link>
+      <link>https://kkarthik23.github.io/categories/fintech/</link>
       <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
       
-      <guid>/categories/fintech/</guid>
+      <guid>https://kkarthik23.github.io/categories/fintech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQL</title>
-      <link>/categories/sql/</link>
+      <link>https://kkarthik23.github.io/categories/sql/</link>
       <pubDate>Tue, 02 Jan 2018 21:57:42 +0000</pubDate>
       
-      <guid>/categories/sql/</guid>
+      <guid>https://kkarthik23.github.io/categories/sql/</guid>
       <description></description>
     </item>
     

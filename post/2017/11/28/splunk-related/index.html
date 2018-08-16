@@ -39,6 +39,10 @@
 <p>Splunk is a good tool for indexing and searching logs.
 Splunk uses SPL Splunk Processing language for querying</p>
 
+<p>Splunk common ports are as below</p>
+
+<p><img src="/images/splunk-common-network-ports.jpg" alt="Image Title" /></p>
+
 <h4 id="to-ignore-certain-errors-so-as-to-prevent-from-being-alerted-for-false-positives">To ignore certain errors so as to prevent from being alerted for false positives</h4>
 
 <pre><code>index=prodapplications sourcetype=&quot;someservice&quot; level=error message!=&quot;*Error processing&quot; | table dateTime,LEVEL,logger,message,exception
