@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kibana | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Kibana</span></h1>
+
+<h2 class="date">2018/07/28</h2>
+</div>
+
+<main>
+
+
+<h3 id="install-java">Install Java</h3>
+
+<h3 id="sudo-yum-y-install-java">sudo yum -y install java</h3>
+
+<p>Run the following command to import the Elasticsearch public GPG key into rpm:</p>
+
+<p>sudo rpm &ndash;import <a href="http://packages.elastic.co/GPG-KEY-elasticsearch">http://packages.elastic.co/GPG-KEY-elasticsearch</a></p>
+
+<p>Create a new yum repository file for Elasticsearch. Note that this is a single command:</p>
+
+<p>echo &lsquo;[elasticsearch-2.x]
+name=Elasticsearch repository for 2.x packages
+baseurl=<a href="http://packages.elastic.co/elasticsearch/2.x/centos">http://packages.elastic.co/elasticsearch/2.x/centos</a>
+gpgcheck=1
+gpgkey=<a href="http://packages.elastic.co/GPG-KEY-elasticsearch">http://packages.elastic.co/GPG-KEY-elasticsearch</a>
+enabled=1
+&lsquo; | sudo tee /etc/yum.repos.d/elasticsearch.repo</p>
+
+<h3 id="install-elasticsearch-with-this-command">Install Elasticsearch with this command:</h3>
+
+<p>sudo yum -y install elasticsearch</p>
+
+<p>Elasticsearch is now installed. Let&rsquo;s edit the configuration:</p>
+
+<p>sudo vi /etc/elasticsearch/elasticsearch.yml</p>
+
+<p>sudo systemctl start elasticsearch</p>
+
+<p>Then run the following command to start Elasticsearch automatically on boot up:</p>
+
+<p>sudo systemctl enable elasticsearch</p>
+
+<h3 id="install-kibana">Install Kibana</h3>
+
+<p>The Kibana package shares the same GPG Key as Elasticsearch, and we already installed that public key.</p>
+
+<p>Create and edit a new yum repository file for Kibana:</p>
+
+<p>sudo vi /etc/yum.repos.d/kibana.repo</p>
+
+<p>Add the following repository configuration:</p>
+
+<p>/etc/yum.repos.d/kibana.repo</p>
+
+<p>[kibana-4.4]
+name=Kibana repository for 4.4.x packages
+baseurl=<a href="http://packages.elastic.co/kibana/4.4/centos">http://packages.elastic.co/kibana/4.4/centos</a>
+gpgcheck=1
+gpgkey=<a href="http://packages.elastic.co/GPG-KEY-elasticsearch">http://packages.elastic.co/GPG-KEY-elasticsearch</a>
+enabled=1</p>
+
+<p>Save and exit.</p>
+
+<h3 id="install-kibana-with-this-command">Install Kibana with this command</h3>
+
+<p>sudo yum -y install kibana</p>
+
+<h3 id="open-the-kibana-configuration-file-for-editing">Open the Kibana configuration file for editing:</h3>
+
+<p>sudo vi /opt/kibana/config/kibana.yml</p>
+
+<p>In the Kibana configuration file, find the line that specifies server.host, and replace the IP address (&ldquo;0.0.0.0&rdquo; by default) with &ldquo;localhost&rdquo;</p>
+
+<p>kibana.yml</p>
+
+<p>server.host: &ldquo;localhost&rdquo;</p>
+
+<p>Save and exit. This setting makes it so Kibana will only be accessible to the localhost. This is fine because we will install an Nginx reverse proxy, on the same server, to allow external access.</p>
+
+<h3 id="now-start-the-kibana-service-and-enable-it">Now start the Kibana service, and enable it:</h3>
+
+<p>sudo systemctl start kibana
+sudo chkconfig kibana on</p>
+
+<h3 id="install-filebeat">Install Filebeat</h3>
+
+<h3 id="linux">Linux</h3>
+
+<p>rpm:</p>
+
+<p>curl -L -O <a href="https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.2-x86_64.rpm">https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.2-x86_64.rpm</a>
+sudo rpm -vi filebeat-6.3.2-x86_64.rpm</p>
+
+<h3 id="windows">Windows</h3>
+
+<p>Download the Filebeat Windows zip file
+Extract the contents of the zip file into C:\Program Files.
+Rename the filebeat-<version>-windows directory to Filebeat.
+Open a PowerShell prompt as an Administrator (right-click the PowerShell icon and select Run As Administrator).
+From the PowerShell prompt, run the following commands to install Filebeat as a Windows service:
+PS &gt; cd &lsquo;C:\Program Files\Filebeat&rsquo; PS C:\Program Files\Filebeat&gt; .\install-service-filebeat.ps1</p>
+
+<p>sudo nano /etc/filebeat/filebeat.yml</p>
+
+<p>filebeat.inputs:</p>
+
+<h1 id="each-is-an-input-most-options-can-be-set-at-the-input-level-so">Each - is an input. Most options can be set at the input level, so</h1>
+
+<h1 id="you-can-use-different-inputs-for-various-configurations">you can use different inputs for various configurations.</h1>
+
+<h1 id="below-are-the-input-specific-configurations">Below are the input specific configurations.</h1>
+
+<ul>
+<li>input_type: log</li>
+</ul>
+
+<p>  # Change to true to enable this input configuration.
+   enabled: true</p>
+
+<p>  # Paths that should be crawled and fetched. Glob based paths.
+   paths:
+     - /var/log/*.log</p>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; Elasticsearch output &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<p>output.elasticsearch:
+   # Array of hosts to connect to.
+   hosts: [&ldquo;localhost:9200&rdquo;]</p>
+
+<p>Monitor the filebeat log</p>
+
+<p>tail /var/log/filebeat/filebeat</p>
+
+<h3 id="metricbeat">MetricBeat</h3>
+
+<p>Install  Metric for your OS
+configure MetricBeat
+/etc/metricbeat/metricbeat.yml</p>
+
+<p>output.elasticsearch:
+  hosts: [&ldquo;192.168.1.42:9200&rdquo;]</p>
+
+<p>#==================== Elasticsearch template setting ==========================</p>
+
+<p>setup.template.settings:
+   index.number_of_shards: 1
+   index.codec: best_compression
+   #_source.enabled: false</p>
+
+<p>setup.template.name: &ldquo;metricbeat&rdquo;</p>
+
+<p>setup.template.pattern: &ldquo;metricbeat-*&rdquo;</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

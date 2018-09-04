@@ -6,10 +6,35 @@
     <description>Recent content in Posts on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jun 2018 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://kkarthik23.github.io/post/2018/07/28/kibana/</link>
+      <pubDate>Sat, 28 Jul 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/07/28/kibana/</guid>
+      <description>Install Java sudo yum -y install java Run the following command to import the Elasticsearch public GPG key into rpm:
+sudo rpm &amp;ndash;import http://packages.elastic.co/GPG-KEY-elasticsearch
+Create a new yum repository file for Elasticsearch. Note that this is a single command:
+echo &amp;lsquo;[elasticsearch-2.x] name=Elasticsearch repository for 2.x packages baseurl=http://packages.elastic.co/elasticsearch/2.x/centos gpgcheck=1 gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch enabled=1 &amp;lsquo; | sudo tee /etc/yum.repos.d/elasticsearch.repo
+Install Elasticsearch with this command: sudo yum -y install elasticsearch
+Elasticsearch is now installed. Let&amp;rsquo;s edit the configuration:</description>
+    </item>
+    
+    <item>
+      <title>Vagrant Hyper V</title>
+      <link>https://kkarthik23.github.io/post/2018/06/28/vagrant-hyper-v/</link>
+      <pubDate>Thu, 28 Jun 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/06/28/vagrant-hyper-v/</guid>
+      <description>vagrant box add hashicorp/precise64 &amp;ndash;provider hyperv vagrant up &amp;ndash;provider hyperv After running vagrant init, modify your vagrant file with the following:
+Vagrant.configure(2) do |config|
+config.vm.box = &amp;ldquo;hashicorp/precise64&amp;rdquo; config.vm.provider &amp;ldquo;hyperv&amp;rdquo; config.vm.network &amp;ldquo;public_network&amp;rdquo; end</description>
+    </item>
     
     <item>
       <title>Zabbix Part 2</title>
@@ -32,6 +57,15 @@ expression
       
       <guid>https://kkarthik23.github.io/post/2018/06/02/powershell-snippets-part-2/</guid>
       <description>Powershell snippets Move files for archiving condition  if(Test-Path C:\Pshell) { $Source=&amp;quot;C:\Pshell\*.json&amp;quot; $Destination=&amp;quot;C:\Pshell\json\&amp;quot; Move-Item $Source $Destination } { }  New Relic API sample &amp;lt;# $apikey = &#39;abc&#39; $Appname = &#39;prod-publicwebsite-aws&#39; function Get-NewRelicAppId { Param ( [string]$NRAppName, [string]$NRApiKey ) Write-Debug -Message &amp;quot;here&amp;quot; $URL = &amp;quot;https://api.newrelic.com/v2/applications.json&amp;quot; $URI = New-Object System.Uri($URL,$true) $WebRequestData = @{ Uri = $URI Headers = @{&amp;quot;X-Api-Key&amp;quot;=&amp;quot;$NRApiKey&amp;quot;} ContentType = &#39;application/json&#39; Body = @{&amp;quot;filter[name]&amp;quot;=&amp;quot;$NRAppName&amp;quot;} } $Results = Invoke-RestMethod -Method GET @WebRequestData $NRAppData = $Results.</description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://kkarthik23.github.io/post/2018/05/28/django/</link>
+      <pubDate>Mon, 28 May 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/05/28/django/</guid>
+      <description>Django Basics Creating a new Django Project 1. To create the project run, name&amp;gt;, where is python django-admin.py startproject &amp;lt;  the name of the project you wish to create. Creating a new Django App 1. To create a new app, run , where is the $ python manage.py startapp  name of the app you wish to create. 2. Tell your Django project about the new app by adding it to the tuple in your INSTALLED_APPS project’s file.</description>
     </item>
     
     <item>

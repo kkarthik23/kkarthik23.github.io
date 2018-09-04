@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Django</span></h1>
+
+<h2 class="date">2018/05/28</h2>
+</div>
+
+<main>
+
+
+<h3 id="django-basics">Django Basics</h3>
+
+<p>Creating a new Django Project
+1. To create the project run,
+name&gt;, where
+is
+python django-admin.py startproject &lt;
+<name>
+the name of the project you wish to create.
+Creating a new Django App
+1. To create a new app, run
+<appname>, where
+is the
+$ python manage.py startapp
+<appname>
+name of the app you wish to create.
+2. Tell your Django project about the new app by adding it to the
+tuple in your
+INSTALLED_APPS
+project’s
+file.
+settings.py
+3. In your project
+file, add a mapping to the app.
+urls.py
+4. In your app’s directory, create a
+file to direct incoming URL strings to views.
+urls.py
+5. In your app’s
+.py, create the required views ensuring that they return a
+view
+HttpResponse
+object.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+
