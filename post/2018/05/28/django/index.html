@@ -38,37 +38,36 @@
 
 <h3 id="django-basics">Django Basics</h3>
 
-<p>Creating a new Django Project
-1. To create the project run,
-name&gt;, where
-is
-python django-admin.py startproject &lt;
-<name>
-the name of the project you wish to create.
-Creating a new Django App
-1. To create a new app, run
-<appname>, where
-is the
-$ python manage.py startapp
-<appname>
-name of the app you wish to create.
-2. Tell your Django project about the new app by adding it to the
-tuple in your
-INSTALLED_APPS
-project’s
-file.
-settings.py
-3. In your project
-file, add a mapping to the app.
-urls.py
-4. In your app’s directory, create a
-file to direct incoming URL strings to views.
-urls.py
-5. In your app’s
-.py, create the required views ensuring that they return a
-view
-HttpResponse
-object.</p>
+<p>Creating a new Django Project</p>
+
+<p>To create the project run,</p>
+
+<p>python django-admin.py startproject <name></p>
+
+<p>the name of the project you wish to create.</p>
+
+<p>Creating a new Django App</p>
+
+<ol>
+<li><p>To create a new app, run <appname></p>
+
+<pre><code>$ python manage.py startapp &lt;appname&gt;
+</code></pre>
+
+<p>name of the app you wish to create.</p></li>
+
+<li><p>Tell your Django project about the new app by adding it to the
+tuple in your INSTALLED_APPS project’s file settings.py</p></li>
+
+<li><p>In your project
+file, add a mapping to the app.urls.py</p></li>
+
+<li><p>In your app’s directory, create a
+file to direct incoming URL strings to views. urls.py</p></li>
+
+<li><p>In your app’s py, create the required views ensuring that they return a
+view HttpResponse object.</p></li>
+</ol>
 
 </main>
 

@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kkarthik23.github.io/post/2019/03/28/centos-basics/</loc>
+    <lastmod>2019-03-28T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2018/09/05/selenium/</loc>
+    <lastmod>2018-09-05T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kkarthik23.github.io/post/2018/07/28/kibana/</loc>
     <lastmod>2018-07-28T21:57:42+00:00</lastmod>
   </url>
@@ -39,12 +49,12 @@
   
   <url>
     <loc>https://kkarthik23.github.io/post/2018/04/06/grafana/</loc>
-    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <lastmod>2018-04-06T21:57:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/post/2018/01/20/3ds/</loc>
-    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+    <lastmod>2018-01-20T21:57:42+00:00</lastmod>
   </url>
   
   <url>
@@ -54,7 +64,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</loc>
-    <lastmod>2017-12-12T19:20:00+11:00</lastmod>
+    <lastmod>2017-12-12T21:57:42+00:00</lastmod>
   </url>
   
   <url>
@@ -128,13 +138,13 @@
   </url>
   
   <url>
-    <loc>https://kkarthik23.github.io/post/2017/08/26/aws/</loc>
-    <lastmod>2017-08-26T19:20:00+00:00</lastmod>
+    <loc>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</loc>
+    <lastmod>2017-08-26T21:57:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</loc>
-    <lastmod>2017-08-26T00:00:00+00:00</lastmod>
+    <loc>https://kkarthik23.github.io/post/2017/08/26/aws/</loc>
+    <lastmod>2017-08-26T19:20:00+00:00</lastmod>
   </url>
   
   <url>
@@ -144,7 +154,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</loc>
-    <lastmod>2016-11-12T19:20:00+11:00</lastmod>
+    <lastmod>2016-11-12T21:57:42+00:00</lastmod>
   </url>
   
   <url>
@@ -153,13 +163,13 @@
   
   <url>
     <loc>https://kkarthik23.github.io/tags/3ds/</loc>
-    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+    <lastmod>2018-01-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/tags/apm/</loc>
-    <lastmod>2017-12-12T19:20:00+11:00</lastmod>
+    <lastmod>2017-12-12T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -174,13 +184,13 @@
   
   <url>
     <loc>https://kkarthik23.github.io/categories/devops/</loc>
-    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <lastmod>2018-04-06T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/categories/fintech/</loc>
-    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+    <lastmod>2018-01-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -192,24 +202,24 @@
   
   <url>
     <loc>https://kkarthik23.github.io/tags/grafana/</loc>
-    <lastmod>2018-04-06T19:20:00+11:00</lastmod>
+    <lastmod>2018-04-06T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/</loc>
-    <lastmod>2018-07-28T21:57:42+00:00</lastmod>
+    <lastmod>2019-03-28T21:57:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/tags/loadbalancers/</loc>
-    <lastmod>2016-11-12T19:20:00+11:00</lastmod>
+    <lastmod>2016-11-12T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/post/</loc>
-    <lastmod>2018-07-28T21:57:42+00:00</lastmod>
+    <lastmod>2019-03-28T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -221,7 +231,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/tags/</loc>
-    <lastmod>2018-01-20T19:20:00+11:00</lastmod>
+    <lastmod>2018-01-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   

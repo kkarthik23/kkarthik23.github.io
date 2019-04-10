@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Selenium | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Selenium</span></h1>
+
+<h2 class="date">2018/09/05</h2>
+</div>
+
+<main>
+<p>Now you&rsquo;re ready to write your Selenium script:</p>
+
+<pre><code>
+var assert = require('chai').assert;
+
+// Script-wide timeout for all wait and waitAndFind functions (in ms)
+var DEFAULT_ELEMENT_TIMEOUT = 190000;   //3 mins
+var DEFAULT_PAGELOAD_TIMEOUT = 240000; //4 mins
+var navLinks = [&quot;css-locator-1&quot;,&quot;css-locator-2&quot;];
+
+//sets element load timeout to 3 mins
+$browser.manage().timeouts().implicitlyWait(DEFAULT_ELEMENT_TIMEOUT);
+//sets page load timoeout to 4 mins
+$browser.manage().timeouts().pageLoadTimeout(DEFAULT_PAGELOAD_TIMEOUT);
+
+//Test all the main Nav page performances
+$browser.get(&quot;http://www.sitename.com&quot;).then(function(){
+    return $browser.findElement($driver.By.className(&quot;site-theme-example&quot;));
+}).then(function(){
+    //Verifies the nav list has loaded
+    return $browser.findElement($driver.By.className(&quot;site-nav-list-example&quot;));
+}).then(function(){
+   //loops through the navLinks array
+   navLinks.forEach(function(val, i, arr){
+    //finds and navigates to each navLink page
+    return $browser.findElement($driver.By.className(navLinks[i])).click().then(function(){
+       //verifies that the nav list loaded before moving on
+        return $browser.findElement($driver.By.className(&quot;site-nav-list-example&quot;)).then(function(){
+            //verifies that the page logo footer at bottom of page has loaded
+            return $browser.findElement($driver.By.className(&quot;site-footer-logo&quot;));
+        })
+     })
+  })
+});
+
+</code></pre>
+
+<p>install CE edition of PyCharm</p>
+
+<p>install selenium using PIP (Python package manager)</p>
+
+<pre><code>pip install -U selenium
+</code></pre>
+
+<p>Download selenium chrome driver and unzip it to a location
+and include it in the code as below</p>
+
+<p>webchrometest.py</p>
+
+<pre><code>from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+#from selenium.webdriver.support import expected_conditions as EC
+import time
+
+# options = webdriver.ChromeOptions()
+# options.add_argument('user-agent = Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36')
+
+
+browser = webdriver.Chrome(r&quot;C:\Projects\WebTest\chromedriver.exe&quot;)
+#browser.implicitly_wait(30)
+
+browser.get('https://url/login')
+assert 'example' in browser.title
+
+def test1():
+ wait = WebDriverWait(webdriver, 10)
+elem = browser.find_element_by_name('username')# Find the field
+elem2 = browser.find_element_by_name('password')  # Find the field
+
+ #assert isinstance(elem, object)
+elem.clear()
+elem.send_keys('KK')
+elem.send_keys(Keys.RETURN)
+elem2.send_keys('1234')
+elem2.send_keys(Keys.RETURN)
+
+
+time.sleep ( 15 )
+
+browser.quit()
+
+</code></pre>
+
+<p>webtestfirefox.py  this example will use gecokdriver
+download geckodriver and install the exe in the same location as the soure python file</p>
+
+<pre><code>from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+import time
+
+
+browser: webdriver = webdriver.Firefox()
+browser.get('http://www.google.com')
+
+# def test1():
+elem = browser.find_element_by_name(&quot;q&quot;)  # Find the search box
+elem.send_keys('news')
+elem.send_keys(Keys.RETURN)
+
+# return elem
+
+time.sleep(20)
+browser.quit()
+
+
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

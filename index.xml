@@ -6,10 +6,34 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CentOS Basics</title>
+      <link>https://kkarthik23.github.io/post/2019/03/28/centos-basics/</link>
+      <pubDate>Thu, 28 Mar 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/03/28/centos-basics/</guid>
+      <description>Linux CentOS Basics Centos no ip address
+sudo vim /etc/sysconfig/network-scripts/ifcfg-emp0s3
+And set the ONBOOT to yes
+ONBOOT=yes
+Sudo Sestatus Sudo setenforce 0 sudo nano /etc/selinux/config Change SELINUX=enforcing to disabled Sudo reboot
+disable firewall systemctl stop firewalld systemctl disable firewalld  VirtualBox NAT port forwarding You can use the address of the host, e.g. 127.0.0.1 if you are on that machine. You will need to set up port forwarding in VirtualBox, which can be found in the networking settings:</description>
+    </item>
+    
+    <item>
+      <title>Selenium</title>
+      <link>https://kkarthik23.github.io/post/2018/09/05/selenium/</link>
+      <pubDate>Wed, 05 Sep 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/09/05/selenium/</guid>
+      <description>Now you&amp;rsquo;re ready to write your Selenium script:
+ var assert = require(&#39;chai&#39;).assert; // Script-wide timeout for all wait and waitAndFind functions (in ms) var DEFAULT_ELEMENT_TIMEOUT = 190000; //3 mins var DEFAULT_PAGELOAD_TIMEOUT = 240000; //4 mins var navLinks = [&amp;quot;css-locator-1&amp;quot;,&amp;quot;css-locator-2&amp;quot;]; //sets element load timeout to 3 mins $browser.manage().timeouts().implicitlyWait(DEFAULT_ELEMENT_TIMEOUT); //sets page load timoeout to 4 mins $browser.manage().timeouts().pageLoadTimeout(DEFAULT_PAGELOAD_TIMEOUT); //Test all the main Nav page performances $browser.get(&amp;quot;http://www.sitename.com&amp;quot;).then(function(){ return $browser.findElement($driver.By.className(&amp;quot;site-theme-example&amp;quot;)); }).then(function(){ //Verifies the nav list has loaded return $browser.</description>
+    </item>
     
     <item>
       <title>Kibana</title>
@@ -65,7 +89,14 @@ expression
       <pubDate>Mon, 28 May 2018 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2018/05/28/django/</guid>
-      <description>Django Basics Creating a new Django Project 1. To create the project run, name&amp;gt;, where is python django-admin.py startproject &amp;lt;  the name of the project you wish to create. Creating a new Django App 1. To create a new app, run , where is the $ python manage.py startapp  name of the app you wish to create. 2. Tell your Django project about the new app by adding it to the tuple in your INSTALLED_APPS project’s file.</description>
+      <description>Django Basics Creating a new Django Project
+To create the project run,
+python django-admin.py startproject 
+the name of the project you wish to create.
+Creating a new Django App
+ To create a new app, run 
+$ python manage.py startapp &amp;lt;appname&amp;gt;  name of the app you wish to create.
+ Tell your Django project about the new app by adding it to the tuple in your INSTALLED_APPS project’s file settings.</description>
     </item>
     
     <item>
@@ -94,7 +125,7 @@ netstat -nltp | grep &#39;[27]00&#39; sudo systemctl status collectd  </descript
     <item>
       <title>Grafana</title>
       <link>https://kkarthik23.github.io/post/2018/04/06/grafana/</link>
-      <pubDate>Fri, 06 Apr 2018 19:20:00 +1100</pubDate>
+      <pubDate>Fri, 06 Apr 2018 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2018/04/06/grafana/</guid>
       <description>Install  Redhat &amp;amp; Centos(64 Bit) wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.3-1.x86_64.rpm sudo yum localinstall grafana-5.1.3-1.x86_64.rpm sudo systemctl enable grafana-server.service sudo systemctl start grafana-server  Test using this URL or the corresponding IP address
@@ -104,7 +135,7 @@ http://localhost:3000  A number of integrations available for example for integr
     <item>
       <title>3DS</title>
       <link>https://kkarthik23.github.io/post/2018/01/20/3ds/</link>
-      <pubDate>Sat, 20 Jan 2018 19:20:00 +1100</pubDate>
+      <pubDate>Sat, 20 Jan 2018 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2018/01/20/3ds/</guid>
       <description>3DS 1.0 It allows shoppers to assign a password to their card that is then verified whenever a payment is processed through a shop that supports 3D Secure. The addition of password protection allows extra security on transactions that are processed online. The scheme is a collective of Verified by VISA (VBV) and MasterCard Secure Code (MSC). 3D Secure offers companies liability cover for transactions that are verified by checks.</description>
@@ -125,7 +156,7 @@ SARG SARG is an acronym of “Search ARGumentable”. SARGable is defined as “
     <item>
       <title>APM tools</title>
       <link>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</link>
-      <pubDate>Tue, 12 Dec 2017 19:20:00 +1100</pubDate>
+      <pubDate>Tue, 12 Dec 2017 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</guid>
       <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
@@ -304,20 +335,9 @@ Limits You cannot register instances by instance ID if they have the following i
     </item>
     
     <item>
-      <title>AWS</title>
-      <link>https://kkarthik23.github.io/post/2017/08/26/aws/</link>
-      <pubDate>Sat, 26 Aug 2017 19:20:00 +0000</pubDate>
-      
-      <guid>https://kkarthik23.github.io/post/2017/08/26/aws/</guid>
-      <description>&lt;p&gt;AWS is Amazon Web Services and is a public cloud&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Static Site generator</title>
       <link>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</link>
-      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Aug 2017 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2017/08/26/static-site-generator/</guid>
       <description>Hugo is a static Site generator using Go
@@ -326,6 +346,17 @@ In cofig.toml set baseURL = &amp;quot;https://username.github.io/&amp;quot;  run
 c:\hugo\quickstart\hugo
 files are generated under public folder type c:\hugo\quickstart cd public and then run gitpush.bat which contains below
 git init git add . git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/username/username.github.io git push -u origin master  Hugo is a static generator Some settings needs to be configured to generate output and push to github</description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://kkarthik23.github.io/post/2017/08/26/aws/</link>
+      <pubDate>Sat, 26 Aug 2017 19:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2017/08/26/aws/</guid>
+      <description>&lt;p&gt;AWS is Amazon Web Services and is a public cloud&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -342,7 +373,7 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
     <item>
       <title>A Case for Software Load Balancing</title>
       <link>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</link>
-      <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
+      <pubDate>Sat, 12 Nov 2016 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</guid>
       <description>You can run software load balancers on commodity hardware.

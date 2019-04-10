@@ -6,7 +6,7 @@
     <description>Recent content in LoadBalancers on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Nov 2016 19:20:00 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 12 Nov 2016 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/loadbalancers/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>A Case for Software Load Balancing</title>
       <link>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</link>
-      <pubDate>Sat, 12 Nov 2016 19:20:00 +1100</pubDate>
+      <pubDate>Sat, 12 Nov 2016 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2016/11/12/a-case-for-software-load-balancing/</guid>
       <description>You can run software load balancers on commodity hardware.
