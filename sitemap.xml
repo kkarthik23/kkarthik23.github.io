@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kkarthik23.github.io/post/2019/04/11/open-distro-elastic-search/</loc>
+    <lastmod>2019-04-11T15:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kkarthik23.github.io/post/2019/03/28/centos-basics/</loc>
     <lastmod>2019-03-28T21:57:42+00:00</lastmod>
   </url>
@@ -43,6 +48,11 @@
   </url>
   
   <url>
+    <loc>https://kkarthik23.github.io/post/2018/05/20/ansible-part-1/</loc>
+    <lastmod>2018-05-20T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kkarthik23.github.io/post/2018/05/18/collectd-and-graphite/</loc>
     <lastmod>2018-05-18T21:57:42+00:00</lastmod>
   </url>
@@ -68,8 +78,8 @@
   </url>
   
   <url>
-    <loc>https://kkarthik23.github.io/post/2017/12/12/prometheus/</loc>
-    <lastmod>2017-12-12T19:20:00+11:00</lastmod>
+    <loc>https://kkarthik23.github.io/post/2017/12/11/prometheus/</loc>
+    <lastmod>2017-12-11T15:20:00+00:00</lastmod>
   </url>
   
   <url>
@@ -158,10 +168,6 @@
   </url>
   
   <url>
-    <loc>https://kkarthik23.github.io/post/1/01/01/</loc>
-  </url>
-  
-  <url>
     <loc>https://kkarthik23.github.io/tags/3ds/</loc>
     <lastmod>2018-01-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
@@ -179,6 +185,12 @@
   
   <url>
     <loc>https://kkarthik23.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/tags/devops/</loc>
+    <lastmod>2018-05-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -208,7 +220,13 @@
   
   <url>
     <loc>https://kkarthik23.github.io/</loc>
-    <lastmod>2019-03-28T21:57:42+00:00</lastmod>
+    <lastmod>2019-04-11T15:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/categories/linux/</loc>
+    <lastmod>2018-05-20T21:57:42+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -219,7 +237,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/post/</loc>
-    <lastmod>2019-03-28T21:57:42+00:00</lastmod>
+    <lastmod>2019-04-11T15:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

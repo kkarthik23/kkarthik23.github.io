@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Hugo Ivy</title>
+    <link>https://kkarthik23.github.io/categories/linux/</link>
+    <description>Recent content in Linux on Hugo Ivy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 May 2018 21:57:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://kkarthik23.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ansible Part 1</title>
+      <link>https://kkarthik23.github.io/post/2018/05/20/ansible-part-1/</link>
+      <pubDate>Sun, 20 May 2018 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2018/05/20/ansible-part-1/</guid>
+      <description>Ansible is a config management tool
+sample inventory file is /etc/ansible/hosts
+This is the default ansible &amp;lsquo;hosts&amp;rsquo; file. #
+It should live in /etc/ansible/hosts #
+- Comments begin with the &amp;lsquo;#&amp;rsquo; character - Blank lines are ignored - Groups of hosts are delimited by [header] elements - You can enter hostnames or ip addresses - A hostname/ip can be a member of multiple groups Ex 1: Ungrouped hosts, specify before any group headers.</description>
+    </item>
+    
+  </channel>
+</rss>
