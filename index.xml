@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Open Distro Elastic Search </title>
+      <title>Open Distro Elastic Search</title>
       <link>https://kkarthik23.github.io/post/2019/04/11/open-distro-elastic-search/</link>
       <pubDate>Thu, 11 Apr 2019 15:20:00 +0000</pubDate>
       
@@ -61,10 +61,10 @@ Elasticsearch is now installed. Let&amp;rsquo;s edit the configuration:</descrip
     
     <item>
       <title>Vagrant Hyper V</title>
-      <link>https://kkarthik23.github.io/post/2018/06/28/vagrant-hyper-v/</link>
-      <pubDate>Thu, 28 Jun 2018 21:57:42 +0000</pubDate>
+      <link>https://kkarthik23.github.io/post/2018/06/29/vagrant-hyper-v/</link>
+      <pubDate>Fri, 29 Jun 2018 21:57:42 +0000</pubDate>
       
-      <guid>https://kkarthik23.github.io/post/2018/06/28/vagrant-hyper-v/</guid>
+      <guid>https://kkarthik23.github.io/post/2018/06/29/vagrant-hyper-v/</guid>
       <description>vagrant box add hashicorp/precise64 &amp;ndash;provider hyperv vagrant up &amp;ndash;provider hyperv After running vagrant init, modify your vagrant file with the following:
 Vagrant.configure(2) do |config|
 config.vm.box = &amp;ldquo;hashicorp/precise64&amp;rdquo; config.vm.provider &amp;ldquo;hyperv&amp;rdquo; config.vm.network &amp;ldquo;public_network&amp;rdquo; end</description>
