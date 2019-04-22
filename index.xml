@@ -17,8 +17,8 @@
       <pubDate>Thu, 11 Apr 2019 15:20:00 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/04/11/open-distro-elastic-search/</guid>
-      <description>filebeat.yml add this otherwise filebeat doesn&amp;rsquo;t seem to connect to elastic search
-# Configure SSL verification mode. If none is configured, all server hosts # and certificates will be accepted. In this mode, SSL based connections are # susceptible to man-in-the-middle attacks. Use only for testing. Default is # full. ssl.verification_mode: none</description>
+      <description>After installing Elastic Search test using
+curl -k -X GET &#39;https://localhost:9200&#39; -u username:password   sudo filebeat test config  journalctl -u kibana.service this will show recent 50 lines journalctl -u kibana.service -n 50  Filebeat YML #=========================== Filebeat inputs ============================= filebeat.inputs: # Each - is an input. Most options can be set at the input level, so # you can use different inputs for various configurations. # Below are the input specific configurations.</description>
     </item>
     
     <item>
@@ -411,7 +411,7 @@ There is good documentation on the Nginx website and so I will not be repeating 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/about/</guid>
-      <description>Blog of KK</description>
+      <description>Blog of Karthik Krishna (KK)</description>
     </item>
     
   </channel>
