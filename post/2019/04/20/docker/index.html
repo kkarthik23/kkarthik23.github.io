@@ -52,16 +52,46 @@ $ sudo yum install docker-ce docker-ce-cli containerd.io
 
 $ sudo systemctl start docker
 $ sudo systemctl enable docker (start at boot)
-$ sudo docker run hello-world
-$ sudo systemctl disable docker (stop running at boot)
+$ sudo docker run hello-world (pulls image from docker libaray and indicates docker is working okay)
+</code></pre>
 
+<p>Above command displays the below</p>
+
+<pre><code>Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+Digest: sha256:92695bc579f31df7a63da6922075d0666e565ceccad16b59c3374d2cf4e8e50e
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+</code></pre>
+
+<pre><code>$ sudo systemctl disable docker (stop running at boot)
 </code></pre>
 
 <h3 id="uninstall-docker">Uninstall Docker</h3>
 
 <pre><code>sudo yum remove docker-ce
 sudo rm -rf /var/lib/docker
+</code></pre>
 
+<h3 id="some-docker-commands">Some Docker Commands</h3>
+
+<pre><code>docker ps
+docker version
 </code></pre>
 
 </main>
