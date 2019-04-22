@@ -36,13 +36,10 @@
 <main>
 
 
-<p>After installing Elastic Search test using</p>
+<p>After installing Open Distro Elastic Search (check the Open Distro website for instructions)
+test using</p>
 
 <pre><code>curl -k -X GET 'https://localhost:9200' -u username:password
-
-</code></pre>
-
-<pre><code> sudo filebeat test config
 </code></pre>
 
 <pre><code>journalctl -u kibana.service
@@ -77,15 +74,24 @@ filebeat.inputs:
 
 <h3 id="important-notes">IMPORTANT NOTES</h3>
 
+<p>Check filbeat config file using below</p>
+
+<pre><code>sudo filebeat test config
+</code></pre>
+
 <p>1.Filebeat had issues even after above config was right so wokaround was</p>
 
-<h3 id="delete-or-rename-the-existing-registry-files-in-json">Delete or rename the existing registry files in json</h3>
+<h4 id="delete-or-rename-the-existing-registry-files-in-json">Delete or rename the existing registry files in json</h4>
+
+<p>/var/lib/filebeat/registry for DEB and RPM packages</p>
+
+<p>c:\ProgramData\filebeat\registry for the Windows zip file</p>
 
 <pre><code>/var/lib/filebeat/registry
 data.json  and meta.json
 </code></pre>
 
-<p>2.Use the OSS version of Filebeat with Open Distro</p>
+<h4 id="2-use-the-oss-version-of-filebeat-with-open-distro">2.Use the OSS version of Filebeat with Open Distro</h4>
 
 <p>filebeat.yml add this otherwise filebeat doesn&rsquo;t seem to connect to elastic search
 Once this is working then we can look at investigating ssl and certificates</p>

@@ -6,10 +6,20 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Apr 2019 15:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker</title>
+      <link>https://kkarthik23.github.io/post/2019/04/20/docker/</link>
+      <pubDate>Sat, 20 Apr 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/04/20/docker/</guid>
+      <description> Docker containers
+Install Docker CE(Community Edition) $ sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2$ sudo yum-config-manager \ $ sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo $ sudo yum install docker-ce docker-ce-cli containerd.io $ sudo systemctl start docker $ sudo systemctl enable docker (start at boot) $ sudo docker run hello-world $ sudo systemctl disable docker (stop running at boot)  Uninstall Docker sudo yum remove docker-ce sudo rm -rf /var/lib/docker  </description>
+    </item>
     
     <item>
       <title>Open Distro Elastic Search</title>
@@ -17,8 +27,8 @@
       <pubDate>Thu, 11 Apr 2019 15:20:00 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/04/11/open-distro-elastic-search/</guid>
-      <description>After installing Elastic Search test using
-curl -k -X GET &#39;https://localhost:9200&#39; -u username:password   sudo filebeat test config  journalctl -u kibana.service this will show recent 50 lines journalctl -u kibana.service -n 50  Filebeat YML #=========================== Filebeat inputs ============================= filebeat.inputs: # Each - is an input. Most options can be set at the input level, so # you can use different inputs for various configurations. # Below are the input specific configurations.</description>
+      <description>After installing Open Distro Elastic Search (check the Open Distro website for instructions) test using
+curl -k -X GET &#39;https://localhost:9200&#39; -u username:password  journalctl -u kibana.service this will show recent 50 lines journalctl -u kibana.service -n 50  Filebeat YML #=========================== Filebeat inputs ============================= filebeat.inputs: # Each - is an input. Most options can be set at the input level, so # you can use different inputs for various configurations.</description>
     </item>
     
     <item>

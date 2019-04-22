@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps on Hugo Ivy</title>
-    <link>https://kkarthik23.github.io/categories/devops/</link>
-    <description>Recent content in DevOps on Hugo Ivy</description>
+    <title>Docker on Hugo Ivy</title>
+    <link>https://kkarthik23.github.io/tags/docker/</link>
+    <description>Recent content in Docker on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Apr 2019 21:57:42 +0000</lastBuildDate>
     
-	<atom:link href="https://kkarthik23.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kkarthik23.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
