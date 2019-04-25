@@ -208,17 +208,8 @@ New Relic has a few criteria for mesuring app performance</description>
       <guid>https://kkarthik23.github.io/post/2017/12/11/prometheus/</guid>
       <description>Prometheus Install mkdir Downloads cd Downloads
 Download
-curl -LO &amp;ldquo;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&amp;quot;
-goto Root directory
-mkdir Prometheus
-cd Prometheus
-tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz
-./prometheus &amp;ndash;version
-sudo vi /etc/systemd/system/node_exporter.service This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:
-/etc/init/node_exporter.conf [Unit] Description=Node Exporter
-[Service] User=prometheus ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter
-[Install] WantedBy=default.target
-Reload systemd so that it reads the configuration file you just created.</description>
+curl -LO &amp;quot;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&amp;quot; goto Root directory mkdir Prometheus cd Prometheus tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz ./prometheus --version sudo vi /etc/systemd/system/node_exporter.service  This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:
+/etc/init/node_exporter.conf [Unit] Description=Node Exporter [Service] User=prometheus ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter [Install] WantedBy=default.target  Reload systemd so that it reads the configuration file you just created.</description>
     </item>
     
     <item>

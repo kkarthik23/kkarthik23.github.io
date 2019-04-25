@@ -43,58 +43,67 @@ cd Downloads</p>
 
 <p>Download</p>
 
-<p>curl -LO &ldquo;<a href="https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&quot;">https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&quot;</a></p>
+<pre><code>curl -LO &quot;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&quot;
 
-<p>goto Root directory</p>
+goto Root directory
 
-<p>mkdir Prometheus</p>
+mkdir Prometheus
 
-<p>cd Prometheus</p>
+cd Prometheus
 
-<p>tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz</p>
+tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz
 
-<p>./prometheus &ndash;version</p>
+./prometheus --version
 
-<p>sudo vi /etc/systemd/system/node_exporter.service
-This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:</p>
+sudo vi /etc/systemd/system/node_exporter.service
+</code></pre>
 
-<p>/etc/init/node_exporter.conf
+<p>This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:</p>
+
+<pre><code>/etc/init/node_exporter.conf
 [Unit]
-Description=Node Exporter</p>
+Description=Node Exporter
 
-<p>[Service]
+[Service]
 User=prometheus
-ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter</p>
+ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter
 
-<p>[Install]
-WantedBy=default.target</p>
+[Install]
+WantedBy=default.target
+</code></pre>
 
 <p>Reload systemd so that it reads the configuration file you just created.</p>
 
-<p>sudo systemctl daemon-reload
-At this point, Node Exporter is available as a service which can be managed using the systemctl command. Enable it so that it starts automatically at boot time.</p>
+<pre><code>sudo systemctl daemon-reload
+</code></pre>
 
-<p>sudo systemctl enable node_exporter.service
-You can now either reboot your server, or use the following command to start the service manually:</p>
+<p>At this point, Node Exporter is available as a service which can be managed using the systemctl command. Enable it so that it starts automatically at boot time.</p>
 
-<p>sudo systemctl start node_exporter.service</p>
+<pre><code>sudo systemctl enable node_exporter.service
+You can now either reboot your server, or use the following command to start the service manually:
 
-<p>Starting Prometheus Server
-Enter the directory where you installed the Prometheus server:</p>
+sudo systemctl start node_exporter.service
+</code></pre>
 
-<p>cd ~/Prometheus/prometheus-0.16.0.linux-amd64
-Before you start Prometheus, you must first create a configuration file for it called prometheus.yml.</p>
+<h3 id="starting-prometheus-server">Starting Prometheus Server</h3>
 
-<p>vi ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
-Copy the following code into the file.</p>
+<p>Enter the directory where you installed the Prometheus server:</p>
 
-<p>~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
+<pre><code>cd ~/Prometheus/prometheus-0.16.0.linux-amd64
+Before you start Prometheus, you must first create a configuration file for it called prometheus.yml.
+
+vi ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
+Copy the following code into the file.
+
+~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.yml
 scrape_configs:
-  - job_name: &ldquo;node&rdquo;
-    scrape_interval: &ldquo;15s&rdquo;
+  - job_name: &quot;node&quot;
+    scrape_interval: &quot;15s&quot;
     target_groups:
-    - targets: [&lsquo;localhost:9100&rsquo;]
-This creates a scrape_configs section and defines a job called node. It includes the URL of your Node Exporter&rsquo;s web interface in its array of targets. The scrape_interval is set to 15 seconds so that Prometheus scrapes the metrics once every fifteen seconds.</p>
+    - targets: ['localhost:9100']
+</code></pre>
+
+<p>This creates a scrape_configs section and defines a job called node. It includes the URL of your Node Exporter&rsquo;s web interface in its array of targets. The scrape_interval is set to 15 seconds so that Prometheus scrapes the metrics once every fifteen seconds.</p>
 
 <p>You could name your job anything you want, but calling it &ldquo;node&rdquo; allows you to use the default console templates of Node Exporter.</p>
 
@@ -102,13 +111,16 @@ This creates a scrape_configs section and defines a job called node. It includes
 
 <p>Start the Prometheus server as a background process.</p>
 
-<p>nohup ./prometheus &gt; prometheus.log 2&gt;&amp;1 &amp;
-Note that you redirected the output of the Prometheus server to a file called prometheus.log. You can view the last few lines of the file using the tail command:</p>
+<pre><code>nohup ./prometheus &gt; prometheus.log 2&gt;&amp;1 &amp;
+</code></pre>
 
-<p>tail ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.log
-Once the server is ready, you will see the following messages in the file:</p>
+<p>Note that you redirected the output of the Prometheus server to a file called prometheus.log. You can view the last few lines of the file using the tail command:</p>
 
-<p>Use a browser to visit Prometheus&rsquo;s homepage available at <a href="http://your_server_ip:9090">http://your_server_ip:9090</a>. You&rsquo;ll see the following homepage.</p>
+<pre><code>tail ~/Prometheus/prometheus-0.16.0.linux-amd64/prometheus.log
+</code></pre>
+
+<p>Once the server is ready, you will see the following messages in the file:
+Use a browser to visit Prometheus&rsquo;s homepage available at <a href="http://your_server_ip:9090">http://your_server_ip:9090</a>. You&rsquo;ll see the following homepage.</p>
 
 </main>
 

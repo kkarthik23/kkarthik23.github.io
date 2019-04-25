@@ -94,6 +94,21 @@ sudo rm -rf /var/lib/docker
 docker version
 </code></pre>
 
+<h3 id="docker-pull-image">Docker Pull Image</h3>
+
+<pre><code>docker pull debian:latest
+CTRL -C during pull cancels the pull
+docker images (displays the images)
+docker container run debian (will exit since no input has been provideed)
+but below command will work
+docker container run -it debian /bin/bash
+
+docker container rm c55680af670c (will remove particular docker container)
+
+</code></pre>
+
+<p>```</p>
+
 </main>
 
   <footer>
