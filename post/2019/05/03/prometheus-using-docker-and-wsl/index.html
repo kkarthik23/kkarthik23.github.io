@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prometheus using Docker and WSL | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Prometheus using Docker and WSL</span></h1>
+
+<h2 class="date">2019/05/03</h2>
+</div>
+
+<main>
+
+
+<h3 id="docker-on-windows-using-wsl">Docker on Windows using WSL</h3>
+
+<p>/etc/wsl.conf</p>
+
+<pre><code>[automount]
+root = /
+enabled = true
+options = &quot;metadata&quot;
+
+</code></pre>
+
+<p>Make sure c drive is mounted</p>
+
+<pre><code>ls -la /c
+pwd
+sudo mkdir prometheus
+sudo mkdir prometheus_data
+sudo nano docker-compose.yml
+</code></pre>
+
+<h3 id="in-below-docker-compose-file-in-volume-section-what-it-means-is-local-folder-on-host-is-pointing-to-location-on-container">in below docker compose file in volume section what it means is local folder on host is pointing to location on container</h3>
+
+<pre><code>version: '3'
+networks:
+  monitor-net:
+    driver: bridge
+volumes:
+    prometheus_data:
+    grafana_data:
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention=240h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    expose:
+      - 9090
+    ports:
+      - &quot;9090:9090&quot;
+    networks:
+      - monitor-net
+
+</code></pre>
+
+<p>create a simple Prometheus configuration file in home directory
+/home/username</p>
+
+<pre><code>cat &lt;&lt;EOF &gt; prometheus.yml
+global:
+  scrape_interval:     10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+EOF
+</code></pre>
+
+<p>This tells the Prometheus server to scrape itself on port 9090.</p>
+
+<p>Now let&rsquo;s create a Dockerfile that adds this on top of the prom/prometheus image:</p>
+
+<pre><code>cat &lt;&lt;EOF &gt; Dockerfile
+FROM prom/prometheus
+
+# Add in the configuration file from the local directory.
+ADD prometheus.yml /etc/prometheus/prometheus.yml
+EOF
+</code></pre>
+
+<p>Next we can build and run it:</p>
+
+<pre><code>docker build -t prometheus_simple .
+docker run -p 9090:9090 prometheus_simple
+</code></pre>
+
+<p>If you visit <a href="http://localhost:9090/consoles/prometheus.html">http://localhost:9090/consoles/prometheus.html</a> you&rsquo;ll see the Prometheus console!</p>
+
+<pre><code>CTL C to stop prometheus
+docker images
+
+docker rm prom/prometheus
+
+cd /c/Users/ka0823575/Documents
+cd /home/kk
+docker-compose.yml resides here
+
+docker-compose up
+docker-compose down
+</code></pre>
+
+<h3 id="troubleshooting-docker-on-windows">Troubleshooting Docker on Windows</h3>
+
+<p>Sometimes u have issues with volumes and that could be because of changing the windows logon password, to fix do this</p>
+
+<pre><code>Goto Settings
+Shared Drives
+Reset Credential
+Check C drive
+Restart Docker
+</code></pre>
+
+<h3 id="references">References</h3>
+
+<p><a href="https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows">https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows</a></p>
+
+<p><a href="https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#install-docker-and-docker-compose-within-wsl">https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#install-docker-and-docker-compose-within-wsl</a>
+<a href="https://www.linux.com/learn/docker-volumes-and-networks-compose">https://www.linux.com/learn/docker-volumes-and-networks-compose</a></p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

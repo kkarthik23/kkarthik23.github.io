@@ -6,10 +6,21 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Apr 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2019 11:20:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Prometheus using Docker and WSL</title>
+      <link>https://kkarthik23.github.io/post/2019/05/03/prometheus-using-docker-and-wsl/</link>
+      <pubDate>Fri, 03 May 2019 11:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/05/03/prometheus-using-docker-and-wsl/</guid>
+      <description>Docker on Windows using WSL /etc/wsl.conf
+[automount] root = / enabled = true options = &amp;quot;metadata&amp;quot;  Make sure c drive is mounted
+ls -la /c pwd sudo mkdir prometheus sudo mkdir prometheus_data sudo nano docker-compose.yml  in below docker compose file in volume section what it means is local folder on host is pointing to location on container version: &#39;3&#39; networks: monitor-net: driver: bridge volumes: prometheus_data: grafana_data: services: prometheus: image: prom/prometheus:latest container_name: prometheus volumes: - .</description>
+    </item>
     
     <item>
       <title>Docker</title>
@@ -405,6 +416,15 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
 There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://kkarthik23.github.io/post/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/1/01/01/</guid>
+      <description>Install SourceTree set up account details of bitbucket Then do a refresh using oAuth and it will authenticate in browser after this u can clone from remote repository</description>
     </item>
     
     <item>
