@@ -79,6 +79,27 @@ git push -u origin master
 
 </code></pre>
 
+<h2 id="first-do-a-hugo-build">first do a hugo build</h2>
+
+<p>then</p>
+
+<h2 id="gitpush-bat">gitpush.bat</h2>
+
+<p>testsite contains all the md files for content</p>
+
+<pre><code>git init
+cd testsite
+cd public
+
+git add .
+
+git commit -m &quot;first commit&quot;
+
+git remote add origin https://github.com/username/username.github.io
+
+git push -f origin master
+</code></pre>
+
 <h3 id="vagrant">Vagrant</h3>
 
 <p>Vagrant from HashiCorp is a good tool for spinning up environments and test.<br></p>
@@ -129,27 +150,6 @@ end
   
 end
 
-</code></pre>
-
-<h2 id="first-do-a-hugo-build">first do a hugo build</h2>
-
-<p>then</p>
-
-<h2 id="gitpush-bat">gitpush.bat</h2>
-
-<p>testsite contains all the md files for content</p>
-
-<pre><code>git init
-cd testsite
-cd public
-
-git add .
-
-git commit -m &quot;first commit&quot;
-
-git remote add origin https://github.com/username/username.github.io
-
-git push -f origin master
 </code></pre>
 
 </main>
