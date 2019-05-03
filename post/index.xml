@@ -17,9 +17,24 @@
       <pubDate>Fri, 03 May 2019 11:20:00 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/05/03/prometheus-using-docker-and-wsl/</guid>
-      <description>Docker on Windows using WSL /etc/wsl.conf
+      <description>Docker on Windows using WSL Some useful docker commands docker logs containerid docker system prune docker rm containerid docker rmi -f imagid  issue with not reading config file on host chmod 777 directory chmod 777 file  /etc/wsl.conf
 [automount] root = / enabled = true options = &amp;quot;metadata&amp;quot;  Make sure c drive is mounted
 ls -la /c pwd sudo mkdir prometheus sudo mkdir prometheus_data sudo nano docker-compose.yml  in below docker compose file in volume section what it means is local folder on host is pointing to location on container version: &#39;3&#39; networks: monitor-net: driver: bridge volumes: prometheus_data: grafana_data: services: prometheus: image: prom/prometheus:latest container_name: prometheus volumes: - .</description>
+    </item>
+    
+    <item>
+      <title>Source Tree and GitHubDesktop</title>
+      <link>https://kkarthik23.github.io/post/2019/05/01/source-tree-and-githubdesktop/</link>
+      <pubDate>Wed, 01 May 2019 11:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/05/01/source-tree-and-githubdesktop/</guid>
+      <description>Install SourceTree set up account details of bitbucket
+Then do a refresh using oAuth and it will authenticate in browser after this u can clone from remote repository
+Set up authentication to bitbucket account Clone repository (Clone is similar to a checkout)
+Basic steps
+1. Clone remote repository 2. Pull 3. Make changes to files 4. Push  For GitHubDesktop Goto File,Clone Repository,URL
+https://username3@bitbucket.org/username/test.git  Basic steps
+1. Clone remote repository 2.</description>
     </item>
     
     <item>
@@ -416,15 +431,6 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
 There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kkarthik23.github.io/post/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kkarthik23.github.io/post/1/01/01/</guid>
-      <description>Install SourceTree set up account details of bitbucket Then do a refresh using oAuth and it will authenticate in browser after this u can clone from remote repository</description>
     </item>
     
   </channel>

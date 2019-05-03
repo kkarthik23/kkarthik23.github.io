@@ -38,6 +38,21 @@
 
 <h3 id="docker-on-windows-using-wsl">Docker on Windows using WSL</h3>
 
+<h2 id="some-useful-docker-commands">Some useful docker commands</h2>
+
+<pre><code>docker logs containerid
+docker system prune
+docker rm containerid
+docker rmi -f imagid
+
+</code></pre>
+
+<h2 id="issue-with-not-reading-config-file-on-host">issue with not reading config file on host</h2>
+
+<pre><code>chmod 777 directory
+chmod 777 file
+</code></pre>
+
 <p>/etc/wsl.conf</p>
 
 <pre><code>[automount]
@@ -87,66 +102,208 @@ services:
     networks:
       - monitor-net
 
+ blackboxexporter:
+    image: bitnami/blackbox-exporter:latest
+    container_name: blackboxexporter
+    volumes:
+      - ./blackbox/:/etc/blackbox_exporter/
+      - /etc/ssl/certs/:/etc/ssl/certs/:ro
+    command:
+      - '--config.file=/etc/blackbox_exporter/blackbox.yml'
+    restart: unless-stopped
+    expose:
+      - 9115
+    ports:
+      - &quot;9115:9115&quot;
+    networks:
+      - monitor-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+   #   - GF_SECURITY_ADMIN_USER=please_change_me
+   #   - GF_SECURITY_ADMIN_PASSWORD=please_change_me
+      - GF_USERS_ALLOW_SIGN_UP=false
+    restart: unless-stopped
+    links:
+      - prometheus:prometheus
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    networks:
+      - monitor-net
+
 </code></pre>
 
-<p>create a simple Prometheus configuration file in home directory
-/home/username</p>
+<pre><code>create a simple Prometheus configuration file in home directory
+/home/username
+</code></pre>
 
-<pre><code>cat &lt;&lt;EOF &gt; prometheus.yml
+<p>cat &lt;<EOF > prometheus.yml
 global:
+  scrape_interval:     10s
+  evaluation_interval: 10s</p>
+
+<p>scrape_configs:
+  - job_name: &lsquo;prometheus&rsquo;
+    static_configs:
+      - targets: [&lsquo;localhost:9090&rsquo;]
+EOF</p>
+
+<pre><code>This tells the Prometheus server to scrape itself on port 9090.
+
+Now let's create a Dockerfile that adds this on top of the prom/prometheus image:
+</code></pre>
+
+<p>cat &lt;<EOF > Dockerfile
+FROM prom/prometheus</p>
+
+<pre><code># Add in the configuration file from the local directory.
+</code></pre>
+
+<p>ADD prometheus.yml /etc/prometheus/prometheus.yml
+EOF</p>
+
+<pre><code>
+Next we can build and run it:
+</code></pre>
+
+<p>docker build -t prometheus_simple .
+docker run -p 9090:9090 prometheus_simple</p>
+
+<p>If you visit <a href="http://localhost:9090/consoles/prometheus.html">http://localhost:9090/consoles/prometheus.html</a> you&rsquo;ll see the Prometheus console!</p>
+
+<p>CTL C to stop prometheus
+docker images</p>
+
+<p>docker rm prom/prometheus</p>
+
+<p>cd /c/Users/ka0823575/Documents
+cd /home/kk
+docker-compose.yml resides here</p>
+
+<p>docker-compose up
+docker-compose up -d
+docker-compose down</p>
+
+<pre><code>
+### Troubleshooting Docker on Windows
+Sometimes u have issues with volumes and that could be because of changing the windows logon password, to fix do this
+</code></pre>
+
+<p>Goto Settings
+Shared Drives
+Reset Credential
+Check C drive
+Restart Docker</p>
+
+<h2 id="prometheus-yml-sample">prometheus.yml sample</h2>
+
+<pre><code>global:
   scrape_interval:     10s
   evaluation_interval: 10s
 
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
-EOF
+      - targets: ['localhost:9090','localhost:8000','localhost:3000','localhost:9115']
+#scrape_configs:
+  - job_name: 'blackbox_dns'
+    metrics_path: /probe
+    params:
+      module: [dns_rp_mx]
+    static_configs:
+      - targets:
+        - 8.8.4.4  # Test various public DNS providers are working.
+        - 8.8.8.8
+        - 1.0.0.1
+        - 1.1.1.1
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
 </code></pre>
 
-<p>This tells the Prometheus server to scrape itself on port 9090.</p>
+<pre><code>
+                                                                        
+version: '3'
 
-<p>Now let&rsquo;s create a Dockerfile that adds this on top of the prom/prometheus image:</p>
+services:
+ memcache:
+    image: memcached:latest
+    ports:
+      - 11211
+    networks:
+     - web
+ yrslf:
+    image: img_yrslf
+    command: uwsgi -i yrslf.ini
+    volumes:
+      - .:/yrslf
+      - /var/run:/var/run
+      - /tmp:/tmp
+    ports:
+      - 8000
+    logging:
+      driver: &quot;json-file&quot;
+      options:
+        max-size: &quot;5m&quot;
+        max-file: &quot;2&quot;
+    environment:
+      - PYTHONUNBUFFERED=1
+    extra_hosts:
+      - &quot;yrslf-mongodb-1:10.88.20.145&quot;
+      - &quot;yrslf-mongodb-2:10.88.25.75&quot;
+      - &quot;yrslf-mongodb-3:10.88.28.254&quot;
+    networks:
+      - web
 
-<pre><code>cat &lt;&lt;EOF &gt; Dockerfile
-FROM prom/prometheus
+ nginx:
+    image: nginx:latest
+    volumes:
+      - ./static:/static
+      - ./nginx.yrslf.conf:/etc/nginx/conf.d/yrslf.conf
+      - /var/run:/var/run
+      - /tmp:/tmp
+    ports:
+      - 8000:8000
+      - 80:80
+      - 443:443
+    logging:
+      driver: &quot;json-file&quot;
+      options:
+        max-size: &quot;5m&quot;
 
-# Add in the configuration file from the local directory.
-ADD prometheus.yml /etc/prometheus/prometheus.yml
-EOF
+loadtest:
+    image: img_yrslf
+    command: bash -c &quot;locust -f locustfile.py --host=http://yrslf:8000&quot;
+    volumes:
+      - .:/yrslf
+    ports:
+      - 8089:8089
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - yrslf
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
 </code></pre>
 
-<p>Next we can build and run it:</p>
-
-<pre><code>docker build -t prometheus_simple .
-docker run -p 9090:9090 prometheus_simple
-</code></pre>
-
-<p>If you visit <a href="http://localhost:9090/consoles/prometheus.html">http://localhost:9090/consoles/prometheus.html</a> you&rsquo;ll see the Prometheus console!</p>
-
-<pre><code>CTL C to stop prometheus
-docker images
-
-docker rm prom/prometheus
-
-cd /c/Users/ka0823575/Documents
-cd /home/kk
-docker-compose.yml resides here
-
-docker-compose up
-docker-compose down
-</code></pre>
-
-<h3 id="troubleshooting-docker-on-windows">Troubleshooting Docker on Windows</h3>
-
-<p>Sometimes u have issues with volumes and that could be because of changing the windows logon password, to fix do this</p>
-
-<pre><code>Goto Settings
-Shared Drives
-Reset Credential
-Check C drive
-Restart Docker
-</code></pre>
+<p>use bridge driver if you dont want to use sware mode
+for sware mode use driver  overlay</p>
 
 <h3 id="references">References</h3>
 
