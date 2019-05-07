@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps on Hugo Ivy</title>
+    <title>Devops on Hugo Ivy</title>
     <link>https://kkarthik23.github.io/categories/devops/</link>
-    <description>Recent content in DevOps on Hugo Ivy</description>
+    <description>Recent content in Devops on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Apr 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Docker</title>
-      <link>https://kkarthik23.github.io/post/2019/04/20/docker/</link>
-      <pubDate>Sat, 20 Apr 2019 21:57:42 +0000</pubDate>
+      <title>Grafana</title>
+      <link>https://kkarthik23.github.io/post/2018/04/06/grafana/</link>
+      <pubDate>Fri, 06 Apr 2018 21:57:42 +0000</pubDate>
       
-      <guid>https://kkarthik23.github.io/post/2019/04/20/docker/</guid>
-      <description>Docker containers
-Install Docker CE(Community Edition) $ sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2$ sudo yum-config-manager \ $ sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo $ sudo yum install docker-ce docker-ce-cli containerd.io $ sudo systemctl start docker $ sudo systemctl enable docker (start at boot) $ sudo docker run hello-world (pulls image from docker libaray and indicates docker is working okay)  Above command displays the below
-Unable to find image &#39;hello-world:latest&#39; locally latest: Pulling from library/hello-world 1b930d010525: Pull complete Digest: sha256:92695bc579f31df7a63da6922075d0666e565ceccad16b59c3374d2cf4e8e50e Status: Downloaded newer image for hello-world:latest Hello from Docker!</description>
+      <guid>https://kkarthik23.github.io/post/2018/04/06/grafana/</guid>
+      <description>Install  Redhat &amp;amp; Centos(64 Bit) wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.1.3-1.x86_64.rpm sudo yum localinstall grafana-5.1.3-1.x86_64.rpm sudo systemctl enable grafana-server.service sudo systemctl start grafana-server  Test using this URL or the corresponding IP address
+http://localhost:3000  A number of integrations available for example for integrating with Prometheus,InfluDB,Zabbix etc.</description>
     </item>
     
-  </channel>
-</rss>e a better insight into the behaviour of your applications and are worth it.
+    <item>
+      <title>APM tools</title>
+      <link>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</link>
+      <pubDate>Tue, 12 Dec 2017 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2017/12/12/apm-tools/</guid>
+      <description>APM Application Performance Tools are crucial in monitoring the performance of applications.
+They give a better insight into the behaviour of your applications and are worth it.
 New Relic is the most well known one but there are others in the market as well.
 Example This the top 5 memory consumers of w3p processes in an IIS web server.
 New Relic has a few criteria for mesuring app performance</description>
