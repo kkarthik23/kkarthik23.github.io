@@ -418,7 +418,7 @@ git init git add . git commit -m &amp;quot;first commit&amp;quot; git remote add
       <guid>https://kkarthik23.github.io/post/2017/08/06/git-and-vagrant/</guid>
       <description>GIT GIT is a Distributed Version Control System Some commands are
 create a new repository on the command line echo &amp;ldquo;# website&amp;rdquo; &amp;gt;&amp;gt; README.md
-git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  ###BitBucket</description>
+git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git remote add origin https://github.com/Username/website.git git push -u origin master  or push an existing repository from the command line git remote add origin https://github.com/Username/website.git git push -u origin master  View remote and remove git remote -v git remote rm destination git remote -v  BitBucket Step 1:Push your local repo cd /path/to/your/repo  Step 2: Connect your existing repository to Bitbucket git remote add origin https://username@bitbucket.</description>
     </item>
     
     <item>
