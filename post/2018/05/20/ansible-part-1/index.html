@@ -36,6 +36,20 @@
 <main>
 
 
+<p>Set up an AWS instance</p>
+
+<p>Download the ssh key for the user which is a pem key then use Putty Gen to import the pem key and save it as a ppk key
+Then use
+ec2-user@instancename on port 22 and save session
+In auth filed use the ppk key to connect</p>
+
+<h3 id="epel-release">EPEL Release</h3>
+
+<p>epel-release is available in Amazon Linux Extra topic &ldquo;epel&rdquo;</p>
+
+<p>To use, run
+sudo amazon-linux-extras install epel</p>
+
 <h3 id="ansible">Ansible</h3>
 
 <p>is a config management tool</p>

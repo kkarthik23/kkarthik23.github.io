@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Categories | Hugo Ivy</title>
+    <title>AWS Athena | Hugo Ivy</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -27,47 +27,23 @@
     <hr/>
     </nav>
 
+<div class="article-meta">
+<h1><span class="title">AWS Athena</span></h1>
 
-<h1>Categories</h1>
+<h2 class="date">2019/05/30</h2>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="/categories/devops">
-      DevOps
-    </a>
-    (3)
-  </li>
-  
-  <li>
-    <a href="/categories/devops">
-      Devops
-    </a>
-    (4)
-  </li>
-  
-  <li>
-    <a href="/categories/fintech">
-      FinTech
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/categories/linux">
-      Linux
-    </a>
-    (2)
-  </li>
-  
-  <li>
-    <a href="/categories/sql">
-      SQL
-    </a>
-    (1)
-  </li>
-  
-</ul>
+<main>
+
+
+<h3 id="athena">Athena</h3>
+
+<p>for example abl_logs is the database and table is haproxy_tls_inbound_dev</p>
+
+<pre><code>SELECT * FROM &quot;alb_logs&quot;.&quot;haproxy_tls_inbound_dev&quot; limit 10;
+</code></pre>
+
+</main>
 
   <footer>
   

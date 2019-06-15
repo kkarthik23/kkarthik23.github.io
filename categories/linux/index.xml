@@ -17,11 +17,21 @@
       <pubDate>Sun, 20 May 2018 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2018/05/20/ansible-part-1/</guid>
-      <description>Ansible is a config management tool
-sample inventory file is /etc/ansible/hosts
-This is the default ansible &amp;lsquo;hosts&amp;rsquo; file. #
-It should live in /etc/ansible/hosts #
-- Comments begin with the &amp;lsquo;#&amp;rsquo; character - Blank lines are ignored - Groups of hosts are delimited by [header] elements - You can enter hostnames or ip addresses - A hostname/ip can be a member of multiple groups Ex 1: Ungrouped hosts, specify before any group headers.</description>
+      <description>Set up an AWS instance
+Download the ssh key for the user which is a pem key then use Putty Gen to import the pem key and save it as a ppk key Then use ec2-user@instancename on port 22 and save session In auth filed use the ppk key to connect
+EPEL Release epel-release is available in Amazon Linux Extra topic &amp;ldquo;epel&amp;rdquo;
+To use, run sudo amazon-linux-extras install epel</description>
+    </item>
+    
+    <item>
+      <title>Terraform Part 1</title>
+      <link>https://kkarthik23.github.io/post/1/01/01/terraform-part-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/1/01/01/terraform-part-1/</guid>
+      <description>Terraform is an infrastucture orcherstation tool Download from HashiCorp some of the commands are
+terraform init terraform plan terraform apply terraform destroy  example.tf file which sets up an instance in a vpc and a subnet in a region after access key and secret key are provided
+ provider &amp;quot;aws&amp;quot; { access_key = &amp;quot;&amp;quot; secret_key = &amp;quot;&amp;quot; region = &amp;quot;us-east-1&amp;quot; } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-0c6b1d09930fac512&amp;quot; instance_type = &amp;quot;t2.</description>
     </item>
     
   </channel>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python setup windows | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Python setup windows</span></h1>
+
+<h2 class="date">2019/05/20</h2>
+</div>
+
+<main>
+
+
+<p>For Windows, virtualenv venv creates a virtual environment
+However, activating the environment requires a slightly different command.</p>
+
+<p>Assuming that you are in your project directory:</p>
+
+<p>C:\Users\SomeUser\project_folder&gt; venv\Scripts\activate
+or
+source venv/bin/activate (if Linux)</p>
+
+<p>Install packages using the pip command:</p>
+
+<p>$ pip install requests
+$ deactivate</p>
+
+<p>for reactivating it is
+venv\Scripts\activate</p>
+
+<h3 id="aws-app-deploy-using-boto">AWS app deploy using Boto</h3>
+
+<p>Before you can deploy an application, be sure you have credentials configured. If you have previously configured your machine to run boto3 (the AWS SDK for Python) or the AWS CLI then you can skip this section.</p>
+
+<p>If this is your first time configuring credentials for AWS you can follow these steps to quickly get started:</p>
+
+<p>$ mkdir ~/.aws
+$ cat &gt;&gt; ~/.aws/config
+[default]
+aws_access_key_id=YOUR_ACCESS_KEY_HERE
+aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
+region=YOUR_REGION (such as us-west-2, us-west-1, etc)</p>
+
+<pre><code>$pip install awscli
+</code></pre>
+
+<h3 id="httpie">HTTPIE</h3>
+
+<p>httpie is a great alternative to curl</p>
+
+<pre><code>sudo apt-get install httpie
+</code></pre>
+
+<p>if u have python 3 use pip3</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+
