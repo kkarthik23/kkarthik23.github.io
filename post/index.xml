@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 May 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terraform Part 1</title>
+      <link>https://kkarthik23.github.io/post/2019/06/10/terraform-part-1/</link>
+      <pubDate>Mon, 10 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/10/terraform-part-1/</guid>
+      <description>Terraform is an infrastucture orcherstation tool Download from HashiCorp some of the commands are
+terraform init terraform plan terraform apply terraform destroy  example.tf file which sets up an instance in a vpc and a subnet in a region after access key and secret key are provided
+ provider &amp;quot;aws&amp;quot; { access_key = &amp;quot;&amp;quot; secret_key = &amp;quot;&amp;quot; region = &amp;quot;us-east-1&amp;quot; } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-0c6b1d09930fac512&amp;quot; instance_type = &amp;quot;t2.</description>
+    </item>
     
     <item>
       <title>AWS Athena</title>
@@ -455,17 +466,6 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
 There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
-    </item>
-    
-    <item>
-      <title>Terraform Part 1</title>
-      <link>https://kkarthik23.github.io/post/1/01/01/terraform-part-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kkarthik23.github.io/post/1/01/01/terraform-part-1/</guid>
-      <description>Terraform is an infrastucture orcherstation tool Download from HashiCorp some of the commands are
-terraform init terraform plan terraform apply terraform destroy  example.tf file which sets up an instance in a vpc and a subnet in a region after access key and secret key are provided
- provider &amp;quot;aws&amp;quot; { access_key = &amp;quot;&amp;quot; secret_key = &amp;quot;&amp;quot; region = &amp;quot;us-east-1&amp;quot; } resource &amp;quot;aws_instance&amp;quot; &amp;quot;example&amp;quot; { ami = &amp;quot;ami-0c6b1d09930fac512&amp;quot; instance_type = &amp;quot;t2.</description>
     </item>
     
   </channel>
