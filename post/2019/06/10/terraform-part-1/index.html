@@ -34,6 +34,8 @@
 </div>
 
 <main>
+
+
 <p>Terraform is an infrastucture  orcherstation tool
 Download from HashiCorp
 some of the commands are</p>
@@ -71,6 +73,243 @@ resource &quot;aws_subnet&quot; &quot;us-east-1a-public&quot; {
   vpc_id = &quot;${aws_vpc.example.id}&quot;
   cidr_block = &quot;10.0.1.0/25&quot;
   availability_zone = &quot;us-east-1a&quot;
+}
+
+</code></pre>
+
+<p>To access your instance:</p>
+
+<pre><code>create key pair and download pem file
+
+chmod 400 awstest.pem
+
+Connect to your instance using its Public DNS:
+
+ec2xxxx.compute-1.amazonaws.com
+</code></pre>
+
+<p>Example:</p>
+
+<p>ssh -i &ldquo;awstest.pem&rdquo; ec2-user@ec2xxxx.compute-1.amazonaws.com</p>
+
+<h3 id="to-make-instance-publicly-accessible">To make instance publicly accessible</h3>
+
+<p>get VPC ID</p>
+
+<p>get Subnet ID</p>
+
+<p>create IGW</p>
+
+<p>Create EIP</p>
+
+<p>associate EIP with instance</p>
+
+<p>Goto existing route table and associated vpc id it will have a local route now add a IGW as below
+create route table to 0.0.0.0/0 and use IGW</p>
+
+<h4 id="example2-tf">example2.tf</h4>
+
+<pre><code>provider &quot;aws&quot; {
+  access_key = &quot;&quot;
+  secret_key = &quot;&quot;
+  region     = &quot;us-east-1&quot;
+}
+
+data &quot;template_file&quot; &quot;Web_Server_Userdata&quot; {
+    template = &quot;${file(&quot;userdata_web_servers.sh&quot;)}&quot;
+}   
+resource &quot;aws_instance&quot; &quot;example&quot; {
+  ami           = &quot;ami-0c6b1d09930fac512&quot;
+  instance_type = &quot;t2.nano&quot;
+  subnet_id = &quot;${aws_subnet.us-east-1a-public.id}&quot;
+  private_ip = &quot;10.0.0.12&quot;
+  tags {
+        Name = &quot;testserver&quot;
+    }
+#security_groups = [&quot;${aws_security_group.example.name}&quot;]
+  vpc_security_group_ids = [&quot;${aws_security_group.example.id}&quot;]
+  key_name        = &quot;awstest&quot;
+  user_data = &quot;${data.template_file.Web_Server_Userdata.rendered}&quot;
+  
+}
+
+resource &quot;aws_eip&quot; &quot;example&quot; {
+  vpc = true
+
+  instance                  = &quot;${aws_instance.foo.id}&quot;
+  associate_with_private_ip = &quot;10.0.0.12&quot;
+  depends_on                = [&quot;aws_internet_gateway.gw&quot;]
+}
+
+resource &quot;aws_vpc&quot; &quot;example&quot; {
+  cidr_block = &quot;10.0.0.0/16&quot;
+  enable_dns_hostnames = true
+  enable_dns_support = true
+ 
+}
+
+resource &quot;aws_internet_gateway&quot; &quot;gw&quot; {
+  vpc_id = &quot;${aws_vpc.default.id}&quot;
+}
+
+
+resource &quot;aws_subnet&quot; &quot;us-east-1a-public&quot; {
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+  cidr_block = &quot;10.0.1.0/25&quot;
+  availability_zone = &quot;us-east-1a&quot;
+   depends_on = [&quot;aws_internet_gateway.gw&quot;]
+}
+
+#resource &quot;tls_private_key&quot; &quot;example&quot; {
+#  algorithm = &quot;RSA&quot;
+#  rsa_bits  = 4096
+#}
+
+#resource &quot;aws_key_pair&quot; &quot;generated_key&quot; {
+#  key_name   = &quot;example_key_pair&quot;
+#  public_key = &quot;${tls_private_key.example.public_key_openssh}&quot;
+#}
+
+resource &quot;aws_security_group&quot; &quot;example&quot; 
+{
+  name = &quot;sg_2280&quot;
+ 
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+  description = &quot;grant ssh,http&quot;
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+   ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+}
+  
+
+}
+
+</code></pre>
+
+<h5 id="example3-tf">EXAMPLE3.tf</h5>
+
+<pre><code>provider &quot;aws&quot; {
+  access_key = &quot;&quot;
+  secret_key = &quot;&quot;
+  region     = &quot;us-east-1&quot;
+}
+
+data &quot;template_file&quot; &quot;Web_Server_Userdata&quot; {
+    template = &quot;${file(&quot;userdata_web_servers.sh&quot;)}&quot;
+}   
+resource &quot;aws_instance&quot; &quot;example&quot; {
+  ami           = &quot;ami-0c6b1d09930fac512&quot;
+  instance_type = &quot;t2.nano&quot;
+  subnet_id = &quot;${aws_subnet.us-east-1a-public.id}&quot;
+  private_ip = &quot;10.0.1.12&quot;
+  tags {
+        Name = &quot;testserver&quot;
+    }
+#security_groups = [&quot;${aws_security_group.example.name}&quot;]
+  vpc_security_group_ids = [&quot;${aws_security_group.example.id}&quot;]
+  key_name        = &quot;awstest&quot;
+  user_data = &quot;${data.template_file.Web_Server_Userdata.rendered}&quot;
+  
+}
+
+resource &quot;aws_eip&quot; &quot;example&quot; {
+  vpc = true
+
+  instance                  = &quot;${aws_instance.example.id}&quot;
+  associate_with_private_ip = &quot;10.0.1.12&quot;
+  depends_on                = [&quot;aws_internet_gateway.gw&quot;]
+}
+
+resource &quot;aws_vpc&quot; &quot;example&quot; {
+  cidr_block = &quot;10.0.0.0/16&quot;
+  enable_dns_hostnames = true
+  enable_dns_support = true
+ 
+}
+
+resource &quot;aws_internet_gateway&quot; &quot;gw&quot; {
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+  tags {
+        Name = &quot;example_ig&quot;
+    }
+}
+
+# specify default route
+resource &quot;aws_route_table&quot; &quot;r&quot; {
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+
+route {
+    cidr_block = &quot;0.0.0.0/0&quot;
+    gateway_id = &quot;${aws_internet_gateway.gw.id}&quot;
+  }
+
+tags {
+    Name = &quot;aws_route_table&quot;
+  }
+}
+
+
+
+
+resource &quot;aws_subnet&quot; &quot;us-east-1a-public&quot; {
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+  cidr_block = &quot;10.0.1.0/25&quot;
+  availability_zone = &quot;us-east-1a&quot;
+   depends_on = [&quot;aws_internet_gateway.gw&quot;]
+}
+
+resource &quot;aws_route_table_association&quot; &quot;a&quot; {
+ subnet_id      = &quot;${aws_subnet.us-east-1a-public.id}&quot;
+ route_table_id = &quot;${aws_route_table.r.id}&quot;
+}
+
+
+resource &quot;aws_security_group&quot; &quot;example&quot; 
+{
+  name = &quot;sg_2280&quot;
+ 
+  vpc_id = &quot;${aws_vpc.example.id}&quot;
+  description = &quot;grant ssh,http&quot;
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+   ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+}
+  
+
 }
 
 </code></pre>
