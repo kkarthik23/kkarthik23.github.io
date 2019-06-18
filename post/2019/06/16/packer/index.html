@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Packer | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Packer</span></h1>
+
+<h2 class="date">2019/06/16</h2>
+</div>
+
+<main>
+
+
+<p>Packer is from HashiCorp and is another provisioning tool</p>
+
+<p>a packer folder in where packer.exe resides on Windows will contain</p>
+
+<pre><code>1.variables.json
+2.template.json
+3.provision.sh
+</code></pre>
+
+<p>variables.json will contain access key info</p>
+
+<pre><code>{
+  &quot;aws_access_key&quot;: &quot;&quot;,
+  &quot;aws_secret_key&quot;: &quot;&quot;
+}
+</code></pre>
+
+<p>We are using a debian 9 stretch ami and provisioning it</p>
+
+<p>template.json</p>
+
+<pre><code>{
+  &quot;variables&quot;: {
+    &quot;aws_access_key&quot;: &quot;&quot;,
+    &quot;aws_secret_key&quot;: &quot;&quot;
+  },
+&quot;builders&quot;: [{
+&quot;type&quot;: &quot;amazon-ebs&quot;,
+&quot;access_key&quot;: &quot;{{user `aws_access_key`}}&quot;,
+&quot;secret_key&quot;: &quot;{{user `aws_secret_key`}}&quot;,
+&quot;region&quot;: &quot;us-east-1&quot;,
+&quot;source_ami&quot;: &quot;ami-003f19e0e687de1cd&quot;,
+&quot;instance_type&quot;: &quot;t2.nano&quot;,
+&quot;ssh_username&quot;: &quot;admin&quot;,
+&quot;ami_name&quot;: &quot;MiddleTier-{{isotime | clean_ami_name}}&quot;,
+     &quot;ami_description&quot;: &quot;EC2 AMI Debian 9.1&quot;, 
+     &quot;tags&quot;: {
+       &quot;role&quot;: &quot;web_Server&quot;
+     },
+     &quot;run_tags&quot;: {
+       &quot;role&quot;: &quot;production_Web&quot;
+     }
+    }
+],
+
+&quot;provisioners&quot;: [
+{
+&quot;type&quot;: &quot;shell&quot;,
+&quot;script&quot;: &quot;provision.sh&quot;
+}
+]
+}
+
+</code></pre>
+
+<h3 id="provision-sh">provision.sh</h3>
+
+<pre><code>#!/bin/bash
+set -e
+#provision.sh
+
+ sudo apt-get update
+ echo &quot;apt-get update done.&quot;
+ sudo apt-get -y upgrade
+ sudo apt-get install -y python-dev python-pip
+ sudo pip install ansible
+ sudo timedatectl set-timezone Australia/Sydney
+ sudo localectl set-locale LANG=en_US.utf8
+ #sudo wget ‘https://s3.amazonaws.com/packeramidemo/i_playbook.yml'
+ #echo &quot;Running build.&quot;
+ #sudo ansible-playbook i_playbook.yml
+
+</code></pre>
+
+<h3 id="packer-run-step-which-will-build-a-custom-ami-and-will-be-a-private-ami">packer run step which will build a custom ami and will be a private ami</h3>
+
+<pre><code>packer build -var-file variables.json template.json
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

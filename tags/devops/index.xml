@@ -6,10 +6,24 @@
     <description>Recent content in DevOps on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Packer</title>
+      <link>https://kkarthik23.github.io/post/2019/06/16/packer/</link>
+      <pubDate>Sun, 16 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/16/packer/</guid>
+      <description>Packer is from HashiCorp and is another provisioning tool
+a packer folder in where packer.exe resides on Windows will contain
+1.variables.json 2.template.json 3.provision.sh  variables.json will contain access key info
+{ &amp;quot;aws_access_key&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;aws_secret_key&amp;quot;: &amp;quot;&amp;quot; }  We are using a debian 9 stretch ami and provisioning it
+template.json
+{ &amp;quot;variables&amp;quot;: { &amp;quot;aws_access_key&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;aws_secret_key&amp;quot;: &amp;quot;&amp;quot; }, &amp;quot;builders&amp;quot;: [{ &amp;quot;type&amp;quot;: &amp;quot;amazon-ebs&amp;quot;, &amp;quot;access_key&amp;quot;: &amp;quot;{{user `aws_access_key`}}&amp;quot;, &amp;quot;secret_key&amp;quot;: &amp;quot;{{user `aws_secret_key`}}&amp;quot;, &amp;quot;region&amp;quot;: &amp;quot;us-east-1&amp;quot;, &amp;quot;source_ami&amp;quot;: &amp;quot;ami-003f19e0e687de1cd&amp;quot;, &amp;quot;instance_type&amp;quot;: &amp;quot;t2.</description>
+    </item>
     
     <item>
       <title>Terraform Part 1</title>
