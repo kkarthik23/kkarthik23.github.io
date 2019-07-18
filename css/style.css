@@ -28,8 +28,11 @@ pre {
   box-shadow: 5px 5px 5px #eee;
   padding: 1em;
   overflow-x: auto;
+  color: #f9f9f9;
+  background-color: #1c1c1c;
+  
 }
-code { background: #1c1c1c; }
+code { background: #f9f9f9; }
 pre code { background: none; }
 
 /* misc elements */
