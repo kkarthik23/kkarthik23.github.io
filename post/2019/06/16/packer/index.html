@@ -115,6 +115,78 @@ set -e
 <pre><code>packer build -var-file variables.json template.json
 </code></pre>
 
+<p>haproxy.json</p>
+
+<pre><code>{
+  &quot;variables&quot;: {
+    &quot;aws_access_key&quot;: &quot;&quot;,
+    &quot;aws_secret_key&quot;: &quot;&quot;,
+    &quot;aws_region&quot;: &quot;&quot;
+  },
+    &quot;builders&quot;: [
+        {
+            &quot;ami_name&quot;: &quot;HAProxy - {{user `haproxy_role`}} layer - Docker {{ timestamp }}&quot;,
+            &quot;instance_type&quot;: &quot;t2.nano&quot;,
+            &quot;access_key&quot;: &quot;{{user `aws_access_key`}}&quot;,
+            &quot;secret_key&quot;: &quot;{{user `aws_secret_key`}}&quot;,
+            &quot;region&quot;: &quot;{{user `aws_region`}}&quot;,
+            &quot;source_ami&quot;: &quot;ami-4bf3d731&quot;,
+            &quot;ssh_username&quot;: &quot;centos&quot;,
+                  &quot;ssh_pty&quot; : true,
+            &quot;type&quot;: &quot;amazon-ebs&quot;,
+
+            &quot;tags&quot;: {
+                &quot;Billing&quot;: &quot;{{user `aws_tag_billing`}}&quot;,
+                &quot;CreatedBy&quot;: &quot;{{user `aws_tag_created_by`}}&quot;,
+                &quot;CustomerFacing&quot;: &quot;{{user `aws_tag_customer_facing`}}&quot;,
+                &quot;Description&quot;: &quot;CentOS 7 w/ENA Support &amp; Hardened - with HAProxy docker container, for {{user `haproxy_role`}} layer with updates installed on {{isotime \&quot;2006-01-02\&quot;}}&quot;,
+                &quot;Environment&quot;: &quot;{{user `aws_tag_environment`}}&quot;,
+                &quot;Name&quot;: &quot;HAProxy - {{user `haproxy_role`}} layer - environment {{user `aws_tag_environment`}} {{isotime \&quot;2006-01-02\&quot;}}&quot;,
+                &quot;PCI&quot;: &quot;{{user `aws_tag_pci`}}&quot;
+                }
+        }
+    ],
+
+    &quot;provisioners&quot;: [
+        
+         {
+          &quot;type&quot;: &quot;shell&quot;,
+          &quot;script&quot;: &quot;centosprovision.sh&quot;
+         },
+        
+        {
+            &quot;type&quot;: &quot;ansible-local&quot;,
+            &quot;playbook_file&quot;: &quot;./ansible/main.yml&quot;
+        },
+        {
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;inline&quot;: [&quot;sudo reboot&quot;],
+            &quot;expect_disconnect&quot;: true,
+            &quot;remote_folder&quot;: &quot;~/&quot;
+        }
+        
+    ]
+
+}
+
+</code></pre>
+
+<p>####3centosprovision.sh</p>
+
+<pre><code>
+#!/bin/bash
+#set -e
+#provision.sh
+
+ sudo yum update
+ echo &quot;yum update done.&quot;
+ sudo yum -y upgrade
+ sudo yum install -y python-dev python-pip
+ sudo pip install ansible
+ sudo timedatectl set-timezone Australia/Sydney
+
+</code></pre>
+
 </main>
 
   <footer>

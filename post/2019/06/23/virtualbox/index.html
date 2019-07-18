@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tags | Hugo Ivy</title>
+    <title>VirtualBox | Hugo Ivy</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -27,61 +27,28 @@
     <hr/>
     </nav>
 
+<div class="article-meta">
+<h1><span class="title">VirtualBox</span></h1>
 
-<h1>Tags</h1>
+<h2 class="date">2019/06/23</h2>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="/tags/3ds">
-      3DS
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/apm">
-      APM
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/devops">
-      DevOps
-    </a>
-    (7)
-  </li>
-  
-  <li>
-    <a href="/tags/docker">
-      Docker
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/git">
-      Git
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/grafana">
-      Grafana
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/loadbalancers">
-      LoadBalancers
-    </a>
-    (1)
-  </li>
-  
-</ul>
+<main>
+
+
+<h3 id="virtualbox">VirtualBox</h3>
+
+<p>Requirement to access internet as well as the hosts
+Best option is to go for NAT network</p>
+
+<p>For centos set statis IP addr,netmask and gateway here</p>
+
+<pre><code>sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+ifdown ifcfg-enp0s3
+ifup ifcfg-enp0s3
+</code></pre>
+
+</main>
 
   <footer>
   

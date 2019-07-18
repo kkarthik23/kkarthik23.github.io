@@ -6,10 +6,31 @@
     <description>Recent content in DevOps on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VirtualBox</title>
+      <link>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</link>
+      <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
+      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+For centos set statis IP addr,netmask and gateway here
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+    </item>
+    
+    <item>
+      <title>Multipass</title>
+      <link>https://kkarthik23.github.io/post/2019/06/22/multipass/</link>
+      <pubDate>Sat, 22 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/22/multipass/</guid>
+      <description>Multipass is from Ubuntu and lets you spin up Ubuntu instances
+multipass launch multipass launcu -n test multipass launch --name k3s --mem 1G --disk 1G multipass list multipass delete instancename multipass purge multipass help  </description>
+    </item>
     
     <item>
       <title>Packer</title>
@@ -37,13 +58,18 @@ terraform init terraform plan terraform apply terraform destroy  example.tf file
     </item>
     
     <item>
-      <title>AWS Athena</title>
-      <link>https://kkarthik23.github.io/post/2019/05/30/aws-athena/</link>
+      <title>AWS</title>
+      <link>https://kkarthik23.github.io/post/2019/05/30/aws/</link>
       <pubDate>Thu, 30 May 2019 21:57:42 +0000</pubDate>
       
-      <guid>https://kkarthik23.github.io/post/2019/05/30/aws-athena/</guid>
-      <description> Athena for example abl_logs is the database and table is haproxy_tls_inbound_dev
-SELECT * FROM &amp;quot;alb_logs&amp;quot;.&amp;quot;haproxy_tls_inbound_dev&amp;quot; limit 10;  </description>
+      <guid>https://kkarthik23.github.io/post/2019/05/30/aws/</guid>
+      <description>EBS EBS is Elastic Block Service and deals with block storage
+Volumes
+Snapshots
+To recover from an issue make sure snapshots are enabled and recover from it.
+So from snapshots create an image, from the image launch an instance and then login to instance to check.
+To create an AMI from your root volume using the console
+Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. In the navigation pane, choose Elastic Block Store, Snapshots.</description>
     </item>
     
     <item>

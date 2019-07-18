@@ -6,10 +6,31 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VirtualBox</title>
+      <link>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</link>
+      <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
+      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+For centos set statis IP addr,netmask and gateway here
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+    </item>
+    
+    <item>
+      <title>Multipass</title>
+      <link>https://kkarthik23.github.io/post/2019/06/22/multipass/</link>
+      <pubDate>Sat, 22 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/22/multipass/</guid>
+      <description>Multipass is from Ubuntu and lets you spin up Ubuntu instances
+multipass launch multipass launcu -n test multipass launch --name k3s --mem 1G --disk 1G multipass list multipass delete instancename multipass purge multipass help  </description>
+    </item>
     
     <item>
       <title>Packer</title>
@@ -37,13 +58,18 @@ terraform init terraform plan terraform apply terraform destroy  example.tf file
     </item>
     
     <item>
-      <title>AWS Athena</title>
-      <link>https://kkarthik23.github.io/post/2019/05/30/aws-athena/</link>
+      <title>AWS</title>
+      <link>https://kkarthik23.github.io/post/2019/05/30/aws/</link>
       <pubDate>Thu, 30 May 2019 21:57:42 +0000</pubDate>
       
-      <guid>https://kkarthik23.github.io/post/2019/05/30/aws-athena/</guid>
-      <description> Athena for example abl_logs is the database and table is haproxy_tls_inbound_dev
-SELECT * FROM &amp;quot;alb_logs&amp;quot;.&amp;quot;haproxy_tls_inbound_dev&amp;quot; limit 10;  </description>
+      <guid>https://kkarthik23.github.io/post/2019/05/30/aws/</guid>
+      <description>EBS EBS is Elastic Block Service and deals with block storage
+Volumes
+Snapshots
+To recover from an issue make sure snapshots are enabled and recover from it.
+So from snapshots create an image, from the image launch an instance and then login to instance to check.
+To create an AMI from your root volume using the console
+Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. In the navigation pane, choose Elastic Block Store, Snapshots.</description>
     </item>
     
     <item>
@@ -114,12 +140,11 @@ curl -k -X GET &#39;https://localhost:9200&#39; -u username:password  journalctl
       <pubDate>Thu, 28 Mar 2019 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/03/28/centos-basics/</guid>
-      <description>Linux CentOS Basics Centos no ip address
+      <description>Linux CentOS Basics  Ssh-keygen Ssh-copy-id root@ipaddress Once the keys are geneated go to ~/.ssh folder and go for the pub key this needs to go to remote system for localsystem just copy id_rsa.pub to authorized_keys in same folder for remote system ssh-copy-id ~/.ssh/id_rsa.pub root@ipaddress -p 22 https://puppet.com/blog/how-i-stopped-worrying-learned-love-public-key-authentication-ssh  Centos no ip address
 sudo vim /etc/sysconfig/network-scripts/ifcfg-emp0s3
 And set the ONBOOT to yes
 ONBOOT=yes
-Sudo Sestatus Sudo setenforce 0 sudo nano /etc/selinux/config Change SELINUX=enforcing to disabled Sudo reboot
-disable firewall systemctl stop firewalld systemctl disable firewalld  VirtualBox NAT port forwarding You can use the address of the host, e.g. 127.0.0.1 if you are on that machine. You will need to set up port forwarding in VirtualBox, which can be found in the networking settings:</description>
+Sudo Sestatus Sudo setenforce 0 sudo nano /etc/selinux/config Change SELINUX=enforcing to disabled Sudo reboot</description>
     </item>
     
     <item>
@@ -177,7 +202,7 @@ expression
       <pubDate>Sat, 02 Jun 2018 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2018/06/02/powershell-snippets-part-2/</guid>
-      <description>Powershell snippets Move files for archiving condition  if(Test-Path C:\Pshell) { $Source=&amp;quot;C:\Pshell\*.json&amp;quot; $Destination=&amp;quot;C:\Pshell\json\&amp;quot; Move-Item $Source $Destination } { }  New Relic API sample &amp;lt;# $apikey = &#39;abc&#39; $Appname = &#39;prod-publicwebsite-aws&#39; function Get-NewRelicAppId { Param ( [string]$NRAppName, [string]$NRApiKey ) Write-Debug -Message &amp;quot;here&amp;quot; $URL = &amp;quot;https://api.newrelic.com/v2/applications.json&amp;quot; $URI = New-Object System.Uri($URL,$true) $WebRequestData = @{ Uri = $URI Headers = @{&amp;quot;X-Api-Key&amp;quot;=&amp;quot;$NRApiKey&amp;quot;} ContentType = &#39;application/json&#39; Body = @{&amp;quot;filter[name]&amp;quot;=&amp;quot;$NRAppName&amp;quot;} } $Results = Invoke-RestMethod -Method GET @WebRequestData $NRAppData = $Results.</description>
+      <description>Powershell snippets CPU throttle of app pool $appPool = &amp;quot;ABC&amp;quot; &amp;amp;&amp;quot;$($Env:windir)\system32\inetsrv\appcmd&amp;quot; set apppool /apppool.name:&amp;quot;$appPool&amp;quot; /cpu.limit:70000 /cpu.action:Throttle  cpulimit=80000 $cpuaction=&#39;Throttle&#39; $applicationPoolName =&#39;TestABC&#39; Import-Module WebAdministration # Helper to run a block with a retry if things go wrong $maxFailures = 5 $sleepBetweenFailures = Get-Random -minimum 1 -maximum 4 function Execute-WithRetry([ScriptBlock] $command) { $attemptCount = 0 $operationIncomplete = $true while ($operationIncomplete -and $attemptCount -lt $maxFailures) { $attemptCount = ($attemptCount + 1) if ($attemptCount -ge 2) { Write-Output &amp;quot;Waiting for $sleepBetweenFailures seconds before retrying.</description>
     </item>
     
     <item>
@@ -281,20 +306,19 @@ New Relic has a few criteria for mesuring app performance</description>
       <pubDate>Mon, 11 Dec 2017 15:20:00 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2017/12/11/prometheus/</guid>
-      <description>Prometheus Install mkdir Downloads cd Downloads
-Download
-curl -LO &amp;quot;https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz&amp;quot; goto Root directory mkdir Prometheus cd Prometheus tar -xvzf ~/Downloads/prometheus-2.2.1.linux-amd64.tar.gz ./prometheus --version sudo vi /etc/systemd/system/node_exporter.service  This file should contain the path of the node_exporter executable, and also specify which user should run the executable. Accordingly, add the following code:
-/etc/init/node_exporter.conf [Unit] Description=Node Exporter [Service] User=prometheus ExecStart=/home/prometheus/Prometheus/node_exporter/node_exporter [Install] WantedBy=default.target  Reload systemd so that it reads the configuration file you just created.</description>
+      <description>Prometheus Install Docker Install
+at &amp;lt;&amp;lt;EOF &amp;gt; prometheus.yml global: scrape_interval: 10s evaluation_interval: 10s scrape_configs: - job_name: &#39;prometheus&#39; static_configs: - targets: [&#39;localhost:9090&#39;] EOF This tells the Prometheus server to scrape itself on port 9090. Now let&#39;s create a Dockerfile that adds this on top of the prom/prometheus image: cat &amp;lt;&amp;lt;EOF &amp;gt; Dockerfile FROM prom/prometheus # Add in the configuration file from the local directory. ADD prometheus.yml /etc/prometheus/prometheus.yml EOF  Next we can build and run it:</description>
     </item>
     
     <item>
-      <title>Useful Linux Tools</title>
-      <link>https://kkarthik23.github.io/post/2017/12/06/useful-linux-tools/</link>
+      <title>Useful Linux Commands and Tools</title>
+      <link>https://kkarthik23.github.io/post/2017/12/06/useful-linux-commands-and-tools/</link>
       <pubDate>Wed, 06 Dec 2017 21:57:42 +0000</pubDate>
       
-      <guid>https://kkarthik23.github.io/post/2017/12/06/useful-linux-tools/</guid>
+      <guid>https://kkarthik23.github.io/post/2017/12/06/useful-linux-commands-and-tools/</guid>
       <description>Top is a good tool for viewing system processes
-However there is another one with a little bit more information called Htop</description>
+However there is another one with a little bit more information called Htop
+AgedFiles.py  import os directory = &#39;/home/ubuntu/FilestoDelete&#39; os.system(&amp;quot;find &amp;quot; + directory + &amp;quot; -mtime +60 -print&amp;quot;)  which python will show python version set up a cron job crontab -e this will run the job at 5 am every day * 5 * * * /usr/bin/python /home/ubuntu/AgedFiles.py  other option is to call the python script from a bash script</description>
     </item>
     
     <item>

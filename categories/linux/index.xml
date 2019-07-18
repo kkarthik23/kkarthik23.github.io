@@ -6,10 +6,31 @@
     <description>Recent content in Linux on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VirtualBox</title>
+      <link>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</link>
+      <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
+      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+For centos set statis IP addr,netmask and gateway here
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+    </item>
+    
+    <item>
+      <title>Multipass</title>
+      <link>https://kkarthik23.github.io/post/2019/06/22/multipass/</link>
+      <pubDate>Sat, 22 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/22/multipass/</guid>
+      <description>Multipass is from Ubuntu and lets you spin up Ubuntu instances
+multipass launch multipass launcu -n test multipass launch --name k3s --mem 1G --disk 1G multipass list multipass delete instancename multipass purge multipass help  </description>
+    </item>
     
     <item>
       <title>Packer</title>

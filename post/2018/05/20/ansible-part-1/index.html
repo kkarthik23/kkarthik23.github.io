@@ -57,163 +57,95 @@ sudo amazon-linux-extras install epel</p>
 <p>sample inventory file is
 /etc/ansible/hosts</p>
 
-<h1 id="this-is-the-default-ansible-hosts-file">This is the default ansible &lsquo;hosts&rsquo; file.</h1>
+<pre><code># This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
 
-<p>#</p>
+# Ex 1: Ungrouped hosts, specify before any group headers.
 
-<h1 id="it-should-live-in-etc-ansible-hosts">It should live in /etc/ansible/hosts</h1>
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
 
-<p>#</p>
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+[webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+192.168.33.10  ansible_user=vagrant
 
-<h1 id="comments-begin-with-the-character">- Comments begin with the &lsquo;#&rsquo; character</h1>
 
-<h1 id="blank-lines-are-ignored">- Blank lines are ignored</h1>
+# If you have multiple hosts following a pattern you can specify
+# them like this:
 
-<h1 id="groups-of-hosts-are-delimited-by-header-elements">- Groups of hosts are delimited by [header] elements</h1>
+## www[001:006].example.com
 
-<h1 id="you-can-enter-hostnames-or-ip-addresses">- You can enter hostnames or ip addresses</h1>
+# Ex 3: A collection of database servers in the 'dbservers' group
 
-<h1 id="a-hostname-ip-can-be-a-member-of-multiple-groups">- A hostname/ip can be a member of multiple groups</h1>
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
 
-<h1 id="ex-1-ungrouped-hosts-specify-before-any-group-headers">Ex 1: Ungrouped hosts, specify before any group headers.</h1>
+# Here's another example of host ranges, this time there are no
+# leading 0s:
 
-<h2 id="green-example-com">green.example.com</h2>
+## db-[99:101]-node.example.com
 
-<h2 id="blue-example-com">blue.example.com</h2>
+[appservers]
+192.168.33.11  ansible_user=vagrant
 
-<h2 id="192-168-100-1">192.168.100.1</h2>
+[appservers:vars]
+ansible_password=vagrant
 
-<h2 id="192-168-100-10">192.168.100.10</h2>
+[webservers:vars]
+ansible_password=vagrant
 
-<h1 id="ex-2-a-collection-of-hosts-belonging-to-the-webservers-group">Ex 2: A collection of hosts belonging to the &lsquo;webservers&rsquo; group</h1>
+</code></pre>
 
-<p>[webservers]</p>
+<h4 id="playbook-file">Playbook file</h4>
 
-<h2 id="alpha-example-org">alpha.example.org</h2>
+<p>Playbook files are YAML files</p>
 
-<h2 id="beta-example-org">beta.example.org</h2>
+<p>Be careful with indentation and do not use tab and always spaces</p>
 
-<h2 id="192-168-1-100">192.168.1.100</h2>
+<pre><code>ansible-playbook --syntax-check playbooktest.yml 
 
-<h2 id="192-168-1-110">192.168.1.110</h2>
+- hosts: centos
+  remote_user: root
+  
+  gather_facts: no
 
-<p>192.168.33.10  ansible_user=vagrant</p>
+  tasks:
+  - name: test ping
+     ping:
+     remote_user: root
+  - name: check ssh
+      service:
+        name: sshd
+        state: started
+  - name: check nginx
+      service:
+        name: nginx
+        state:started
+     
+</code></pre>
 
-<h1 id="if-you-have-multiple-hosts-following-a-pattern-you-can-specify">If you have multiple hosts following a pattern you can specify</h1>
+<p>where centos is a group of servers</p>
 
-<h1 id="them-like-this">them like this:</h1>
+<p>remote_user will run as root</p>
 
-<h2 id="www-001-006-example-com">www[001:006].example.com</h2>
-
-<h1 id="ex-3-a-collection-of-database-servers-in-the-dbservers-group">Ex 3: A collection of database servers in the &lsquo;dbservers&rsquo; group</h1>
-
-<h2 id="dbservers">[dbservers]</h2>
-
-<p>##</p>
-
-<h2 id="db01-intranet-mydomain-net">db01.intranet.mydomain.net</h2>
-
-<h2 id="db02-intranet-mydomain-net">db02.intranet.mydomain.net</h2>
-
-<h2 id="10-25-1-56">10.25.1.56</h2>
-
-<h2 id="10-25-1-57">10.25.1.57</h2>
-
-<h1 id="here-s-another-example-of-host-ranges-this-time-there-are-no">Here&rsquo;s another example of host ranges, this time there are no</h1>
-
-<h1 id="leading-0s">leading 0s:</h1>
-
-<h2 id="db-99-101-node-example-com">db-[99:101]-node.example.com</h2>
-
-<p>[appservers]
-192.168.33.11  ansible_user=vagrant</p>
-
-<p>[appservers:vars]
-ansible_password=vagrant</p>
-
-<p>[webservers:vars]
-ansible_password=vagrant</p>
-
-<p>File: /etc/ansible/hosts                                                                                                                  ```</p>
-
-<h1 id="this-is-the-default-ansible-hosts-file-1">This is the default ansible &lsquo;hosts&rsquo; file.</h1>
-
-<p>#</p>
-
-<h1 id="it-should-live-in-etc-ansible-hosts-1">It should live in /etc/ansible/hosts</h1>
-
-<p>#</p>
-
-<h1 id="comments-begin-with-the-character-1">- Comments begin with the &lsquo;#&rsquo; character</h1>
-
-<h1 id="blank-lines-are-ignored-1">- Blank lines are ignored</h1>
-
-<h1 id="groups-of-hosts-are-delimited-by-header-elements-1">- Groups of hosts are delimited by [header] elements</h1>
-
-<h1 id="you-can-enter-hostnames-or-ip-addresses-1">- You can enter hostnames or ip addresses</h1>
-
-<h1 id="a-hostname-ip-can-be-a-member-of-multiple-groups-1">- A hostname/ip can be a member of multiple groups</h1>
-
-<h1 id="ex-1-ungrouped-hosts-specify-before-any-group-headers-1">Ex 1: Ungrouped hosts, specify before any group headers.</h1>
-
-<h2 id="green-example-com-1">green.example.com</h2>
-
-<h2 id="blue-example-com-1">blue.example.com</h2>
-
-<h2 id="192-168-100-1-1">192.168.100.1</h2>
-
-<h2 id="192-168-100-10-1">192.168.100.10</h2>
-
-<h1 id="ex-2-a-collection-of-hosts-belonging-to-the-webservers-group-1">Ex 2: A collection of hosts belonging to the &lsquo;webservers&rsquo; group</h1>
-
-<p>[webservers]</p>
-
-<h2 id="alpha-example-org-1">alpha.example.org</h2>
-
-<h2 id="beta-example-org-1">beta.example.org</h2>
-
-<h2 id="192-168-1-100-1">192.168.1.100</h2>
-
-<h2 id="192-168-1-110-1">192.168.1.110</h2>
-
-<p>192.168.33.10  ansible_user=vagrant</p>
-
-<h1 id="if-you-have-multiple-hosts-following-a-pattern-you-can-specify-1">If you have multiple hosts following a pattern you can specify</h1>
-
-<h1 id="them-like-this-1">them like this:</h1>
-
-<h2 id="www-001-006-example-com-1">www[001:006].example.com</h2>
-
-<h1 id="ex-3-a-collection-of-database-servers-in-the-dbservers-group-1">Ex 3: A collection of database servers in the &lsquo;dbservers&rsquo; group</h1>
-
-<h2 id="dbservers-1">[dbservers]</h2>
-
-<p>##</p>
-
-<h2 id="db01-intranet-mydomain-net-1">db01.intranet.mydomain.net</h2>
-
-<h2 id="db02-intranet-mydomain-net-1">db02.intranet.mydomain.net</h2>
-
-<h2 id="10-25-1-56-1">10.25.1.56</h2>
-
-<h2 id="10-25-1-57-1">10.25.1.57</h2>
-
-<h1 id="here-s-another-example-of-host-ranges-this-time-there-are-no-1">Here&rsquo;s another example of host ranges, this time there are no</h1>
-
-<h1 id="leading-0s-1">leading 0s:</h1>
-
-<h2 id="db-99-101-node-example-com-1">db-[99:101]-node.example.com</h2>
-
-<p>[appservers]
-    192.168.33.11  ansible_user=vagrant</p>
-
-<p>[appservers:vars]
-ansible_password=vagrant</p>
-
-<p>[webservers:vars]
-ansible_password=vagrant</p>
-
-<p>```</p>
+<p>facts are disabled</p>
 
 </main>
 

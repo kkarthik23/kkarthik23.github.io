@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AWS | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">AWS</span></h1>
+
+<h2 class="date">2019/05/30</h2>
+</div>
+
+<main>
+
+
+<h3 id="ebs">EBS</h3>
+
+<p>EBS is Elastic Block Service and deals with block storage</p>
+
+<p>Volumes</p>
+
+<p>Snapshots</p>
+
+<p>To recover from an issue make sure snapshots are enabled and recover from it.</p>
+
+<p>So from snapshots create an image, from the image launch an instance and then login to instance to check.</p>
+
+<p>To create an AMI from your root volume using the console</p>
+
+<pre><code>Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+In the navigation pane, choose Elastic Block Store, Snapshots.
+
+
+For Volumes, start typing the name or ID of the root volume, and then select it from the list of options.
+
+Choose the snapshot that you  created, and then choose Actions,Create Image.
+
+In the Create Image from EBS Snapshot dialog box, provide the information and then choose Create. If you're re-creating a parent instance, then choose the same options as the parent instance. 
+
+In the navigation pane, choose AMIs.  Choose the AMI that you just created, and then choose Launch. Follow the wizard to launch your instance. 
+</code></pre>
+
+<h3 id="athena">Athena</h3>
+
+<p>for example abl_logs is the database and table is haproxy_tls_inbound_dev</p>
+
+<pre><code>SELECT * FROM &quot;alb_logs&quot;.&quot;haproxy_tls_inbound_dev&quot; limit 10;
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

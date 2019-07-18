@@ -38,6 +38,69 @@
 
 <h3 id="powershell-snippets">Powershell snippets</h3>
 
+<h4 id="cpu-throttle-of-app-pool">CPU throttle of app pool</h4>
+
+<pre><code>$appPool = &quot;ABC&quot;
+&amp;&quot;$($Env:windir)\system32\inetsrv\appcmd&quot; set apppool /apppool.name:&quot;$appPool&quot; /cpu.limit:70000 /cpu.action:Throttle
+
+</code></pre>
+
+<pre><code>cpulimit=80000
+$cpuaction='Throttle'
+$applicationPoolName ='TestABC'
+
+Import-Module WebAdministration 
+# Helper to run a block with a retry if things go wrong
+$maxFailures = 5
+$sleepBetweenFailures = Get-Random -minimum 1 -maximum 4
+function Execute-WithRetry([ScriptBlock] $command) {
+    $attemptCount = 0
+    $operationIncomplete = $true
+
+    while ($operationIncomplete -and $attemptCount -lt $maxFailures) {
+        $attemptCount = ($attemptCount + 1)
+
+        if ($attemptCount -ge 2) {
+            Write-Output &quot;Waiting for $sleepBetweenFailures seconds before retrying...&quot;
+            Start-Sleep -s $sleepBetweenFailures
+            Write-Output &quot;Retrying...&quot;
+        }
+
+        try {
+            &amp; $command
+
+            $operationIncomplete = $false
+        } catch [System.Exception] {
+            if ($attemptCount -lt ($maxFailures)) {
+                Write-Output (&quot;Attempt $attemptCount of $maxFailures failed: &quot; + $_.Exception.Message)
+            
+            }
+            else {
+                throw &quot;Failed to execute command&quot;
+            }
+        }
+    }
+}
+
+    
+ Execute-WithRetry {
+    $BeforeLimitValue = (Get-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.limit).Value
+    Write-Output &quot;CPU Limit currently set to  '$BeforeLimitValue'&quot;
+    Set-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.limit -Value $cpulimit -Verbose
+    $AfterLimitValue = (Get-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.limit).Value
+    Write-Output &quot;CPU Limit is now set to '$AfterLimitValue'&quot;
+    
+   $BeforeActionValue = Get-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.action
+   Write-Host &quot;(pre-change) cpu.action is '$BeforeActionValue'&quot;
+   Set-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.action -Value $cpuaction -Verbose
+   $AfterActionValue = Get-ItemProperty -Path &quot;IIS:\AppPools\$applicationPoolName&quot; -Name cpu.action
+   Write-Host &quot;(post-change) cpu.action is '$AfterActionValue'&quot;
+   Write-Host &quot;(post-change) cpu.action is '$AfterActionValue'&quot;
+   }
+   
+
+</code></pre>
+
 <h5 id="move-files-for-archiving-condition">Move files for archiving condition</h5>
 
 <pre><code>

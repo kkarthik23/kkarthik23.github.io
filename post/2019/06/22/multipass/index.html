@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tags | Hugo Ivy</title>
+    <title>Multipass | Hugo Ivy</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -27,61 +27,29 @@
     <hr/>
     </nav>
 
+<div class="article-meta">
+<h1><span class="title">Multipass</span></h1>
 
-<h1>Tags</h1>
+<h2 class="date">2019/06/22</h2>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="/tags/3ds">
-      3DS
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/apm">
-      APM
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/devops">
-      DevOps
-    </a>
-    (7)
-  </li>
-  
-  <li>
-    <a href="/tags/docker">
-      Docker
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/git">
-      Git
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/grafana">
-      Grafana
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/loadbalancers">
-      LoadBalancers
-    </a>
-    (1)
-  </li>
-  
-</ul>
+<main>
+<p>Multipass is from Ubuntu and lets you spin up Ubuntu instances</p>
+
+<pre><code>multipass launch
+multipass launcu -n test 
+multipass launch --name k3s --mem 1G --disk 1G 
+
+multipass list
+
+multipass delete instancename
+
+multipass purge
+
+multipass help
+</code></pre>
+
+</main>
 
   <footer>
   

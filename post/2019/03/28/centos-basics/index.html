@@ -38,6 +38,23 @@
 
 <h3 id="linux-centos-basics">Linux CentOS Basics</h3>
 
+<pre><code>
+Ssh-keygen
+Ssh-copy-id  root@ipaddress
+
+Once the keys are geneated go to 
+~/.ssh folder and go for the pub key this needs to go to remote system
+
+for localsystem just copy id_rsa.pub to authorized_keys in same folder
+
+for remote system
+ssh-copy-id ~/.ssh/id_rsa.pub root@ipaddress -p 22
+
+
+
+https://puppet.com/blog/how-i-stopped-worrying-learned-love-public-key-authentication-ssh
+</code></pre>
+
 <p>Centos no ip address</p>
 
 <p>sudo vim /etc/sysconfig/network-scripts/ifcfg-emp0s3</p>
@@ -53,11 +70,13 @@ Change
 SELINUX=enforcing to disabled
 Sudo reboot</p>
 
-<h2 id="disable-firewall">disable firewall</h2>
-
-<pre><code>systemctl stop firewalld
-systemctl disable firewalld
+<pre><code>
+## disable firewall
 </code></pre>
+
+<p>systemctl stop firewalld
+systemctl disable firewalld
+```</p>
 
 <h3 id="virtualbox-nat-port-forwarding">VirtualBox NAT port forwarding</h3>
 
