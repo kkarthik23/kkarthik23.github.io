@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker 2 | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Docker 2</span></h1>
+
+<h2 class="date">20/06/2019</h2>
+</div>
+
+<main>
+
+
+<h4 id="portainer-is-a-web-ui-for-managing-containers">Portainer is a web UI for managing containers</h4>
+
+<pre><code>docker run -d -p 9000:9000 \
+-v /var/run/docker.sock:/var/run/docker.sock \
+portainer/portainer
+</code></pre>
+
+<h3 id="haproxy-docker-container">Haproxy docker container</h3>
+
+<pre><code>version: &quot;2&quot;
+services:
+  haproxy:
+    image: eeacms/haproxy
+    depends_on:
+    - webapp
+    ports:
+    - &quot;80:5000&quot;
+    - &quot;1936:1936&quot;
+    environment:
+      BACKENDS: &quot;webapp&quot;
+      DNS_ENABLED: &quot;true&quot;
+      LOG_LEVEL: &quot;info&quot;
+
+  webapp:
+    image: eeacms/hello
+
+</code></pre>
+
+<pre><code>The application can be scaled to use more server instances, with docker-compose scale:
+
+$ docker-compose up -d
+$ docker-compose scale webapp=4
+
+The results can be checked in a browser, navigating to http://localhost. By refresing the page multiple times it is noticeable that the IP of the server that served the page changes, as HAProxy switches between them. The stats page can be accessed at http://localhost:1936 where you have to log in using the STATS_AUTH authentication details (default admin:admin).
+
+</code></pre>
+
+<h4 id="docker-compose-file-for-ghost-blog-using-sqlite">Docker compose file for ghost blog using sqlite</h4>
+
+<pre><code>version: '3'
+
+services:
+
+   ghost:
+     image: ghost:2-alpine
+     restart: always
+
+     ports:
+      - &quot;2368:2368&quot;
+     
+     volumes:
+      - &quot;/sqlite3/ghost/data:/var/lib/ghost/content&quot;
+</code></pre>
+
+<h4 id="nginx-web-server-container">NGINX web server container</h4>
+
+<pre><code>version: '3'
+
+services:
+
+   nginx-proxy:
+    image: nginx
+    
+    expose:
+      - 80
+      - 443
+
+    ports:
+     - &quot;80:80&quot;
+     - &quot;443:443&quot;
+    environment:
+     DEFAULT_HOST: nodeapp.local
+
+    volumes:
+     - &quot;/etc/nginx/vhost.d&quot;
+     - &quot;/usr/share/nginx/html&quot;
+     - &quot;/var/run/docker.sock:/tmp/docker.sock:ro&quot;
+    restart: unless-stopped
+</code></pre>
+
+<h4 id="open-distro-elastic-search-docker-compose-file">Open Distro Elastic Search Docker compose file</h4>
+
+<pre><code>version: '3'
+services:
+  odfe-node1:
+    image: amazon/opendistro-for-elasticsearch:1.0.1
+    container_name: odfe-node1
+    environment:
+      - cluster.name=odfe-cluster
+      - node.name=odfe-node1
+      - discovery.seed_hosts=odfe-node1,odfe-node2
+      - cluster.initial_master_nodes=odfe-node1,odfe-node2
+      - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
+      - &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot; # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the Elasticsearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - odfe-data1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9600:9600 # required for Performance Analyzer
+    networks:
+      - odfe-net
+  odfe-node2:
+    image: amazon/opendistro-for-elasticsearch:1.0.1
+    container_name: odfe-node2
+    environment:
+      - cluster.name=odfe-cluster
+      - node.name=odfe-node2
+      - discovery.seed_hosts=odfe-node1,odfe-node2
+      - cluster.initial_master_nodes=odfe-node1,odfe-node2
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - odfe-data2:/usr/share/elasticsearch/data
+    networks:
+      - odfe-net
+  kibana:
+    image: amazon/opendistro-for-elasticsearch-kibana:1.0.1
+    container_name: odfe-kibana
+    ports:
+      - 5601:5601
+    expose:
+      - &quot;5601&quot;
+    environment:
+      ELASTICSEARCH_URL: https://odfe-node1:9200
+      ELASTICSEARCH_HOSTS: https://odfe-node1:9200
+    networks:
+      - odfe-net
+
+volumes:
+  odfe-data1:
+  odfe-data2:
+
+networks:
+  odfe-net:
+
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

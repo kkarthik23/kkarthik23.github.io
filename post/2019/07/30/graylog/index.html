@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graylog | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Graylog</span></h1>
+
+<h2 class="date">30/07/2019</h2>
+</div>
+
+<main>
+
+
+<p>Install Graylog</p>
+
+<p>type this in console of graylog server
+echo &ldquo;Hello Graylog, let&rsquo;s be friends.&rdquo; | nc -w 1 -u 127.0.0.1 5555</p>
+
+<p>Goto System Inputs
+The input would be raw plaintext udp</p>
+
+<p>conf file is /etc/graylog/server/server.conf</p>
+
+<p>for changing password
+echo -n password | shasum -a 256</p>
+
+<p>8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918</p>
+
+<h3 id="for-sending-logs-using-filebeat">For sending logs using filebeat</h3>
+
+<p>sidecar config file is located at /etc/graylog/sidecar/sidecar.yml
+add api key to connect sidecar to graylog server
+server_api_token
+The token can be generated from graylog on the users area</p>
+
+<p>Download and install filebeat on the client machine</p>
+
+<p><a href="https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.3.0-amd64.deb">https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.3.0-amd64.deb</a></p>
+
+<p>The first step is to create a Beats input where collectors can send data to. Click on System / Inputs and start a global Beats input on the listening address 0.0.0.0 and port 5044.</p>
+
+<p>Navigate to the Sidecars overview. In your Graylog web interface click on System / Sidecars.</p>
+
+<p>Sidecar/Configuration</p>
+
+<p>Next we create a new configuration: We give the configuration a name and select filebeat on Linux as collector. Most of the configuration defaults should work for you. However you need to change the hosts: setting and point it to your Beats input. You also might want to change the paths: to the location of your logs. When done click Create to save your configuration.</p>
+
+<p>Next we need to assign our newly created configuration (and therefore the Filebeat collector) to our sidecar. Go to the Collector Administration page.</p>
+
+<p>You will see a list of sidecars and underneath them a list of collectors that could be assigned to them. Please note that collectors are assigned to sidecars by means of applying a collector configuration to the sidecar. Therefore, we first select the filebeat collector and then click on the Configure menu, where we can select the filebeat-conf configuration we created earlier.</p>
+
+<p>Confirming the assignment, will directly push this configuration to your sidecar which will go and start the Filebeat collector with this configuration.</p>
+
+<p>If everything went fine, you should see the status running on the administration page.</p>
+
+<p>You can go back to the Sidecars overview and click on the Show messages button to search for logs that have been collected via your sidecar.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

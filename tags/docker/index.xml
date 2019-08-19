@@ -6,10 +6,19 @@
     <description>Recent content in Docker on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Apr 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker 2</title>
+      <link>https://kkarthik23.github.io/post/2019/06/20/docker-2/</link>
+      <pubDate>Thu, 20 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/20/docker-2/</guid>
+      <description>Portainer is a web UI for managing containers docker run -d -p 9000:9000 \ -v /var/run/docker.sock:/var/run/docker.sock \ portainer/portainer  Haproxy docker container version: &amp;quot;2&amp;quot; services: haproxy: image: eeacms/haproxy depends_on: - webapp ports: - &amp;quot;80:5000&amp;quot; - &amp;quot;1936:1936&amp;quot; environment: BACKENDS: &amp;quot;webapp&amp;quot; DNS_ENABLED: &amp;quot;true&amp;quot; LOG_LEVEL: &amp;quot;info&amp;quot; webapp: image: eeacms/hello  The application can be scaled to use more server instances, with docker-compose scale: $ docker-compose up -d $ docker-compose scale webapp=4 The results can be checked in a browser, navigating to http://localhost.</description>
+    </item>
     
     <item>
       <title>Docker</title>

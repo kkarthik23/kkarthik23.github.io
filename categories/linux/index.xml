@@ -17,9 +17,9 @@
       <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
-      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+      <description>VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
 For centos set statis IP addr,netmask and gateway here
-sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  Mount iso after downloading it Guest Additions ISO file In Virtual Box add c:\Temp in shared folder option and select auto mount yum install gcc kernel-devel kernel-headers dkms make bzip2 perl KERN_DIR=/usr/src/kernels/`uname -r`-`uname -m` export KERN_DIR # mount -r /dev/cdrom /media # cd /media/ # .</description>
     </item>
     
     <item>

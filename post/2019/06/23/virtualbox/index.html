@@ -48,6 +48,31 @@ ifdown ifcfg-enp0s3
 ifup ifcfg-enp0s3
 </code></pre>
 
+<h4 id="mount-iso-after-downloading-it-guest-additions-iso-file">Mount iso after downloading it  Guest Additions ISO file</h4>
+
+<pre><code>In Virtual Box add c:\Temp in shared folder option and select auto mount
+
+yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+KERN_DIR=/usr/src/kernels/`uname -r`-`uname -m`
+export KERN_DIR
+
+
+# mount -r /dev/cdrom /media
+# cd /media/
+# ./VBoxLinuxAdditions.run 
+
+```.
+
+</code></pre>
+
+<p>Add your user to the group vboxsf</p>
+
+<p>$ sudo usermod -a -G sudo vboxsf</p>
+
+<p>Reboot
+Your Temp shared folder will be accessible in /media/sf_Temp directory.
+```</p>
+
 </main>
 
   <footer>

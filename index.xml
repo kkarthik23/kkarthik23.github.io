@@ -6,10 +6,76 @@
     <description>Recent content in Home on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jenkins</title>
+      <link>https://kkarthik23.github.io/post/2019/08/12/jenkins/</link>
+      <pubDate>Mon, 12 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/12/jenkins/</guid>
+      <description>Jenkins Install Jenkins on Windows
+Login there will be an initial password at C:\Program Files (x86)\Jenkins\secrets
+Use this to login and change the password
+Goto Manange Jenkins, Manage Plugins
+Add Windows Powershell Plugin
+New item choose freestyle project and give a name for project
+Then select this project is parameterized and choose add parameter and select string parameter and choice parameter
+Choice parameter
+In Build add build step and choose powershell</description>
+    </item>
+    
+    <item>
+      <title>AWS CLI</title>
+      <link>https://kkarthik23.github.io/post/2019/08/10/aws-cli/</link>
+      <pubDate>Sat, 10 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/10/aws-cli/</guid>
+      <description> AWS PowerShell Install-Module -Name AWSPowerShell Import-Module AWSPowerShell Get-Command -Module AWSPowerShell Get-AWSCredential -ListProfileDetail New-AWSCredential -AccessKey xxxx -SecretKey yyyy -ProfileName aws-acct-prod  </description>
+    </item>
+    
+    <item>
+      <title>BitBucket</title>
+      <link>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</link>
+      <pubDate>Tue, 06 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</guid>
+      <description> BitBucket start Create a new account in BitBucket Create a new repository on BitBucket Clone the repository git clone https://username@bitbucket.org/username/test.git git remote add origin https://kkarthik23@bitbucket.org/kkarthik23/powershell.git git add . git commit -m &amp;quot;Initial commit&amp;quot; git push -u origin master  To commit changes for new file git add TestFile.txt git commit -m &amp;quot;updated file&amp;quot; git push - u origin master  </description>
+    </item>
+    
+    <item>
+      <title>Graylog</title>
+      <link>https://kkarthik23.github.io/post/2019/07/30/graylog/</link>
+      <pubDate>Tue, 30 Jul 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/07/30/graylog/</guid>
+      <description>Install Graylog
+type this in console of graylog server echo &amp;ldquo;Hello Graylog, let&amp;rsquo;s be friends.&amp;rdquo; | nc -w 1 -u 127.0.0.1 5555
+Goto System Inputs The input would be raw plaintext udp
+conf file is /etc/graylog/server/server.conf
+for changing password echo -n password | shasum -a 256
+8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+For sending logs using filebeat sidecar config file is located at /etc/graylog/sidecar/sidecar.yml add api key to connect sidecar to graylog server server_api_token The token can be generated from graylog on the users area</description>
+    </item>
+    
+    <item>
+      <title>Minikube</title>
+      <link>https://kkarthik23.github.io/post/2019/07/11/minikube/</link>
+      <pubDate>Thu, 11 Jul 2019 15:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/07/11/minikube/</guid>
+      <description>Minikube on Windows Install minikube for Windows on Windows (not the Linux version in WSL, it won’t work).
+Install docker on WSL
+```
+Update the apt package list. sudo apt-get update -y
+Install Docker&amp;rsquo;s package dependencies. sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+Download and add Docker&amp;rsquo;s official public PGP key. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+Verify the fingerprint. sudo apt-key fingerprint 0EBFCD88
+Update the apt package list (for the new apt repo).</description>
+    </item>
     
     <item>
       <title>VirtualBox</title>
@@ -17,9 +83,9 @@
       <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
-      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+      <description>VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
 For centos set statis IP addr,netmask and gateway here
-sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  Mount iso after downloading it Guest Additions ISO file In Virtual Box add c:\Temp in shared folder option and select auto mount yum install gcc kernel-devel kernel-headers dkms make bzip2 perl KERN_DIR=/usr/src/kernels/`uname -r`-`uname -m` export KERN_DIR # mount -r /dev/cdrom /media # cd /media/ # .</description>
     </item>
     
     <item>
@@ -30,6 +96,15 @@ sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifc
       <guid>https://kkarthik23.github.io/post/2019/06/22/multipass/</guid>
       <description>Multipass is from Ubuntu and lets you spin up Ubuntu instances
 multipass launch multipass launcu -n test multipass launch --name k3s --mem 1G --disk 1G multipass list multipass delete instancename multipass purge multipass help  </description>
+    </item>
+    
+    <item>
+      <title>Docker 2</title>
+      <link>https://kkarthik23.github.io/post/2019/06/20/docker-2/</link>
+      <pubDate>Thu, 20 Jun 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/06/20/docker-2/</guid>
+      <description>Portainer is a web UI for managing containers docker run -d -p 9000:9000 \ -v /var/run/docker.sock:/var/run/docker.sock \ portainer/portainer  Haproxy docker container version: &amp;quot;2&amp;quot; services: haproxy: image: eeacms/haproxy depends_on: - webapp ports: - &amp;quot;80:5000&amp;quot; - &amp;quot;1936:1936&amp;quot; environment: BACKENDS: &amp;quot;webapp&amp;quot; DNS_ENABLED: &amp;quot;true&amp;quot; LOG_LEVEL: &amp;quot;info&amp;quot; webapp: image: eeacms/hello  The application can be scaled to use more server instances, with docker-compose scale: $ docker-compose up -d $ docker-compose scale webapp=4 The results can be checked in a browser, navigating to http://localhost.</description>
     </item>
     
     <item>

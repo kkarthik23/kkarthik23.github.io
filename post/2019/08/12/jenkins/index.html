@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jenkins | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Jenkins</span></h1>
+
+<h2 class="date">12/08/2019</h2>
+</div>
+
+<main>
+
+
+<h3 id="jenkins">Jenkins</h3>
+
+<p>Install Jenkins on Windows</p>
+
+<p>Login there will be an initial password at C:\Program Files (x86)\Jenkins\secrets</p>
+
+<p>Use this to login and change the password</p>
+
+<p>Goto Manange Jenkins, Manage Plugins</p>
+
+<p>Add Windows Powershell Plugin</p>
+
+<p>New item choose freestyle project and give a name for project</p>
+
+<p>Then select this project is parameterized and choose add parameter and select string parameter and choice parameter</p>
+
+<p>Choice parameter</p>
+
+<p>In Build add build step and choose powershell</p>
+
+<p>In Command area enter as below</p>
+
+<pre><code># Create Temp Directory
+if (-not(Test-Path -Path 'C:\temp2'))
+{
+    New-Item -Path 'C:\temp2' -ItemType directory
+}
+
+# Using the environment variables exposed by the Jenkins job 
+Set-Content -Path &quot;C:\temp2\$($env:Filename).txt&quot; -Value $env:Message
+
+
+</code></pre>
+
+<p>Save the project and then go to Dashboard and do a Build</p>
+
+<h3 id="pipelines">Pipelines</h3>
+
+<p>New Item, Pipeline,give a name for pipeline</p>
+
+<pre><code>
+pipeline {
+  agent any
+    stages {
+      stage (&quot;Stage 1&quot;) {
+        steps {
+          powershell 'Write-Output &quot;Hello world!&quot;'
+}}}}
+
+</code></pre>
+
+<h3 id="ansible-plugin">Ansible Plugin</h3>
+
+<p>Install Ansible Plugin</p>
+
+<p>Create New Item, then freestyle project and give a name</p>
+
+<p>Then in build step invoke Ansible playbook</p>
+
+<p>Playbook path is /opt/ansiblework/testplaybook.yml</p>
+
+<p>then add credentials for example you can add username and password or use keys</p>
+
+<h3 id="terraform-test">Terraform Test</h3>
+
+<p>Create New Item, then freestyle project and give a name
+Then in build step invoke Windows batch file option and enter below</p>
+
+<p>start cmd.exe /c c:\tf.bat</p>
+
+<p>Batch file will contain terraform apply as below
+terraform destroy c:\TF\example.tf -auto-approve</p>
+
+<h3 id="restapi-from-cli">RestaPI from CLI</h3>
+
+<p>java -jar jenkins-cli.jar -s <a href="http://localhost:8080">http://localhost:8080</a> help  &ndash;username admin &ndash;password admin</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

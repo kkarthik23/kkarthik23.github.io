@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minikube | Hugo Ivy</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Minikube</span></h1>
+
+<h2 class="date">11/07/2019</h2>
+</div>
+
+<main>
+
+
+<h3 id="minikube-on-windows">Minikube on Windows</h3>
+
+<p>Install minikube for Windows on Windows (not the Linux version in WSL, it won’t work).</p>
+
+<p>Install docker on WSL</p>
+
+<p>```</p>
+
+<h1 id="update-the-apt-package-list">Update the apt package list.</h1>
+
+<p>sudo apt-get update -y</p>
+
+<h1 id="install-docker-s-package-dependencies">Install Docker&rsquo;s package dependencies.</h1>
+
+<p>sudo apt-get install -y <br />
+    apt-transport-https <br />
+    ca-certificates <br />
+    curl <br />
+    software-properties-common</p>
+
+<h1 id="download-and-add-docker-s-official-public-pgp-key">Download and add Docker&rsquo;s official public PGP key.</h1>
+
+<p>curl -fsSL <a href="https://download.docker.com/linux/ubuntu/gpg">https://download.docker.com/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+
+<h1 id="verify-the-fingerprint">Verify the fingerprint.</h1>
+
+<p>sudo apt-key fingerprint 0EBFCD88</p>
+
+<h1 id="update-the-apt-package-list-for-the-new-apt-repo">Update the apt package list (for the new apt repo).</h1>
+
+<p>sudo apt-get update -y</p>
+
+<h1 id="install-the-latest-version-of-docker-ce">Install the latest version of Docker CE.</h1>
+
+<p>sudo apt-get install -y docker-ce</p>
+
+<h1 id="allow-your-user-to-access-the-docker-cli-without-needing-root-access">Allow your user to access the Docker CLI without needing root access.</h1>
+
+<p>sudo usermod -aG docker $USER</p>
+
+<h3 id="install-kubectl-kubernetes-cli-using-choco-install">Install kubectl(kubernetes-cli) using choco install</h3>
+
+<p>Create a simple bash script named minikube to run the Windows version of minikube and put it in your path in your WSL environment:</p>
+
+<p>#!/bin/sh
+/mnt/c/Program\ Files/Kubernetes/Minikube/minikube.exe $@</p>
+
+<h4 id="configure-minikube">Configure Minikube</h4>
+
+<p>minikube config set memory 2048
+minikube config set cpus 2
+minikube config set vm-driver virtualbox
+minikube start</p>
+
+<p>webserver-deployment.yml</p>
+
+<p>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-deployment
+  labels:
+    app: webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+        - name: nginx
+          image: &ldquo;nginx:1.15&rdquo;
+          ports:
+          - containerPort: 80</p>
+
+<p>$ kubectl apply -f webserver-deployment.yml
+$ kubectl get deployments
+$ kubectl get pods
+$ kubectl expose deployment webserver-deployment &ndash;type=LoadBalancer &ndash;port=80
+kubectl get services
+$ minikube service webserver-deployment &ndash;url</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  &copy; Blog of KK
+  
+  </footer>
+  </body>
+</html>
+

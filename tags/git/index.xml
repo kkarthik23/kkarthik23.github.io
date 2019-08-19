@@ -6,10 +6,19 @@
     <description>Recent content in Git on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Aug 2017 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BitBucket</title>
+      <link>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</link>
+      <pubDate>Tue, 06 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</guid>
+      <description> BitBucket start Create a new account in BitBucket Create a new repository on BitBucket Clone the repository git clone https://username@bitbucket.org/username/test.git git remote add origin https://kkarthik23@bitbucket.org/kkarthik23/powershell.git git add . git commit -m &amp;quot;Initial commit&amp;quot; git push -u origin master  To commit changes for new file git add TestFile.txt git commit -m &amp;quot;updated file&amp;quot; git push - u origin master  </description>
+    </item>
     
     <item>
       <title>GIT and Vagrant</title>

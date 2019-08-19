@@ -6,10 +6,19 @@
     <description>Recent content in Devops on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Apr 2018 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BitBucket</title>
+      <link>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</link>
+      <pubDate>Tue, 06 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</guid>
+      <description> BitBucket start Create a new account in BitBucket Create a new repository on BitBucket Clone the repository git clone https://username@bitbucket.org/username/test.git git remote add origin https://kkarthik23@bitbucket.org/kkarthik23/powershell.git git add . git commit -m &amp;quot;Initial commit&amp;quot; git push -u origin master  To commit changes for new file git add TestFile.txt git commit -m &amp;quot;updated file&amp;quot; git push - u origin master  </description>
+    </item>
     
     <item>
       <title>Grafana</title>
@@ -55,6 +64,46 @@ git init git add README.md git commit -m &amp;quot;first commit&amp;quot; git re
 Plus virtualisation,containers like docker and tools like puppet and ansible help to leverage software load balancer to the maximum extent.
 Unless your requirement is really really big software load balancers should suffice. Nginx does a good job and you can go with Nginx plus for paid support,more features and peace of mind.
 There is good documentation on the Nginx website and so I will not be repeating the steps.</description>
+    </item>
+    
+  </channel>
+</rss>on EC2 console at https://console.aws.amazon.com/ec2/. In the navigation pane, choose Elastic Block Store, Snapshots.</description>
+    </item>
+    
+    <item>
+      <title>Python setup windows</title>
+      <link>https://kkarthik23.github.io/post/2019/05/20/python-setup-windows/</link>
+      <pubDate>Mon, 20 May 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/05/20/python-setup-windows/</guid>
+      <description>For Windows, virtualenv venv creates a virtual environment However, activating the environment requires a slightly different command.
+Assuming that you are in your project directory:
+C:\Users\SomeUser\project_folder&amp;gt; venv\Scripts\activate or source venv/bin/activate (if Linux)
+Install packages using the pip command:
+$ pip install requests $ deactivate
+for reactivating it is venv\Scripts\activate
+AWS app deploy using Boto Before you can deploy an application, be sure you have credentials configured. If you have previously configured your machine to run boto3 (the AWS SDK for Python) or the AWS CLI then you can skip this section.</description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://kkarthik23.github.io/post/2019/04/20/docker/</link>
+      <pubDate>Sat, 20 Apr 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/04/20/docker/</guid>
+      <description>Docker containers
+Install Docker CE(Community Edition) $ sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2$ sudo yum-config-manager \ $ sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo $ sudo yum install docker-ce docker-ce-cli containerd.io $ sudo systemctl start docker $ sudo systemctl enable docker (start at boot) $ sudo docker run hello-world (pulls image from docker libaray and indicates docker is working okay)  Above command displays the below
+Unable to find image &#39;hello-world:latest&#39; locally latest: Pulling from library/hello-world 1b930d010525: Pull complete Digest: sha256:92695bc579f31df7a63da6922075d0666e565ceccad16b59c3374d2cf4e8e50e Status: Downloaded newer image for hello-world:latest Hello from Docker!</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://kkarthik23.github.io/post/2017/12/11/prometheus/</link>
+      <pubDate>Mon, 11 Dec 2017 15:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2017/12/11/prometheus/</guid>
+      <description>Prometheus Install Docker Install
+at &amp;lt;&amp;lt;EOF &amp;gt; prometheus.yml global: scrape_interval: 10s evaluation_interval: 10s scrape_configs: - job_name: &#39;prometheus&#39; static_configs: - targets: [&#39;localhost:9090&#39;] EOF This tells the Prometheus server to scrape itself on port 9090. Now let&#39;s create a Dockerfile that adds this on top of the prom/prometheus image: cat &amp;lt;&amp;lt;EOF &amp;gt; Dockerfile FROM prom/prometheus # Add in the configuration file from the local directory. ADD prometheus.yml /etc/prometheus/prometheus.yml EOF  Next we can build and run it:</description>
     </item>
     
   </channel>

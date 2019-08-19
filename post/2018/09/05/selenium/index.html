@@ -34,6 +34,8 @@
 </div>
 
 <main>
+
+
 <p>Now you&rsquo;re ready to write your Selenium script:</p>
 
 <pre><code>
@@ -143,6 +145,89 @@ browser.quit()
 
 
 </code></pre>
+
+<h3 id="selenium-script-in-new-relic-scripted-browser-test">Selenium script in New Relic scripted browser test</h3>
+
+<p>Documentation at <a href="https://docs.newrelic.com/docs/synthetics/new-relic-synthetics/scripting-monitors/synthetics-scripted-browser-reference-monitor-versions-050">https://docs.newrelic.com/docs/synthetics/new-relic-synthetics/scripting-monitors/synthetics-scripted-browser-reference-monitor-versions-050</a></p>
+
+<pre><code>/**
+ * Feel free to explore, or check out the full documentation
+ * https://docs.newrelic.com/docs/synthetics/new-relic-synthetics/scripting-monitors/writing-scripted-browsers
+ * for details.
+ */
+var assert = require('assert');
+
+$browser.get('http://abc/paypage.html').then(function(){
+return $browser.findElement($driver.By.id(&quot;logo&quot;));
+})
+.then (function(){
+$browser.findElement($driver.By.name(&quot;card-number-iframe&quot;));
+})
+.then (function(){
+$browser.switchTo().frame(&quot;card-number-iframe&quot;);
+})
+.then (function(){
+ $browser.findElement($driver.By.id(card-number&quot;));
+ })
+ .then (function(){
+ $browser.findElement($driver.By.id(&quot;card-number&quot;)).sendKeys(&quot;4242424242424242&quot;);
+})
+ //.then (function(){
+ //$browser.findElement($driver.By.id(card-number&quot;));
+ //$browser.switchTo().default
+.then (function(){
+$browser.switchTo().defaultContent();
+})
+
+.then (function(){
+$browser.findElement($driver.By.name(&quot;cvv-iframe&quot;));
+})
+.then (function(){
+$browser.switchTo().frame(&quot;cvv-iframe&quot;);
+})
+.then (function(){
+ $browser.findElement($driver.By.id(cvv&quot;));
+ })
+ .then (function(){
+ $browser.findElement($driver.By.id(&quot;cvv&quot;)).sendKeys(&quot;456&quot;);
+})
+ .then (function(){
+ 
+$browser.switchTo().defaultContent();
+})
+.then (function(){
+$browser.findElement($driver.By.name(&quot;expiry-iframe&quot;));
+})
+.then (function(){
+$browser.switchTo().frame(&quot;expiry-iframe&quot;);
+})
+.then (function(){
+ $browser.findElement($driver.By.id(&quot;expiry&quot;));
+ })
+ .then (function(){
+ $browser.findElement($driver.By.id(&quot;expiry&quot;)).sendKeys(&quot;10/20&quot;);
+})
+ .then (function(){
+$browser.switchTo().defaultContent();
+
+ })
+.then (function(){
+ $browser.findElement($driver.By.id(&quot;pay-button&quot;));
+ 
+ })
+.then (function(){
+ // console.log(&quot;test&quot;);
+ return $browser.findElement($driver.By.id(&quot;pay-button&quot;)).click();
+})
+
+$browser.sleep(10000)
+.then (function(){
+$browser.waitForAndFindElement($driver.By.className(&quot;success&quot;),60000);
+})
+
+</code></pre>
+
+<p>```</p>
 
 </main>
 

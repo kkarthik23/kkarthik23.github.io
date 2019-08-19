@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kkarthik23.github.io/post/2019/08/12/jenkins/</loc>
+    <lastmod>2019-08-12T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2019/08/10/aws-cli/</loc>
+    <lastmod>2019-08-10T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2019/08/06/bitbucket/</loc>
+    <lastmod>2019-08-06T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2019/07/30/graylog/</loc>
+    <lastmod>2019-07-30T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2019/07/11/minikube/</loc>
+    <lastmod>2019-07-11T15:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</loc>
     <lastmod>2019-06-23T21:57:42+00:00</lastmod>
   </url>
@@ -10,6 +35,11 @@
   <url>
     <loc>https://kkarthik23.github.io/post/2019/06/22/multipass/</loc>
     <lastmod>2019-06-22T21:57:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kkarthik23.github.io/post/2019/06/20/docker-2/</loc>
+    <lastmod>2019-06-20T21:57:42+00:00</lastmod>
   </url>
   
   <url>
@@ -225,35 +255,42 @@
   </url>
   
   <url>
+    <loc>https://kkarthik23.github.io/categories/aws/</loc>
+    <lastmod>2019-08-10T21:57:42+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kkarthik23.github.io/about/</loc>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/categories/</loc>
+    <lastmod>2019-08-10T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/tags/devops/</loc>
-    <lastmod>2019-06-23T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-12T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/categories/devops/</loc>
-    <lastmod>2019-05-30T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-12T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/categories/devops/</loc>
-    <lastmod>2018-04-06T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-06T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kkarthik23.github.io/tags/docker/</loc>
-    <lastmod>2019-04-20T21:57:42+00:00</lastmod>
+    <lastmod>2019-06-20T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -265,7 +302,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/tags/git/</loc>
-    <lastmod>2017-08-06T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-06T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -277,7 +314,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/</loc>
-    <lastmod>2019-06-23T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-12T21:57:42+00:00</lastmod>
   </url>
   
   <url>
@@ -294,7 +331,7 @@
   
   <url>
     <loc>https://kkarthik23.github.io/post/</loc>
-    <lastmod>2019-06-23T21:57:42+00:00</lastmod>
+    <lastmod>2019-08-12T21:57:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   

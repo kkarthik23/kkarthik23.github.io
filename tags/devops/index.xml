@@ -6,10 +6,67 @@
     <description>Recent content in DevOps on Hugo Ivy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2019 21:57:42 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 21:57:42 +0000</lastBuildDate>
     
 	<atom:link href="https://kkarthik23.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jenkins</title>
+      <link>https://kkarthik23.github.io/post/2019/08/12/jenkins/</link>
+      <pubDate>Mon, 12 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/12/jenkins/</guid>
+      <description>Jenkins Install Jenkins on Windows
+Login there will be an initial password at C:\Program Files (x86)\Jenkins\secrets
+Use this to login and change the password
+Goto Manange Jenkins, Manage Plugins
+Add Windows Powershell Plugin
+New item choose freestyle project and give a name for project
+Then select this project is parameterized and choose add parameter and select string parameter and choice parameter
+Choice parameter
+In Build add build step and choose powershell</description>
+    </item>
+    
+    <item>
+      <title>AWS CLI</title>
+      <link>https://kkarthik23.github.io/post/2019/08/10/aws-cli/</link>
+      <pubDate>Sat, 10 Aug 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/08/10/aws-cli/</guid>
+      <description> AWS PowerShell Install-Module -Name AWSPowerShell Import-Module AWSPowerShell Get-Command -Module AWSPowerShell Get-AWSCredential -ListProfileDetail New-AWSCredential -AccessKey xxxx -SecretKey yyyy -ProfileName aws-acct-prod  </description>
+    </item>
+    
+    <item>
+      <title>Graylog</title>
+      <link>https://kkarthik23.github.io/post/2019/07/30/graylog/</link>
+      <pubDate>Tue, 30 Jul 2019 21:57:42 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/07/30/graylog/</guid>
+      <description>Install Graylog
+type this in console of graylog server echo &amp;ldquo;Hello Graylog, let&amp;rsquo;s be friends.&amp;rdquo; | nc -w 1 -u 127.0.0.1 5555
+Goto System Inputs The input would be raw plaintext udp
+conf file is /etc/graylog/server/server.conf
+for changing password echo -n password | shasum -a 256
+8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+For sending logs using filebeat sidecar config file is located at /etc/graylog/sidecar/sidecar.yml add api key to connect sidecar to graylog server server_api_token The token can be generated from graylog on the users area</description>
+    </item>
+    
+    <item>
+      <title>Minikube</title>
+      <link>https://kkarthik23.github.io/post/2019/07/11/minikube/</link>
+      <pubDate>Thu, 11 Jul 2019 15:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2019/07/11/minikube/</guid>
+      <description>Minikube on Windows Install minikube for Windows on Windows (not the Linux version in WSL, it won’t work).
+Install docker on WSL
+```
+Update the apt package list. sudo apt-get update -y
+Install Docker&amp;rsquo;s package dependencies. sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+Download and add Docker&amp;rsquo;s official public PGP key. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+Verify the fingerprint. sudo apt-key fingerprint 0EBFCD88
+Update the apt package list (for the new apt repo).</description>
+    </item>
     
     <item>
       <title>VirtualBox</title>
@@ -17,9 +74,9 @@
       <pubDate>Sun, 23 Jun 2019 21:57:42 +0000</pubDate>
       
       <guid>https://kkarthik23.github.io/post/2019/06/23/virtualbox/</guid>
-      <description> VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
+      <description>VirtualBox Requirement to access internet as well as the hosts Best option is to go for NAT network
 For centos set statis IP addr,netmask and gateway here
-sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  </description>
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 ifdown ifcfg-enp0s3 ifup ifcfg-enp0s3  Mount iso after downloading it Guest Additions ISO file In Virtual Box add c:\Temp in shared folder option and select auto mount yum install gcc kernel-devel kernel-headers dkms make bzip2 perl KERN_DIR=/usr/src/kernels/`uname -r`-`uname -m` export KERN_DIR # mount -r /dev/cdrom /media # cd /media/ # .</description>
     </item>
     
     <item>
@@ -97,6 +154,16 @@ AWS app deploy using Boto Before you can deploy an application, be sure you have
 Download the ssh key for the user which is a pem key then use Putty Gen to import the pem key and save it as a ppk key Then use ec2-user@instancename on port 22 and save session In auth filed use the ppk key to connect
 EPEL Release epel-release is available in Amazon Linux Extra topic &amp;ldquo;epel&amp;rdquo;
 To use, run sudo amazon-linux-extras install epel</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://kkarthik23.github.io/post/2017/12/11/prometheus/</link>
+      <pubDate>Mon, 11 Dec 2017 15:20:00 +0000</pubDate>
+      
+      <guid>https://kkarthik23.github.io/post/2017/12/11/prometheus/</guid>
+      <description>Prometheus Install Docker Install
+at &amp;lt;&amp;lt;EOF &amp;gt; prometheus.yml global: scrape_interval: 10s evaluation_interval: 10s scrape_configs: - job_name: &#39;prometheus&#39; static_configs: - targets: [&#39;localhost:9090&#39;] EOF This tells the Prometheus server to scrape itself on port 9090. Now let&#39;s create a Dockerfile that adds this on top of the prom/prometheus image: cat &amp;lt;&amp;lt;EOF &amp;gt; Dockerfile FROM prom/prometheus # Add in the configuration file from the local directory. ADD prometheus.yml /etc/prometheus/prometheus.yml EOF  Next we can build and run it:</description>
     </item>
     
   </channel>

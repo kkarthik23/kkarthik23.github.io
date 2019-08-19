@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tags | Hugo Ivy</title>
+    <title>AWS CLI | Hugo Ivy</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -27,61 +27,31 @@
     <hr/>
     </nav>
 
+<div class="article-meta">
+<h1><span class="title">AWS CLI</span></h1>
 
-<h1>Tags</h1>
+<h2 class="date">10/08/2019</h2>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="/tags/3ds">
-      3DS
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/apm">
-      APM
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/devops">
-      DevOps
-    </a>
-    (12)
-  </li>
-  
-  <li>
-    <a href="/tags/docker">
-      Docker
-    </a>
-    (2)
-  </li>
-  
-  <li>
-    <a href="/tags/git">
-      Git
-    </a>
-    (2)
-  </li>
-  
-  <li>
-    <a href="/tags/grafana">
-      Grafana
-    </a>
-    (1)
-  </li>
-  
-  <li>
-    <a href="/tags/loadbalancers">
-      LoadBalancers
-    </a>
-    (1)
-  </li>
-  
-</ul>
+<main>
+
+
+<h3 id="aws-powershell">AWS PowerShell</h3>
+
+<pre><code>Install-Module -Name AWSPowerShell
+
+Import-Module AWSPowerShell
+
+Get-Command -Module AWSPowerShell
+
+Get-AWSCredential -ListProfileDetail
+
+
+New-AWSCredential -AccessKey xxxx -SecretKey yyyy -ProfileName aws-acct-prod
+
+</code></pre>
+
+</main>
 
   <footer>
   
