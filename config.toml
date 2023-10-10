@@ -1,9 +1,8 @@
-theme = "black-and-light"
 relativeURLs = true
-baseURL = "/"
-title = "Hugo Themes"
-author = "Steve Francia"
-copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
+baseURL = "https://kkarthik23.github.io/"
+title = "Hugo"
+author = "kk"
+copyright = "Copyright © 2008–2019, kk and the Hugo Authors; all rights reserved."
 paginate = 3
 languageCode = "en"
 DefaultContentLanguage = "en"
